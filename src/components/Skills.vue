@@ -4,15 +4,15 @@
             <v-row class="text-h4 font-weight-light tertiary--text">
                 <v-col>Compétences</v-col>
             </v-row>
-            <v-row align="center" class="px-4" v-for="(skill,i) in skills" :key="i">
+            <v-row align="center" class="px-4 my-n2" v-for="(skill,i) in skills" :key="i">
                 <v-col cols="auto">
-                    <v-icon>{{skill.icon}}</v-icon>
+                    <v-icon color="tertiary">{{skill.icon}}</v-icon>
                 </v-col>
                 <v-col>
                     <span class="tertiary--text">{{skill.text}}</span>
                 </v-col>
                 <v-col cols="7">
-                    <v-slider color="warning" hide-details :value="skill.val" min="0" max="100" readonly></v-slider>
+                    <v-slider color="secondary" hide-details :value="skill.val" min="0" max="100" readonly></v-slider>
                 </v-col>
             </v-row>
         </v-container>

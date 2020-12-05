@@ -50,6 +50,7 @@
                     <v-col>
                             <AboutMe/>
                             <Experiences/>
+                            <Projects/>
                     </v-col>
                 </v-row>
                 </div>
@@ -65,6 +66,7 @@ import Languages from "@/components/Languages";
 import AboutMe from "@/components/AboutMe";
 import Experiences from "@/components/Experiences";
 import Diploma from '@/components/Diploma.vue';
+import Projects from '@/components/Projects.vue';
 
 export default {
     components:{
@@ -73,7 +75,8 @@ export default {
         Languages,
         AboutMe,
         Experiences,
-        Diploma
+        Diploma,
+        Projects
     },
     data: () => ({
         birthdate: new Date(Date.parse("1994-03-14")),

@@ -6,7 +6,7 @@
                 <v-timeline-item small color="primary">
                     <v-hover v-slot="{ hover }">
                         <v-card dark color="primary">
-                            <v-card-title class="text-wrap">Ingénieur recherche et développement d'une solution web pour la cybersécurité</v-card-title>
+                            <v-card-title class="text-wrap">Ingénieur fullstack pour la cybersécurité</v-card-title>
                             <v-card-subtitle>
                                 <span class="tertiary--text text-h6">Nokia</span>
                             </v-card-subtitle>

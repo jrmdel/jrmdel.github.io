@@ -4,8 +4,8 @@
             <v-row class="text-h4 font-weight-light tertiary--text">
                 <v-col>Diplômes</v-col>
             </v-row>
-            <v-row align="center" justify="space-around">
-                <v-col cols="auto" lg="12" v-for="(d, i) in diplomas" :key="i">
+            <v-row align="center" justify="space-around" no-gutters >
+                <v-col cols="12" v-for="(d, i) in diplomas" :key="i" class="my-1">
                     <v-sheet outlined color="tertiary" rounded>
                     <v-card outlined color="primary">
                         <v-card-title>
