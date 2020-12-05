@@ -41,6 +41,7 @@
                                     </v-container>
                                 </v-row>
                             </v-container>
+                            <Diploma/>
                             <Languages/>
                             <Skills/>
                             <FindMe/>
@@ -63,6 +64,7 @@ import Skills from "@/components/Skills";
 import Languages from "@/components/Languages";
 import AboutMe from "@/components/AboutMe";
 import Experiences from "@/components/Experiences";
+import Diploma from '@/components/Diploma.vue';
 
 export default {
     components:{
@@ -70,7 +72,8 @@ export default {
         Skills,
         Languages,
         AboutMe,
-        Experiences
+        Experiences,
+        Diploma
     },
     data: () => ({
         birthdate: new Date(Date.parse("1994-03-14")),

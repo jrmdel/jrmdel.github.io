@@ -15,12 +15,14 @@ export default new Vuetify({
                 quaternary: "#4C2C69",
                 accent: "#FFDA22",
                 error:"#540B0E",
-                background: "#F5ECEB"
+                background: "#F5ECEB",
+                warning:"#F6AE2D",
                 */
                 
                 // Second set
                 primary:"#548096",
                 primaryLight: "#93AEBC",
+                primaryWhite: "#C9D7DE",
                 secondary:"#6D1A36",
                 tertiary: "#192C32",
                 quaternary:"#916953",
