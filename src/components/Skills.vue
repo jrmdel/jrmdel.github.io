@@ -12,7 +12,7 @@
                     <span class="tertiary--text">{{skill.text}}</span>
                 </v-col>
                 <v-col cols="7">
-                    <v-slider color="secondary" hide-details :value="skill.val" min="0" max="100" readonly></v-slider>
+                    <v-slider color="warning" hide-details :value="skill.val" min="0" max="100" readonly></v-slider>
                 </v-col>
             </v-row>
         </v-container>

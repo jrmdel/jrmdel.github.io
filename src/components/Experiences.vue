@@ -25,8 +25,7 @@
                             <v-card-text class="mt-n8 tertiary--text">
                                 <div>
                                     Pour terminer mon cursus ingénieur, j’ai réalisé une alternance d’un an au sein de Nokia Lannion.
-                                    Le but de ma mission était de développer une
-                                    <span class="primaryLight--text">preuve de concept</span>
+                                    Le but de ma mission était de développer une preuve de concept
                                     d’une solution web sous la forme d’un dashboard de vulnérabilités pour venir répondre à des besoins axés cybersécurité.
                                 </div>
                                 <div class="mt-1">

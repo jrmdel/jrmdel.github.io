@@ -1,6 +1,9 @@
 <template>
     <v-app>
+        <!--
         <v-img src="@/assets/cajina-mid.jpg" lazy-src="@/assets/cajina-min.jpg">
+        -->
+        <div class="background">
             <v-container fluid>
                 <div class="mx-md-8 pa-lg-16">
                 <v-row>
@@ -14,7 +17,7 @@
                 </v-row>
                 <v-row justify="space-between">
                     <v-col cols="4">
-                        <v-card elevation="12" class="primary">
+                        <v-card elevation="12" class="primary fill-height">
                             <v-container>
                                 <v-row justify="center">
                                     <v-col cols="auto">
@@ -55,7 +58,10 @@
                 </v-row>
                 </div>
             </v-container>
+        </div>
+        <!--
         </v-img>
+        -->
   </v-app>
 </template>
 

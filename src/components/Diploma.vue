@@ -6,7 +6,7 @@
             </v-row>
             <v-row align="center" justify="space-around" no-gutters >
                 <v-col cols="12" v-for="(d, i) in diplomas" :key="i" class="my-1">
-                    <v-sheet outlined color="tertiary" rounded>
+                    <v-divider></v-divider>
                     <v-card outlined color="primary">
                         <v-card-title>
                             <span class="text-subtitle-1">{{d.title}}</span>
@@ -26,12 +26,12 @@
                         <v-card-actions v-if="d.skills">
                             <v-row no-gutters class="mt-n6">
                                 <v-col class="mx-1" cols="auto" v-for="(skill, j) in d.skills" :key="j">
-                                    <v-chip small class="primaryWhite--text ma-1" color="secondary">{{skill}}</v-chip>
+                                    <v-chip small class="tertiary--text ma-1" color="warning">{{skill}}</v-chip>
                                 </v-col>
                             </v-row>
                         </v-card-actions>
                     </v-card>
-                    </v-sheet>
+                    <v-divider></v-divider>
                 </v-col>
             </v-row>
         </v-container>
