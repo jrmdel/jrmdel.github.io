@@ -8,7 +8,7 @@
                 <div class="mx-md-8 pa-lg-16">
                 <v-row>
                     <v-col cols="12">
-                        <v-card elevation="12" class="tertiary">
+                        <v-card class="tertiary">
                             <v-card-title>
                                 <span class="text-h2 primaryLight--text">Ingénieur Fullstack JS & Data</span>
                             </v-card-title>
@@ -17,14 +17,19 @@
                 </v-row>
                 <v-row justify="space-between">
                     <v-col cols="4">
-                        <v-card elevation="12" class="primary fill-height">
+                        <v-card class="primary fill-height">
                             <v-container>
                                 <v-row justify="center">
                                     <v-col cols="auto">
                                         <v-avatar class="mx-2" size="256">
-                                            <v-img
-                                                src="https://images2.minutemediacdn.com/image/upload/c_crop,h_1025,w_1823,x_45,y_0/f_auto,q_auto,w_1100/v1602272367/shape/mentalfloss/633067-wikimedia_commons.png"
-                                            ></v-img>
+                                            <v-img height="300" src="@/assets/me-mid.jpg" lazy-src="@/assets/me-min.jpg">
+                                                <template v-slot:placeholder>
+                                                    <v-row class="fill-height ma-0" align="center" justify="center">
+                                                        <v-progress-circular indeterminate color="primary"
+                                                        ></v-progress-circular>
+                                                    </v-row>
+                                                </template>
+                                            </v-img>
                                         </v-avatar>
                                     </v-col>
                                 </v-row>
@@ -46,6 +51,7 @@
                             </v-container>
                             <Diploma/>
                             <Languages/>
+                            <Certificates/>
                             <Skills/>
                             <FindMe/>
                         </v-card>
@@ -73,6 +79,7 @@ import AboutMe from "@/components/AboutMe";
 import Experiences from "@/components/Experiences";
 import Diploma from '@/components/Diploma.vue';
 import Projects from '@/components/Projects.vue';
+import Certificates from "@/components/Certificates";
 
 export default {
     components:{
@@ -82,7 +89,8 @@ export default {
         AboutMe,
         Experiences,
         Diploma,
-        Projects
+        Projects,
+        Certificates
     },
     data: () => ({
         birthdate: new Date(Date.parse("1994-03-14")),

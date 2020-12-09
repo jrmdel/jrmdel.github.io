@@ -31,7 +31,7 @@ export default new Vuetify({
                 accent: "#F9E900",
                 warning:"#F6AE2D",
                 error:"#96031A",
-                background: "#e1e8ed"
+                background: "#dddfeb"
             }
             
         }
