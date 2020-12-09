@@ -1,73 +1,50 @@
 <template>
     <v-app>
-        <!--
-        <v-img src="@/assets/cajina-mid.jpg" lazy-src="@/assets/cajina-min.jpg">
-        -->
         <div class="background">
             <v-container fluid>
                 <div class="mx-md-8 pa-lg-16">
-                <v-row>
-                    <v-col cols="12">
-                        <v-card class="tertiary">
-                            <v-card-title>
-                                <span class="text-h2 primaryLight--text">Ingénieur Fullstack JS & Data</span>
-                            </v-card-title>
-                        </v-card>
-                    </v-col>
-                </v-row>
-                <v-row justify="space-between">
-                    <v-col cols="4">
-                        <v-card class="primary fill-height">
-                            <v-container>
-                                <v-row justify="center">
-                                    <v-col cols="auto">
-                                        <v-avatar class="mx-2" size="256">
-                                            <v-img height="300" src="@/assets/me-mid.jpg" lazy-src="@/assets/me-min.jpg">
-                                                <template v-slot:placeholder>
-                                                    <v-row class="fill-height ma-0" align="center" justify="center">
-                                                        <v-progress-circular indeterminate color="primary"
-                                                        ></v-progress-circular>
-                                                    </v-row>
-                                                </template>
-                                            </v-img>
-                                        </v-avatar>
-                                    </v-col>
-                                </v-row>
-                                <v-row>
-                                    <v-container>
-                                        <v-row justify="center">
-                                            <div class="text-h4 text-center tertiary--text mx-3">Jeremie Deletraz</div>
-                                        </v-row>
-                                        <v-row align="center" justify="center" class="pt-4">
-                                            <v-icon>mdi-card-account-details-outline</v-icon>
-                                            <span class="tertiary--text font-weight-regular text-h6 pl-4">{{computeAge}} ans</span>
-                                        </v-row>
-                                        <v-row align="center" justify="center" class="pt-2">
-                                            <v-icon>mdi-map-marker-outline</v-icon>
-                                            <span class="tertiary--text font-weight-regular text-h6 pl-4">France</span>
-                                        </v-row>
-                                    </v-container>
-                                </v-row>
-                            </v-container>
-                            <Diploma/>
-                            <Languages/>
-                            <Certificates/>
-                            <Skills/>
-                            <FindMe/>
-                        </v-card>
-                    </v-col>
-                    <v-col>
-                            <AboutMe/>
-                            <Experiences/>
-                            <Projects/>
-                    </v-col>
-                </v-row>
+                    <v-row>
+                        <v-col cols="12">
+                            <v-card class="tertiary">
+                                <v-card-title>
+                                    <span class="text-sm-h2 font-weight-light text-h3 primaryLight--text">Ingénieur Fullstack JS & Data</span>
+                                </v-card-title>
+                            </v-card>
+                        </v-col>
+                    </v-row>
+                    <v-row justify="space-between">
+                        <v-col cols="12" md="4">
+                            <v-card class="primary fill-height">
+                                <Identity/>
+                                <Diploma/>
+                                <Languages/>
+                                <Certificates/>
+                                <Skills/>
+                                <FindMe/>
+                            </v-card>
+                        </v-col>
+                        <v-col>
+                                <AboutMe ref="about-me"/>
+                                <Experiences ref="experiences"/>
+                                <Projects ref="projects"/>
+                        </v-col>
+                    </v-row>
                 </div>
             </v-container>
+            <v-menu transition="slide-y-transition" offset-y>
+                <template v-slot:activator="{on, attrs}">
+                    <v-btn v-bind="attrs" v-on="on" class="hidden-md-and-up"
+                    fab color="secondary" large dark fixed bottom right>
+                        <v-icon>mdi-menu</v-icon>
+                    </v-btn>
+                </template>
+                <v-list>
+                    <v-list-item v-for="(jump,i) in jumps" :key="i" @click="jumpTo(jump.tag)">
+                        {{jump.name}}
+                    </v-list-item>
+                </v-list>
+            </v-menu>
         </div>
-        <!--
-        </v-img>
-        -->
   </v-app>
 </template>
 
@@ -80,9 +57,11 @@ import Experiences from "@/components/Experiences";
 import Diploma from '@/components/Diploma.vue';
 import Projects from '@/components/Projects.vue';
 import Certificates from "@/components/Certificates";
+import Identity from "@/components/Identity"
 
 export default {
     components:{
+        Identity,
         FindMe,
         Skills,
         Languages,
@@ -92,12 +71,16 @@ export default {
         Projects,
         Certificates
     },
-    data: () => ({
-        birthdate: new Date(Date.parse("1994-03-14")),
+    data:()=>({
+        jumps:[
+            {name: "A propos de moi", tag:"about-me"},
+            {name: "Expériences", tag:"experiences"},
+            {name: "Projets et réalisations", tag:"projects"}
+        ]
     }),
-    computed:{
-        computeAge(){
-            return Math.floor((new Date() - this.birthdate.getTime()) / 3.15576e+10)
+    methods:{
+        jumpTo(tag){
+            this.$vuetify.goTo(this.$refs[tag], {easing: 'easeInOutCubic', duration:400})
         }
     }
 };
