@@ -5,7 +5,7 @@
                 <div class="mx-md-8 pa-lg-16">
                     <v-row>
                         <v-col cols="12">
-                            <v-card class="tertiary">
+                            <v-card class="tertiary" ref="title">
                                 <v-card-title>
                                     <span class="text-sm-h2 font-weight-light text-h3 primaryLight--text">Ingénieur Fullstack JS & Data</span>
                                 </v-card-title>
@@ -16,10 +16,10 @@
                         <v-col cols="12" md="4">
                             <v-card class="primary fill-height">
                                 <Identity/>
-                                <Diploma/>
+                                <Diploma ref="diplomas"/>
                                 <Languages/>
                                 <Certificates/>
-                                <Skills/>
+                                <Skills ref="skills"/>
                                 <FindMe/>
                             </v-card>
                         </v-col>
@@ -31,16 +31,17 @@
                     </v-row>
                 </div>
             </v-container>
-            <v-menu transition="slide-y-transition" offset-y>
+            <v-menu transition="scroll-y-reverse-transition" offset-y>
                 <template v-slot:activator="{on, attrs}">
                     <v-btn v-bind="attrs" v-on="on" class="hidden-md-and-up"
                     fab color="secondary" large dark fixed bottom right>
                         <v-icon>mdi-menu</v-icon>
                     </v-btn>
                 </template>
-                <v-list>
+                <v-list dense color="background">
+                    <v-subheader class="text-body-2 ml-1">Aller à</v-subheader>
                     <v-list-item v-for="(jump,i) in jumps" :key="i" @click="jumpTo(jump.tag)">
-                        {{jump.name}}
+                        <v-list-item-content >{{jump.name}}</v-list-item-content>
                     </v-list-item>
                 </v-list>
             </v-menu>
@@ -73,6 +74,9 @@ export default {
     },
     data:()=>({
         jumps:[
+            {name: "Titre", tag:"title"},
+            {name: "Diplômes", tag:"diplomas"},
+            {name: "Compétences", tag:"skills"},
             {name: "A propos de moi", tag:"about-me"},
             {name: "Expériences", tag:"experiences"},
             {name: "Projets et réalisations", tag:"projects"}
