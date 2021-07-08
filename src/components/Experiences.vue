@@ -4,19 +4,29 @@
         <v-card-text>
             <div class="hidden-xs-only">
                 <v-timeline dense align-top>
+                    <v-timeline-item small color="tertiary">
+                        <Astek/>
+                    </v-timeline-item>
                     <v-timeline-item small color="primary">
                         <Nokia/>
                     </v-timeline-item>
                     <v-timeline-item small color="tertiary">
                         <Ericsson/>
                     </v-timeline-item>
+                    <!--
                     <v-timeline-item small color="primary">
                         <Lunetterie/>
                     </v-timeline-item>
+                    -->
                 </v-timeline>
             </div>
             <div class="hidden-sm-and-up">
                 <v-container fluid>
+                    <v-row>
+                        <v-col cols="12">
+                            <Astek/>
+                        </v-col>
+                    </v-row>
                     <v-row>
                         <v-col cols="12">
                             <Nokia/>
@@ -27,11 +37,13 @@
                             <Ericsson/>
                         </v-col>
                     </v-row>
+                    <!--
                     <v-row>
                         <v-col cols="12">
                             <Lunetterie/>
                         </v-col>
                     </v-row>
+                    -->
                 </v-container>
             </div>
         </v-card-text>
@@ -41,13 +53,15 @@
 <script>
 import Nokia from "@/components/experiences/Nokia";
 import Ericsson from "@/components/experiences/Ericsson";
-import Lunetterie from "@/components/experiences/Lunetterie";
+//import Lunetterie from "@/components/experiences/Lunetterie";
+import Astek from '@/components/experiences/Astek.vue';
 
 export default {
     components:{
+        Astek,
         Nokia,
         Ericsson,
-        Lunetterie
+        //Lunetterie
     },
 }
 </script>

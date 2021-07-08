@@ -5,7 +5,7 @@
                 <v-col>Retrouvez-moi</v-col>
             </v-row>
             <!--Standard display except on medium screens-->
-            <v-row align="center" justify="space-around" class="pa-4 hidden-md-only">
+            <v-row align="center" justify="space-around" class="pa-4 hidden-md-and-up">
                 <v-tooltip bottom v-for="(site,i) in sites" :key="i">
                     <template v-slot:activator="{ on, attrs }">
                         <v-btn v-bind="attrs" v-on="on" fab :color="site.back" :href="site.link" target="_blank">
@@ -16,9 +16,9 @@
                 </v-tooltip>
             </v-row>
             <!--Visible as 2 rows only on md-->
-            <v-row align="center" class="pa-4 hidden-sm-and-down hidden-lg-and-up">
+            <v-row align="center" class="pa-4 hidden-sm-and-down">
                 <v-col cols="6" v-for="(site,i) in sites" :key="i">
-                    <v-row justify="center" class="mb-4">
+                    <v-row justify="center" class="mb-4 mb-md-8">
                         <v-tooltip bottom transition="scale-transition">
                             <template v-slot:activator="{ on, attrs }">
                                 <v-btn fab v-bind="attrs" v-on="on" :color="site.back" :href="site.link" target="_blank">

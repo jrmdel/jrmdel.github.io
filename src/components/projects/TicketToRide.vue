@@ -9,8 +9,8 @@
         </v-card-subtitle>
         <v-card-text>
             <div class="tertiary--text">
-                Réalisation d'une application web responsive permettant le suivi et l'aide au décompte des points
-                lors d'une partie du jeu <span class="font-italic">Les Aventuriers du Rail Autout du Monde</span>.
+                Développement d'une application web responsive et serverless permettant le suivi et l'aide au décompte des points
+                lors d'une partie du jeu <span class="font-italic">Les Aventuriers du Rail Autour du Monde</span>.
                 Les parties sont stockées sur Firebase et consultables en temps réel par les joueurs.euses.
             </div>
         </v-card-text>

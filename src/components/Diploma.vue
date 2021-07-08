@@ -9,7 +9,7 @@
                     <v-divider></v-divider>
                     <v-card outlined color="primary">
                         <v-card-title>
-                            <span class="text-subtitle-1">{{d.title}}</span>
+                            <span class="text-subtitle-1 tertiary--text font-weight-medium">{{d.title}}</span>
                         </v-card-title>
                         <v-card-subtitle>
                             <v-row align="center" justify="space-between">
