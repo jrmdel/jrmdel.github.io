@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-container>
-            <v-row justify="center" class="fill-width">
+            <v-row justify="center" class="fill-width mt-1">
                 <v-col cols="auto">
                     <v-avatar size="250" :class="avatarBorderColor">
                         <v-avatar class="mx-2" size="240">

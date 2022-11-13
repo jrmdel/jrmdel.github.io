@@ -12,7 +12,7 @@
             </p>
             <p class="text-subtitle-1 font-weight-regular mx-3" :class="computedTextColor">
                 Mon ambition à terme : pouvoir rejoindre un projet ayant un impact environnemental/sociétal positif pour aligner
-                mon travail sur mes valeurs individuelles, et tenter de faire bouger les choses.
+                mon travail sur mes valeurs individuelles.
             </p>
         </v-card-text>
     </v-card>

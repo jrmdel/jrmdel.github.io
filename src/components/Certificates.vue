@@ -10,28 +10,25 @@
             <v-row align="center" class="px-2 hidden-xs-only hidden-md-only" v-for="(crt,i) in cert" :key="i">
                 <v-col cols="auto">
                     <v-row class="my-n1" no-gutters align="center">
-                        <v-btn icon :disabled="!crt.link" :href="crt.link">
-                            <v-icon small :color="iconColor">
-                                mdi-certificate-outline
-                            </v-icon>
-                        </v-btn>
+                        <v-icon class="mr-2" small :color="iconColor">
+                            mdi-certificate-outline
+                        </v-icon>
                         <span class="text-subtitle-2" :class="computedTextColor">
                             {{ crt.year }}
                         </span>
                     </v-row>
                 </v-col>
-                <v-col>
-                    <span class="font-weight-medium" :class="computedCertificateTextColor">
+                <v-col class="d-flex">
+                    <span class="font-weight-medium d-flex align-center" :class="computedCertificateTextColor">
                         {{ crt.title }}
                     </span>
                 </v-col>
                 <v-col v-if="crt.score" cols="auto">
-                    <v-icon small color="warning">
+                    <v-icon small color="warning" class="mr-2">
                         mdi-chart-box-outline
                     </v-icon>
-                    <span class="text-subtitle-2" :class="computedTextColor">
-                        {{ crt.score }}
-                    </span>
+                    <a v-if="crt.link" class="text-subtitle-2" :class="computedTextColor" :href="crt.link" target="_blank">{{crt.score}}</a>
+                    <span v-else class="text-subtitle-2" :class="computedTextColor">{{ crt.score }}</span>
                 </v-col>
             </v-row>
             <!--Only on extra-small and medium-->
@@ -104,13 +101,14 @@ export default {
         cert: [
             {
                 title: "Develop Your Cultural Intelligence",
+                score: "87/100",
                 year: "2020",
                 link: "https://www.futurelearn.com/certificates/10ayxkf"
             },
             {
                 title: "Le Robert",
                 score: "829/1000",
-                year: "2018",
+                year: "2018 ",
                 link: "https://examen.certification-le-robert.com/index.html#/certificationPublic/SPUB3VAK2G"
             },
             {
@@ -145,3 +143,11 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+    .custom-btn {
+        text-transform: capitalize;
+        letter-spacing: normal;
+        font-weight: 600;
+    }
+</style>

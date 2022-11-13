@@ -10,7 +10,7 @@
             <div>
                 Développement d'une application web responsive et serverless permettant le suivi et l'aide au décompte des points
                 lors d'une partie du jeu <span class="font-italic">Les Aventuriers du Rail</span>.
-                Les parties sont stockées sur Firebase et consultables en temps réel par les joueurs.euses.
+                Les parties sont stockées sur Firebase et consultables en temps réel par les joueurs et joueuses.
             </div>
         </template>
     </ProjectTemplate>

@@ -1,7 +1,7 @@
 <template>
-    <v-btn :disabled="isDisabled" class="mx-2" small text outlined :retain-focus-on-click="false" fab @click="sendToggle">
+    <v-btn v-if="!isDisabled" class="mx-2" small text outlined :retain-focus-on-click="false" fab @click="sendToggle">
         <v-icon class="toggleUpDown" :class='{ "rotate": displayMore }'>
-            {{ isDisabled ? "mdi-chevron-up" : "mdi-chevron-down" }}
+            mdi-chevron-down
         </v-icon>
     </v-btn>
 </template>
