@@ -2,7 +2,7 @@
     <v-card dark :color="cardColor">
         <ExperienceTitle :title="cardTitle" :subtitle="cardSubtitle" :subtitleColor="subtitleColor"/>
 
-        <InfoHeader class="py-2 mb-n2"
+        <InfoHeader class="py-2"
             leftIcon="mdi-calendar-month" :leftText="dateString" rightIcon="mdi-map-marker-outline" :rightText="locationString"
             :iconColor="iconColor" :textColor="headerTextColor"
         />

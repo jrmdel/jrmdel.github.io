@@ -5,7 +5,7 @@
                 {{ iconDisplay ? "mdi-minus" : "mdi-plus" }}
             </v-icon>
             <span class="tertiary--text">
-                {{ displayMore ? "Voir moins" : "Voir plus" }}
+                {{ iconDisplay ? "Voir moins" : "Voir plus" }}
             </span>
         </v-btn>
     </div>

@@ -7,7 +7,7 @@
             :rightIcon="rightIcon" :rightText="rightText"
         />
 
-        <v-card-text class="mt-n5" :class="computedTextColor">
+        <v-card-text class="mt-n3" :class="computedTextColor">
             <slot name="content"></slot>
         </v-card-text>
 

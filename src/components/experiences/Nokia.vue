@@ -11,6 +11,8 @@
                 Le but de ma mission était de développer une preuve de concept
                 d’une solution web sous la forme d’un dashboard de vulnérabilités pour venir répondre à des besoins axés cybersécurité.
             </div>
+        </template>
+        <template v-slot:extra>
             <div class="mt-1">
                 Partant de zéro, j’ai eu la possibilité d’aborder les nombreuses phases de ce projet :
             </div>
@@ -20,8 +22,6 @@
                 <li>Choix de technologies</li>
                 <li>Architecture logicielle et développement fullstack</li>
             </ul>
-        </template>
-        <template v-slot:extra>
             <div class="mt-1">
                 J'ai également eu pour missions annexes :
             </div>
