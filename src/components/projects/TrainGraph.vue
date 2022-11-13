@@ -1,17 +1,16 @@
 <template>
     <ProjectTemplate
-        title="Natural Language Processing" :titleColor="titleColor" :cardColor="cardColor"
+        title="Train Graph" :titleColor="titleColor" :cardColor="cardColor"
         :iconColor="iconColor" :headerTextColor="headerTextColor"
-        leftIcon="mdi-school-outline" leftText="Scolaire"
+        leftIcon="mdi-atom-variant" leftText="Personnel"
         rightIcon="mdi-timelapse" rightText="+30h"
-        :textColor="textColor" :skills="skills"
+        :textColor="textColor" :skills="skills" link="https://github.com/jrmdel/cities-distances"
     >
         <template v-slot:content>
             <div>
-                Par équipe de 4, nous devions entraîner un réseau de neurones via différentes méthodes
-                afin qu'il traduise de courtes phrases.
-                Nous avons essayé plusieurs architectures (LSTM, RNN, avec ou sans dropout, avec ou sans attention)
-                et les avons évalué via le score BLEU et le Word Error Rate.
+                Prise en main d'une base de données Graph par la représentation de données ferroviaires.
+                Celles-ci ont été récupérées via l'API Navitia de la SNCF et insérées dans Neo4j.
+                Le but est de faire des statistiques sur l'inter-connexion des villes.
             </div>
         </template>
     </ProjectTemplate>
@@ -42,7 +41,7 @@ export default {
         },
     },
     data: () => ({
-        skills: ["Python", "Keras"]
+        skills: ["Neo4j", "JavaScript"]
     }),
 }
 </script>

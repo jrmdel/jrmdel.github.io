@@ -22,11 +22,11 @@ export default new Vuetify({
                 */
                 
                 // Second set
-                primary:"#548096",
-                primaryLight: "#93AEBC",
-                primaryWhite: "#C9D7DE",
+                primary: "#6290A7", //"#548096",
+                primaryLight: "#B8C7D4", // "#93AEBC",
+                primaryWhite: "#F2F5F7", //"#C9D7DE",
                 secondary:"#6D1A36",
-                tertiary: "#192C32",
+                tertiary: "#152429", //"#192C32",
                 quaternary:"#916953",
                 accent: "#F9E900",
                 warning:"#F6AE2D",

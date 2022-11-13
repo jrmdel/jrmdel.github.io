@@ -5,26 +5,42 @@
                 <div class="mx-md-8 pa-lg-16">
                     <v-row>
                         <v-col cols="12">
-                            <v-card class="tertiary" ref="title">
-                                <v-card-title>
-                                    <span class="text-sm-h2 font-weight-light text-h3 primaryLight--text">Ingénieur Fullstack JS & Data</span>
-                                </v-card-title>
-                            </v-card>
+                            <MyTitle ref="title"
+                                textColor="primaryLight" cardColor="tertiary" iconColor="primaryLight"
+                                buttonColor="primary" :email="email"
+                            />
                         </v-col>
                     </v-row>
                     <v-row justify="space-between">
                         <v-col cols="12" md="4">
-                            <v-card class="primary fill-height">
-                                <Identity/>
-                                <Diploma ref="diplomas"/>
-                                <Languages/>
-                                <Certificates/>
-                                <Skills ref="skills"/>
-                                <FindMe/>
+                            <v-card class="tertiary fill-height">
+                                <Identity
+                                    avatarBorderColor="primary" nameColor="white"
+                                    iconColor="primary" textColor="primaryWhite"
+                                />
+                                <Diploma ref="diplomas"
+                                    cardColor="tertiary" titleColor="white" diplomaTextColor="primaryWhite"
+                                    iconColor="primary" textColor="primaryLight" chipTextColor="tertiary"
+                                />
+                                <Languages
+                                    titleColor="white" textColor="primaryWhite"
+                                />
+                                <Certificates
+                                    cardColor="tertiary" titleColor="white" certificateTextColor="primaryWhite"
+                                    iconColor="primary" textColor="primaryLight"
+                                />
+                                <Skills ref="skills"
+                                    titleColor="white" textColor="primaryWhite" iconColor="primary"
+                                />
+                                <FindMe
+                                    titleColor="white" tooltipColor="primaryLight" textColor="tertiary"
+                                />
                             </v-card>
                         </v-col>
                         <v-col>
-                                <AboutMe ref="about-me"/>
+                                <AboutMe ref="about-me"
+                                    cardColor="primaryLight" titleColor="tertiary" bodyTextColor="tertiary"
+                                />
                                 <Experiences ref="experiences"/>
                                 <Projects ref="projects"/>
                         </v-col>
@@ -50,7 +66,7 @@
 </template>
 
 <script>
-import FindMe from "@/components/FindMe";
+import FindMe from "./components/FindMe.vue";
 import Skills from "@/components/Skills";
 import Languages from "@/components/Languages";
 import AboutMe from "@/components/AboutMe";
@@ -59,6 +75,7 @@ import Diploma from '@/components/Diploma.vue';
 import Projects from '@/components/Projects.vue';
 import Certificates from "@/components/Certificates";
 import Identity from "@/components/Identity"
+import MyTitle from './components/MyTitle.vue';
 
 export default {
     components:{
@@ -70,21 +87,23 @@ export default {
         Experiences,
         Diploma,
         Projects,
-        Certificates
+        Certificates,
+        MyTitle
     },
-    data:()=>({
-        jumps:[
-            {name: "Titre", tag:"title"},
-            {name: "Diplômes", tag:"diplomas"},
-            {name: "Compétences", tag:"skills"},
-            {name: "A propos de moi", tag:"about-me"},
-            {name: "Expériences", tag:"experiences"},
-            {name: "Projets et réalisations", tag:"projects"}
-        ]
+    data: () => ({
+        jumps: [
+            { name: "Titre", tag: "title" },
+            { name: "Diplômes", tag: "diplomas" },
+            { name: "Compétences", tag: "skills" },
+            { name: "A propos de moi", tag: "about-me" },
+            { name: "Expériences", tag: "experiences" },
+            { name: "Projets et réalisations", tag: "projects" }
+        ],
+        email: "jeremie.deletraz@gmail.com"
     }),
-    methods:{
-        jumpTo(tag){
-            this.$vuetify.goTo(this.$refs[tag], {easing: 'easeInOutCubic', duration:400})
+    methods: {
+        jumpTo(tag) {
+            this.$vuetify.goTo(this.$refs[tag], { easing: 'easeInOutCubic', duration: 400 });
         }
     }
 };

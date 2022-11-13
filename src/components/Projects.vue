@@ -7,26 +7,36 @@
                 <v-col cols="12" sm="6">
                     <v-row>
                         <v-col cols="12">
-                            <ChatbotWeb/>
+                            <TicketToRide cardColor="primary" titleColor="white" textColor="tertiary" headerTextColor="primaryWhite" iconColor="tertiary"/>
                         </v-col>
                     </v-row>
                     <v-row>
                         <v-col cols="12">
-                            <TicketToRide/>
+                            <NLP cardColor="tertiary" titleColor="white" textColor="primaryWhite" headerTextColor="primaryLight" iconColor="primary"/>
                         </v-col>
                     </v-row>
+                    <v-expand-transition>
+                        <v-row v-show="displayMore">
+                            <v-col cols="12">
+                                <CityCompass cardColor="primary" titleColor="white" textColor="tertiary" headerTextColor="primaryWhite" iconColor="tertiary"/>
+                            </v-col>
+                        </v-row>
+                    </v-expand-transition>
                 </v-col>
                 <v-col cols="12" sm="6">
                     <v-row>
                         <v-col cols="12">
-                            <NLP/>
+                            <MetalData cardColor="tertiary" titleColor="white" textColor="primaryWhite" headerTextColor="primaryLight" iconColor="primary"/>
                         </v-col>
                     </v-row>
                     <v-row>
                         <v-col cols="12">
-                            <ClimateData/>
+                            <TrainGraph cardColor="primary" titleColor="white" textColor="tertiary" headerTextColor="primaryWhite" iconColor="tertiary"/>
                         </v-col>
                     </v-row>
+                </v-col>
+                <v-col cols="12" class="mt-n2">
+                    <SeeMore :displayMore="displayMore" @toggle="v => displayMore = v"/>
                 </v-col>
             </v-row>
             <!--On small devices-->
@@ -34,24 +44,32 @@
                 <v-col cols="12">
                     <v-row>
                         <v-col cols="12">
-                            <ChatbotWeb/>
+                            <TicketToRide cardColor="primary" titleColor="white" textColor="tertiary" headerTextColor="primaryWhite" iconColor="tertiary"/>
                         </v-col>
                     </v-row>
                     <v-row>
                         <v-col cols="12">
-                            <NLP/>
+                            <MetalData cardColor="tertiary" titleColor="white" textColor="primaryWhite" headerTextColor="primaryLight" iconColor="primary"/>
                         </v-col>
                     </v-row>
                     <v-row>
                         <v-col cols="12">
-                            <ClimateData/>
+                            <TrainGraph cardColor="primary" titleColor="white" textColor="tertiary" headerTextColor="primaryWhite" iconColor="tertiary"/>
                         </v-col>
                     </v-row>
                     <v-row>
                         <v-col cols="12">
-                            <TicketToRide/>
+                            <NLP cardColor="tertiary" titleColor="white" textColor="primaryWhite" headerTextColor="primaryLight" iconColor="primary"/>
                         </v-col>
                     </v-row>
+                    <v-expand-transition>
+                        <v-row v-show="displayMore">
+                            <v-col cols="12">
+                                <CityCompass cardColor="primary" titleColor="white" textColor="tertiary" headerTextColor="primaryWhite" iconColor="tertiary"/>
+                            </v-col>
+                        </v-row>
+                    </v-expand-transition>
+                    <SeeMore :displayMore="displayMore" @toggle="v => displayMore = v"/>
                 </v-col>
             </v-row>
         </v-card-text>
@@ -59,20 +77,28 @@
 </template>
 
 <script>
-import ChatbotWeb from "@/components/projects/ChatbotWeb"
-import TicketToRide from "@/components/projects/TicketToRide"
-import NLP from "@/components/projects/NLP"
-import ClimateData from "@/components/projects/ClimateData"
+// import ChatbotWeb from "@/components/projects/ChatbotWeb"
+// import ClimateData from "@/components/projects/ClimateData"
+import TicketToRide from "./projects/TicketToRide.vue"
+import NLP from "./projects/NLP.vue"
+import MetalData from "./projects/MetalData.vue"
+import CityCompass from "./projects/CityCompass.vue"
+import TrainGraph from "./projects/TrainGraph.vue"
+import SeeMore from "./helpers/SeeMore.vue"
 
 export default {
     components:{
-        ChatbotWeb,
+        // ChatbotWeb,
+        // ClimateData,
         TicketToRide,
         NLP,
-        ClimateData
+        MetalData,
+        CityCompass,
+        TrainGraph,
+        SeeMore,
     },
     data: ()=>({
-        
+        displayMore: false,
     })
 }
 </script>

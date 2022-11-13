@@ -1,17 +1,15 @@
 <template>
     <ProjectTemplate
-        title="Natural Language Processing" :titleColor="titleColor" :cardColor="cardColor"
+        title="City Compass" :titleColor="titleColor" :cardColor="cardColor"
         :iconColor="iconColor" :headerTextColor="headerTextColor"
-        leftIcon="mdi-school-outline" leftText="Scolaire"
+        leftIcon="mdi-atom-variant" leftText="Personnel"
         rightIcon="mdi-timelapse" rightText="+30h"
-        :textColor="textColor" :skills="skills"
+        :textColor="textColor" :skills="skills" link="https://jrmdel.github.io/cities-game/"
     >
         <template v-slot:content>
             <div>
-                Par équipe de 4, nous devions entraîner un réseau de neurones via différentes méthodes
-                afin qu'il traduise de courtes phrases.
-                Nous avons essayé plusieurs architectures (LSTM, RNN, avec ou sans dropout, avec ou sans attention)
-                et les avons évalué via le score BLEU et le Word Error Rate.
+                Création d'une application web ludique ayant pour but de tester ses connaissances en géographie française.
+                Les questions sont générées aléatoirement et les tentatives sont stockées pour, à terme, pouvoir analyser les données récupérées.
             </div>
         </template>
     </ProjectTemplate>
@@ -42,7 +40,7 @@ export default {
         },
     },
     data: () => ({
-        skills: ["Python", "Keras"]
+        skills: ["Vue.JS", "SVG"]
     }),
 }
 </script>
