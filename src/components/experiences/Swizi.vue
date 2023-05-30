@@ -2,7 +2,7 @@
     <CardTemplate 
         cardColor="primary" cardTitle="Ingénieur Back-end JS & Lead Data" cardSubtitle="Swizi by Open"
         headerTextColor="primaryWhite" subtitleColor="tertiary"
-        dateString="Oct. 2021 - Aujourd'hui" locationString="Rennes, France" iconColor="tertiary"
+        dateString="Oct. 2021 - Mai 2023" locationString="Rennes, France" iconColor="tertiary"
         textColor="tertiary" :skills="skills"
     >
         <template v-slot:content>

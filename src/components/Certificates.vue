@@ -45,23 +45,20 @@
                             <v-row align="center" justify="space-between">
                                 <v-col cols="auto">
                                     <v-row class="my-n1" no-gutters align="center">
-                                        <v-btn icon :disabled="!crt.link" :href="crt.link">
-                                            <v-icon small :color="iconColor">
-                                                mdi-certificate-outline
-                                            </v-icon>
-                                        </v-btn>
+                                        <v-icon class="mr-2" small :color="iconColor">
+                                            mdi-certificate-outline
+                                        </v-icon>
                                         <span class="text-subtitle-2" :class="computedTextColor">
                                             {{ crt.year }}
                                         </span>
                                     </v-row>
                                 </v-col>
                                 <v-col v-if="crt.score" cols="auto">
-                                    <v-icon small color="warning">
+                                    <v-icon class="mr-2" small color="warning">
                                         mdi-chart-box-outline
                                     </v-icon>
-                                    <span class="text-subtitle-2" :class="computedTextColor">
-                                        {{ crt.score }}
-                                    </span>
+                                    <a v-if="crt.link" class="text-subtitle-2" :class="computedTextColor" :href="crt.link" target="_blank">{{ crt.score }}</a>
+                                    <span v-else class="text-subtitle-2" :class="computedTextColor">{{ crt.score }}</span>
                                 </v-col>
                             </v-row>
                         </v-card-subtitle>

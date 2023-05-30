@@ -24,7 +24,7 @@
                         </div>
                     </v-expand-transition>
                 </v-timeline>
-                <SeeMore :displayMore="displayMore" @toggle="v => displayMore = v"/>
+                <SeeMore class="mt-2" :displayMore="displayMore" @toggle="v => displayMore = v"/>
             </div>
             <div class="hidden-sm-and-up">
                 <v-container fluid>
