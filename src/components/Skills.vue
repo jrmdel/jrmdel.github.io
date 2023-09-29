@@ -41,6 +41,7 @@ import {
   POWER_BI_ICON,
   POSTGRE_ICON,
   MY_SQL_ICON,
+  NEST_JS_ICON,
 } from "@/assets/constants";
 
 export default {
@@ -87,8 +88,8 @@ export default {
         val: 85,
       },
       {
-        icon: "mdi-language-typescript",
-        text: "TypeScript",
+        icon: NEST_JS_ICON,
+        text: "NestJS",
         val: 65,
       },
       {
