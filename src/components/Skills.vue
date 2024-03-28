@@ -4,12 +4,7 @@
       <v-row class="my-2 text-h4 font-weight-light" :class="computedTitleColor">
         <v-col>Compétences</v-col>
       </v-row>
-      <v-row
-        align="center"
-        class="px-4 my-n2"
-        v-for="(skill, i) in skills"
-        :key="i"
-      >
+      <v-row align="center" class="px-4 my-n2" v-for="(skill, i) in skills" :key="i">
         <v-col cols="auto">
           <v-icon :color="iconColor">
             {{ skill.icon }}
@@ -42,7 +37,7 @@ import {
   POSTGRE_ICON,
   MY_SQL_ICON,
   NEST_JS_ICON,
-} from "@/assets/constants";
+} from "@/assets/icons/icons.constants";
 
 export default {
   props: {
@@ -65,12 +60,12 @@ export default {
   },
   computed: {
     computedTextColor: {
-      get: function () {
+      get: function() {
         return this.textColor.length > 0 ? `${this.textColor}--text` : "";
       },
     },
     computedTitleColor: {
-      get: function () {
+      get: function() {
         return this.titleColor.length > 0 ? `${this.titleColor}--text` : "";
       },
     },
@@ -100,7 +95,7 @@ export default {
       {
         icon: "mdi-language-python",
         text: "Python",
-        val: 65,
+        val: 60,
       },
       {
         icon: MONGO_DB_ICON,
@@ -110,12 +105,12 @@ export default {
       {
         icon: POWER_BI_ICON,
         text: "PowerBI",
-        val: 55,
+        val: 50,
       },
       {
         icon: POSTGRE_ICON,
         text: "Postgre",
-        val: 50,
+        val: 55,
       },
       {
         icon: "mdi-git",
