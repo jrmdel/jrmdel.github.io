@@ -42,8 +42,8 @@
 </template>
 
 <script>
-import InfoHeader from "../../helpers/InfoHeader.vue";
-import SkillChips from "../../helpers/SkillChips.vue";
+import InfoHeader from '../../helpers/InfoHeader.vue';
+import SkillChips from '../../helpers/SkillChips.vue';
 
 export default {
   components: {
@@ -56,14 +56,14 @@ export default {
     },
     titleColor: {
       type: String,
-      default: "",
+      default: '',
     },
     title: {
       type: String,
     },
     headerTextColor: {
       type: String,
-      default: "",
+      default: '',
     },
     iconColor: {
       type: String,
@@ -82,11 +82,11 @@ export default {
     },
     textColor: {
       type: String,
-      default: "",
+      default: '',
     },
     link: {
       type: String,
-      default: "",
+      default: '',
     },
     skills: {
       type: Array,
@@ -94,23 +94,23 @@ export default {
     },
     skillColor: {
       type: String,
-      default: "warning",
+      default: 'warning',
     },
   },
   computed: {
     hasLink: {
-      get: function () {
+      get: function() {
         return this.link.length > 0;
       },
     },
     computedTextColor: {
-      get: function () {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : "";
+      get: function() {
+        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
       },
     },
     computedTitleColor: {
-      get: function () {
-        return this.titleColor.length > 0 ? `${this.titleColor}--text` : "";
+      get: function() {
+        return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
       },
     },
   },

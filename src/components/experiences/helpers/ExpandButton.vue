@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     sendToggle() {
-      this.$emit("toggle", !this.displayMore);
+      this.$emit('toggle', !this.displayMore);
     },
   },
 };

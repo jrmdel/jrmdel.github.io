@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import CardTemplate from "./helpers/CardTemplate.vue";
+import CardTemplate from './helpers/CardTemplate.vue';
 
 export default {
   components: {
@@ -66,11 +66,11 @@ export default {
   },
   data: () => ({
     skills: [
-      "Java Spring Boot",
-      "MySQL",
-      "API Rest",
-      "Redmine",
-      "Méthodes Agiles",
+      'Java Spring Boot',
+      'MySQL',
+      'API Rest',
+      'Redmine',
+      'Méthodes Agiles',
     ],
   }),
 };

@@ -28,38 +28,38 @@ export default {
   props: {
     titleColor: {
       type: String,
-      default: "",
+      default: '',
     },
     skillColor: {
       type: String,
-      default: "warning",
+      default: 'warning',
     },
     textColor: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   data: () => ({
     languages: [
       {
-        lang: "Français",
+        lang: 'Français',
         val: 100,
       },
       {
-        lang: "Anglais",
+        lang: 'Anglais',
         val: 90,
       },
     ],
   }),
   computed: {
     computedTitleColor: {
-      get: function () {
-        return this.titleColor.length > 0 ? `${this.titleColor}--text` : "";
+      get: function() {
+        return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
       },
     },
     computedTextColor: {
-      get: function () {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : "";
+      get: function() {
+        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
       },
     },
   },

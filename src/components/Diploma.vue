@@ -72,76 +72,76 @@ export default {
   props: {
     titleColor: {
       type: String,
-      default: "",
+      default: '',
     },
     cardColor: {
       type: String,
-      default: "",
+      default: '',
     },
     diplomaTextColor: {
       type: String,
-      default: "",
+      default: '',
     },
     iconColor: {
       type: String,
-      default: "",
+      default: '',
     },
     textColor: {
       type: String,
-      default: "",
+      default: '',
     },
     chipColor: {
       type: String,
-      default: "warning",
+      default: 'warning',
     },
     chipTextColor: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   data: () => ({
     diplomas: [
       {
-        title: "Ingénieur informatique spécialité IA/Big Data",
-        school: "ENSSAT - Lannion",
-        year: "2020",
+        title: 'Ingénieur informatique spécialité IA/Big Data',
+        school: 'ENSSAT - Lannion',
+        year: '2020',
         skills: [
-          "Génie Logiciel",
-          "Web",
-          "Sciences des données",
-          "Machine Learning",
+          'Génie Logiciel',
+          'Web',
+          'Sciences des données',
+          'Machine Learning',
         ],
       },
       {
-        title: "BTS Opticien-Lunetier",
-        school: "ISO - Lille",
-        year: "2014",
+        title: 'BTS Opticien-Lunetier',
+        school: 'ISO - Lille',
+        year: '2014',
       },
     ],
   }),
   computed: {
     computedTitleColor: {
-      get: function () {
-        return this.titleColor.length > 0 ? `${this.titleColor}--text` : "";
+      get: function() {
+        return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
       },
     },
     computedDiplomaTextColor: {
-      get: function () {
+      get: function() {
         return this.diplomaTextColor.length > 0
           ? `${this.diplomaTextColor}--text`
-          : "";
+          : '';
       },
     },
     computedTextColor: {
-      get: function () {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : "";
+      get: function() {
+        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
       },
     },
     computedChipTextColor: {
-      get: function () {
+      get: function() {
         return this.chipTextColor.length > 0
           ? `${this.chipTextColor}--text`
-          : "";
+          : '';
       },
     },
   },

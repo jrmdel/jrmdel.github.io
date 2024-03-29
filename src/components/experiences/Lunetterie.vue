@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import CardTemplate from "./helpers/CardTemplate.vue";
+import CardTemplate from './helpers/CardTemplate.vue';
 
 export default {
   components: {
@@ -50,7 +50,7 @@ export default {
     },
   },
   data: () => ({
-    skills: ["Relation client", "Organisation"],
+    skills: ['Relation client', 'Organisation'],
   }),
 };
 </script>

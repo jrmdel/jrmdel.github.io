@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import ProjectTemplate from "./helpers/ProjectTemplate.vue";
+import ProjectTemplate from './helpers/ProjectTemplate.vue';
 
 export default {
   components: {
@@ -55,7 +55,7 @@ export default {
     },
   },
   data: () => ({
-    skills: ["R", "RStudio"],
+    skills: ['R', 'RStudio'],
   }),
 };
 </script>

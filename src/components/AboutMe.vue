@@ -38,24 +38,24 @@ export default {
     },
     titleColor: {
       type: String,
-      default: "",
+      default: '',
     },
     bodyTextColor: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   computed: {
     computedTitleColor: {
-      get: function () {
-        return this.titleColor.length > 0 ? `${this.titleColor}--text` : "";
+      get: function() {
+        return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
       },
     },
     computedTextColor: {
-      get: function () {
+      get: function() {
         return this.bodyTextColor.length > 0
           ? `${this.bodyTextColor}--text`
-          : "";
+          : '';
       },
     },
   },

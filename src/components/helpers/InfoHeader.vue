@@ -28,28 +28,28 @@ export default {
     },
     rightIcon: {
       type: String,
-      default: "",
+      default: '',
     },
     rightText: {
       type: String,
-      default: "",
+      default: '',
     },
     iconColor: {
       type: String,
     },
     textColor: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   computed: {
     computedTextColor: {
-      get: function () {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : "";
+      get: function() {
+        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
       },
     },
     hasRightData: {
-      get: function () {
+      get: function() {
         return this.rightIcon.length > 0 && this.rightText.length > 0;
       },
     },

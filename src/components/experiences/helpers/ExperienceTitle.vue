@@ -17,27 +17,27 @@ export default {
     },
     titleColor: {
       type: String,
-      default: "",
+      default: '',
     },
     subtitle: {
       type: String,
     },
     subtitleColor: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   computed: {
     computedTitleColor: {
-      get: function () {
-        return this.titleColor.length > 0 ? `${this.titleColor}--text` : "";
+      get: function() {
+        return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
       },
     },
     computedSubtitleColor: {
-      get: function () {
+      get: function() {
         return this.subtitleColor.length > 0
           ? `${this.subtitleColor}--text`
-          : "";
+          : '';
       },
     },
   },

@@ -100,16 +100,16 @@
 </template>
 
 <script>
-import FindMe from "./components/FindMe.vue";
-import Skills from "@/components/Skills";
-import Languages from "@/components/Languages";
-import AboutMe from "@/components/AboutMe";
-import Experiences from "@/components/Experiences";
-import Diploma from "@/components/Diploma.vue";
-import Projects from "@/components/Projects.vue";
-import Certificates from "@/components/Certificates";
-import Identity from "@/components/Identity";
-import MyTitle from "./components/MyTitle.vue";
+import FindMe from './components/FindMe.vue';
+import Skills from '@/components/Skills';
+import Languages from '@/components/Languages';
+import AboutMe from '@/components/AboutMe';
+import Experiences from '@/components/Experiences';
+import Diploma from '@/components/Diploma.vue';
+import Projects from '@/components/Projects.vue';
+import Certificates from '@/components/Certificates';
+import Identity from '@/components/Identity';
+import MyTitle from './components/MyTitle.vue';
 
 export default {
   components: {
@@ -126,19 +126,19 @@ export default {
   },
   data: () => ({
     jumps: [
-      { name: "Titre", tag: "title" },
-      { name: "Diplômes", tag: "diplomas" },
-      { name: "Compétences", tag: "skills" },
-      { name: "A propos de moi", tag: "about-me" },
-      { name: "Expériences", tag: "experiences" },
-      { name: "Projets et réalisations", tag: "projects" },
+      { name: 'Titre', tag: 'title' },
+      { name: 'Diplômes', tag: 'diplomas' },
+      { name: 'Compétences', tag: 'skills' },
+      { name: 'A propos de moi', tag: 'about-me' },
+      { name: 'Expériences', tag: 'experiences' },
+      { name: 'Projets et réalisations', tag: 'projects' },
     ],
-    email: "jeremie.deletraz@gmail.com",
+    email: 'jeremie.deletraz@gmail.com',
   }),
   methods: {
     jumpTo(tag) {
       this.$vuetify.goTo(this.$refs[tag], {
-        easing: "easeInOutCubic",
+        easing: 'easeInOutCubic',
         duration: 400,
       });
     },

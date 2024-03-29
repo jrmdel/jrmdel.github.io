@@ -74,57 +74,58 @@ export default {
   props: {
     titleColor: {
       type: String,
-      default: "",
+      default: '',
     },
     tooltipColor: {
       type: String,
     },
     textColor: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   computed: {
     computedTitleColor: {
-      get: function () {
-        return this.titleColor.length > 0 ? `${this.titleColor}--text` : "";
+      get: function() {
+        return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
       },
     },
     computedTextColor: {
-      get: function () {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : "";
+      get: function() {
+        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
       },
     },
   },
   data: () => ({
     sites: [
       {
-        text: "Sur GitHub",
-        icon: "mdi-github",
-        link: "https://github.com/jrmdel",
-        logo: "black",
-        back: "white",
+        text: 'Sur GitHub',
+        icon: 'mdi-github',
+        link: 'https://github.com/jrmdel',
+        logo: 'black',
+        back: 'white',
       },
       {
-        text: "Sur StackOverflow",
-        icon: "mdi-stack-overflow",
-        link: "https://stackoverflow.com/users/12194386",
-        logo: "#f48024",
-        back: "white",
+        text: 'Sur StackOverflow',
+        icon: 'mdi-stack-overflow',
+        link: 'https://stackoverflow.com/users/12194386',
+        logo: '#f48024',
+        back: 'white',
       },
       {
-        text: "Sur LinkedIn",
-        icon: "mdi-linkedin",
-        link: "https://www.linkedin.com/in/jeremie-deletraz/",
-        logo: "#006192",
-        back: "white",
+        text: 'Sur LinkedIn',
+        icon: 'mdi-linkedin',
+        link: 'https://www.linkedin.com/in/jeremie-deletraz/',
+        logo: '#006192',
+        back: 'white',
       },
       {
-        text: "Sur Strava",
-        icon: "M14.92 17.16l1.83-3.63h2.7l-4.51 8.97l-4.57-8.97h2.7l1.85 3.63m-4.29-8.5l-2.45 4.89H4.55L10.61 1.5l6.13 12.05h-3.63l-2.48-4.89z",
-        link: "https://www.strava.com/athletes/2740041",
-        logo: "#FC4C02",
-        back: "white",
+        text: 'Sur Strava',
+        icon:
+          'M14.92 17.16l1.83-3.63h2.7l-4.51 8.97l-4.57-8.97h2.7l1.85 3.63m-4.29-8.5l-2.45 4.89H4.55L10.61 1.5l6.13 12.05h-3.63l-2.48-4.89z',
+        link: 'https://www.strava.com/athletes/2740041',
+        logo: '#FC4C02',
+        back: 'white',
       },
     ],
   }),

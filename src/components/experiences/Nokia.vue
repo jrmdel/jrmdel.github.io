@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import CardTemplate from "./helpers/CardTemplate.vue";
+import CardTemplate from './helpers/CardTemplate.vue';
 
 export default {
   components: {
@@ -80,7 +80,7 @@ export default {
     },
   },
   data: () => ({
-    skills: ["Node.JS", "Vue.JS", "MongoDB", "Git", "Linux"],
+    skills: ['Node.JS', 'Vue.JS', 'MongoDB', 'Git', 'Linux'],
   }),
 };
 </script>

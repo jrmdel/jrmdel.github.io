@@ -70,7 +70,7 @@
         <v-col cols="12" class="mt-n2">
           <SeeMore
             :displayMore="displayMore"
-            @toggle="(v) => (displayMore = v)"
+            @toggle="v => (displayMore = v)"
           />
         </v-col>
       </v-row>
@@ -136,7 +136,7 @@
           </v-expand-transition>
           <SeeMore
             :displayMore="displayMore"
-            @toggle="(v) => (displayMore = v)"
+            @toggle="v => (displayMore = v)"
           />
         </v-col>
       </v-row>
@@ -147,12 +147,12 @@
 <script>
 // import ChatbotWeb from "@/components/projects/ChatbotWeb"
 // import ClimateData from "@/components/projects/ClimateData"
-import TicketToRide from "./projects/TicketToRide.vue";
-import NLP from "./projects/NLP.vue";
-import MetalData from "./projects/MetalData.vue";
-import CityCompass from "./projects/CityCompass.vue";
-import TrainGraph from "./projects/TrainGraph.vue";
-import SeeMore from "./helpers/SeeMore.vue";
+import TicketToRide from './projects/TicketToRide.vue';
+import NLP from './projects/NLP.vue';
+import MetalData from './projects/MetalData.vue';
+import CityCompass from './projects/CityCompass.vue';
+import TrainGraph from './projects/TrainGraph.vue';
+import SeeMore from './helpers/SeeMore.vue';
 
 export default {
   components: {

@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import ProjectTemplate from "./helpers/ProjectTemplate.vue";
+import ProjectTemplate from './helpers/ProjectTemplate.vue';
 
 export default {
   components: {
@@ -50,7 +50,7 @@ export default {
     },
   },
   data: () => ({
-    skills: ["Vue.JS", "Firebase"],
+    skills: ['Vue.JS', 'Firebase'],
   }),
 };
 </script>

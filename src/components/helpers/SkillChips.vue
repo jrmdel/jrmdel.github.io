@@ -21,7 +21,7 @@ export default {
     },
     chipColor: {
       type: String,
-      default: "warning",
+      default: 'warning',
     },
     isSmall: {
       type: Boolean,
@@ -29,7 +29,7 @@ export default {
     },
     chipMargin: {
       type: String,
-      default: "ma-2",
+      default: 'ma-2',
     },
   },
 };
