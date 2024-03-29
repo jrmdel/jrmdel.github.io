@@ -105,62 +105,63 @@ export default {
   props: {
     titleColor: {
       type: String,
-      default: "",
+      default: '',
     },
     cardColor: {
       type: String,
-      default: "",
+      default: '',
     },
     certificateTextColor: {
       type: String,
-      default: "",
+      default: '',
     },
     textColor: {
       type: String,
-      default: "",
+      default: '',
     },
     iconColor: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   data: () => ({
     cert: [
       {
-        title: "Develop Your Cultural Intelligence",
-        score: "87/100",
-        year: "2020",
-        link: "https://www.futurelearn.com/certificates/10ayxkf",
+        title: 'Develop Your Cultural Intelligence',
+        score: '87/100',
+        year: '2020',
+        link: 'https://www.futurelearn.com/certificates/10ayxkf',
       },
       {
-        title: "Le Robert",
-        score: "829/1000",
-        year: "2018 ",
-        link: "https://examen.certification-le-robert.com/index.html#/certificationPublic/SPUB3VAK2G",
+        title: 'Le Robert',
+        score: '829/1000',
+        year: '2018 ',
+        link:
+          'https://examen.certification-le-robert.com/index.html#/certificationPublic/SPUB3VAK2G',
       },
       {
-        title: "TOEIC",
-        score: "960/990",
-        year: "2018",
+        title: 'TOEIC',
+        score: '960/990',
+        year: '2018',
       },
     ],
   }),
   computed: {
     computedTitleColor: {
-      get: function () {
-        return this.titleColor.length > 0 ? `${this.titleColor}--text` : "";
+      get: function() {
+        return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
       },
     },
     computedCertificateTextColor: {
-      get: function () {
+      get: function() {
         return this.certificateTextColor.length > 0
           ? `${this.certificateTextColor}--text`
-          : "";
+          : '';
       },
     },
     computedTextColor: {
-      get: function () {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : "";
+      get: function() {
+        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
       },
     },
   },

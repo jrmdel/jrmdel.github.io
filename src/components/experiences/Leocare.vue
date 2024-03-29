@@ -13,10 +13,12 @@
   >
     <template v-slot:content>
       <div>
-        Dans cette start-up de la French Tech proposant des assurances pour les particuliers (auto,
-        moto, habitation), j'ai eu l'opportunité de faire partie de l'équipe
-        <span class="font-italic">Customer Care</span>, garante du développement de l'outil interne
-        permettant aux conseillers et conseillères de suivre au mieux les dossiers clients.
+        Dans cette start-up de la French Tech proposant des assurances pour les
+        particuliers (auto, moto, habitation), j'ai eu l'opportunité de faire
+        partie de l'équipe
+        <span class="font-italic">Customer Care</span>, garante du développement
+        de l'outil interne permettant aux conseillers et conseillères de suivre
+        au mieux les dossiers clients.
       </div>
       <ul class="ml-2 mt-1">
         <li>Développement dans un contexte métier exigeant</li>
@@ -29,14 +31,14 @@
 </template>
 
 <script>
-import CardTemplate from "./helpers/CardTemplate.vue";
+import CardTemplate from './helpers/CardTemplate.vue';
 
 export default {
   components: {
     CardTemplate,
   },
   data: () => ({
-    skills: ["Angular", "Nest.JS", "MongoDB", "Jest"],
+    skills: ['Angular', 'Nest.JS', 'MongoDB', 'Jest'],
   }),
 };
 </script>

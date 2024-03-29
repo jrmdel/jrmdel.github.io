@@ -68,7 +68,7 @@
         <SeeMore
           class="mt-2"
           :displayMore="displayMore"
-          @toggle="(v) => (displayMore = v)"
+          @toggle="v => (displayMore = v)"
         />
       </div>
       <div class="hidden-sm-and-up">
@@ -135,7 +135,7 @@
           <SeeMore
             class="mt-2"
             :displayMore="displayMore"
-            @toggle="(v) => (displayMore = v)"
+            @toggle="v => (displayMore = v)"
           />
         </v-container>
       </div>
@@ -144,13 +144,13 @@
 </template>
 
 <script>
-import Leocare from "./experiences/Leocare.vue";
-import Swizi from "./experiences/Swizi.vue";
-import Astek from "./experiences/Astek.vue";
-import Nokia from "./experiences/Nokia.vue";
-import Ericsson from "./experiences/Ericsson.vue";
-import SeeMore from "./helpers/SeeMore.vue";
-import Lunetterie from "./experiences/Lunetterie.vue";
+import Leocare from './experiences/Leocare.vue';
+import Swizi from './experiences/Swizi.vue';
+import Astek from './experiences/Astek.vue';
+import Nokia from './experiences/Nokia.vue';
+import Ericsson from './experiences/Ericsson.vue';
+import SeeMore from './helpers/SeeMore.vue';
+import Lunetterie from './experiences/Lunetterie.vue';
 
 export default {
   components: {

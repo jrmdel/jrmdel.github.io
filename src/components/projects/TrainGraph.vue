@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import ProjectTemplate from "./helpers/ProjectTemplate.vue";
+import ProjectTemplate from './helpers/ProjectTemplate.vue';
 
 export default {
   components: {
@@ -49,7 +49,7 @@ export default {
     },
   },
   data: () => ({
-    skills: ["Neo4j", "JavaScript"],
+    skills: ['Neo4j', 'JavaScript'],
   }),
 };
 </script>

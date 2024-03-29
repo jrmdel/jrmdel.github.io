@@ -28,7 +28,8 @@
         Puisque nous récupérions beaucoup de données liées aux bâtiments
         (occupation, comptage, réunions...), il était évident de traiter ces
         précieuses informations. J'ai ainsi pris le lead sur toute la partie
-        Data, et l'ai déployée <span class="font-italic">from scratch</span> :
+        Data, et l'ai déployée
+        <span class="font-italic">from scratch</span> :
       </div>
       <ul class="ml-2 mt-1">
         <li>
@@ -48,14 +49,14 @@
 </template>
 
 <script>
-import CardTemplate from "./helpers/CardTemplate.vue";
+import CardTemplate from './helpers/CardTemplate.vue';
 
 export default {
   components: {
     CardTemplate,
   },
   data: () => ({
-    skills: ["Node.JS", "Python", "Pandas", "Azure Synapse", "PowerBI"],
+    skills: ['Node.JS', 'Python', 'Pandas', 'Azure Synapse', 'PowerBI'],
   }),
 };
 </script>

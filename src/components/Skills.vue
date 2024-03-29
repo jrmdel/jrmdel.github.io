@@ -4,7 +4,12 @@
       <v-row class="my-2 text-h4 font-weight-light" :class="computedTitleColor">
         <v-col>Compétences</v-col>
       </v-row>
-      <v-row align="center" class="px-4 my-n2" v-for="(skill, i) in skills" :key="i">
+      <v-row
+        align="center"
+        class="px-4 my-n2"
+        v-for="(skill, i) in skills"
+        :key="i"
+      >
         <v-col cols="auto">
           <v-icon :color="iconColor">
             {{ skill.icon }}
@@ -37,101 +42,101 @@ import {
   POSTGRE_ICON,
   MY_SQL_ICON,
   NEST_JS_ICON,
-} from "@/assets/icons/icons.constants";
+} from '@/assets/icons/icons.constants';
 
 export default {
   props: {
     iconColor: {
       type: String,
-      default: "",
+      default: '',
     },
     titleColor: {
       type: String,
-      default: "",
+      default: '',
     },
     textColor: {
       type: String,
-      default: "",
+      default: '',
     },
     sliderColor: {
       type: String,
-      default: "warning",
+      default: 'warning',
     },
   },
   computed: {
     computedTextColor: {
       get: function() {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : "";
+        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
       },
     },
     computedTitleColor: {
       get: function() {
-        return this.titleColor.length > 0 ? `${this.titleColor}--text` : "";
+        return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
       },
     },
   },
   data: () => ({
     skills: [
       {
-        icon: "mdi-vuejs",
-        text: "Vue.JS",
+        icon: 'mdi-vuejs',
+        text: 'Vue.JS',
         val: 80,
       },
       {
-        icon: "mdi-nodejs",
-        text: "Node.JS",
+        icon: 'mdi-nodejs',
+        text: 'Node.JS',
         val: 85,
       },
       {
         icon: NEST_JS_ICON,
-        text: "NestJS",
+        text: 'NestJS',
         val: 65,
       },
       {
-        icon: "mdi-angular",
-        text: "Angular",
+        icon: 'mdi-angular',
+        text: 'Angular',
         val: 65,
       },
       {
-        icon: "mdi-language-python",
-        text: "Python",
+        icon: 'mdi-language-python',
+        text: 'Python',
         val: 60,
       },
       {
         icon: MONGO_DB_ICON,
-        text: "MongoDB",
+        text: 'MongoDB',
         val: 75,
       },
       {
         icon: POWER_BI_ICON,
-        text: "PowerBI",
+        text: 'PowerBI',
         val: 50,
       },
       {
         icon: POSTGRE_ICON,
-        text: "Postgre",
+        text: 'Postgre',
         val: 55,
       },
       {
-        icon: "mdi-git",
-        text: "Git",
+        icon: 'mdi-git',
+        text: 'Git',
         val: 70,
       },
     ],
     oldSkills: [
       {
-        icon: "mdi-language-r",
-        text: "R",
+        icon: 'mdi-language-r',
+        text: 'R',
         val: 40,
       },
       {
-        icon: "mdi-language-java",
-        text: "Java",
+        icon: 'mdi-language-java',
+        text: 'Java',
         val: 50,
       },
       {
         icon: MY_SQL_ICON,
-        text: "MySQL",
+        text: 'MySQL',
         val: 50,
       },
     ],

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import CardTemplate from "./helpers/CardTemplate.vue";
+import CardTemplate from './helpers/CardTemplate.vue';
 
 export default {
   components: {
@@ -60,7 +60,7 @@ export default {
     },
   },
   data: () => ({
-    skills: ["Node.JS", "MongoDB", "Elastic Search", "Jira", "Kanban"],
+    skills: ['Node.JS', 'MongoDB', 'Elastic Search', 'Jira', 'Kanban'],
   }),
 };
 </script>

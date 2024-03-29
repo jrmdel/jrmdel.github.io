@@ -12,10 +12,10 @@
         class="toggleUpDown"
         :class="{ rotate: displayMore }"
       >
-        {{ iconDisplay ? "mdi-minus" : "mdi-plus" }}
+        {{ iconDisplay ? 'mdi-minus' : 'mdi-plus' }}
       </v-icon>
       <span class="tertiary--text">
-        {{ iconDisplay ? "Voir moins" : "Voir plus" }}
+        {{ iconDisplay ? 'Voir moins' : 'Voir plus' }}
       </span>
     </v-btn>
   </div>
@@ -45,7 +45,7 @@ export default {
   }),
   methods: {
     sendToggle() {
-      this.$emit("toggle", !this.displayMore);
+      this.$emit('toggle', !this.displayMore);
     },
   },
 };

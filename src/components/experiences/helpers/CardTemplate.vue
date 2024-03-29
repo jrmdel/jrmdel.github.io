@@ -29,17 +29,17 @@
       <ExpandButton
         :isDisabled="!hasExtraSlot"
         :displayMore="displayMore"
-        @toggle="(v) => (displayMore = v)"
+        @toggle="v => (displayMore = v)"
       />
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
-import ExpandButton from "./ExpandButton.vue";
-import ExperienceTitle from "./ExperienceTitle.vue";
-import InfoHeader from "../../helpers/InfoHeader.vue";
-import SkillChips from "../../helpers/SkillChips.vue";
+import ExpandButton from './ExpandButton.vue';
+import ExperienceTitle from './ExperienceTitle.vue';
+import InfoHeader from '../../helpers/InfoHeader.vue';
+import SkillChips from '../../helpers/SkillChips.vue';
 
 export default {
   components: {
@@ -51,7 +51,7 @@ export default {
   props: {
     cardColor: {
       type: String,
-      default: "",
+      default: '',
     },
     cardTitle: {
       type: String,
@@ -61,7 +61,7 @@ export default {
     },
     subtitleColor: {
       type: String,
-      default: "",
+      default: '',
     },
     dateString: {
       type: String,
@@ -71,15 +71,15 @@ export default {
     },
     iconColor: {
       type: String,
-      default: "",
+      default: '',
     },
     headerTextColor: {
       type: String,
-      default: "primaryWhite",
+      default: 'primaryWhite',
     },
     textColor: {
       type: String,
-      default: "",
+      default: '',
     },
     skills: {
       type: Array,
@@ -91,12 +91,12 @@ export default {
   }),
   computed: {
     computedTextColor: {
-      get: function () {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : "";
+      get: function() {
+        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
       },
     },
     hasExtraSlot: {
-      get: function () {
+      get: function() {
         return !!this.$slots.extra;
       },
     },

@@ -65,36 +65,36 @@ export default {
   props: {
     avatarBorderColor: {
       type: String,
-      default: "background",
+      default: 'background',
     },
     nameColor: {
       type: String,
-      default: "white",
+      default: 'white',
     },
     textColor: {
       type: String,
-      default: "primaryWhite",
+      default: 'primaryWhite',
     },
     iconColor: {
       type: String,
-      default: "primary",
+      default: 'primary',
     },
   },
   data: () => ({
-    birthdate: new Date(Date.parse("1994-03-14")),
+    birthdate: new Date(Date.parse('1994-03-14')),
   }),
   computed: {
     computeAge() {
       return Math.floor((new Date() - this.birthdate.getTime()) / 3.15576e10);
     },
     computedNameColor: {
-      get: function () {
-        return this.nameColor.length > 0 ? `${this.nameColor}--text` : "";
+      get: function() {
+        return this.nameColor.length > 0 ? `${this.nameColor}--text` : '';
       },
     },
     computedTextColor: {
-      get: function () {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : "";
+      get: function() {
+        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
       },
     },
   },
