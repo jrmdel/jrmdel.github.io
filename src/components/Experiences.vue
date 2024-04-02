@@ -75,6 +75,17 @@
         <v-container fluid>
           <v-row>
             <v-col cols="12">
+              <Leocare
+                cardColor="primary"
+                subtitleColor="tertiary"
+                headerTextColor="primaryWhite"
+                bodyTextColor="tertiary"
+                iconColor="tertiary"
+              />
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12">
               <Swizi
                 cardColor="primary"
                 subtitleColor="tertiary"
