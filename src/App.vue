@@ -67,9 +67,10 @@
           </v-row>
         </div>
       </v-container>
-      <v-menu transition="scroll-y-reverse-transition" offset-y>
+      <v-menu id="no-pdf" transition="scroll-y-reverse-transition" offset-y>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
+            id="no-pdf"
             v-bind="attrs"
             v-on="on"
             class="hidden-md-and-up"

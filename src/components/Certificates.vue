@@ -47,7 +47,7 @@
         </v-col>
       </v-row>
       <!--Only on extra-small and medium-->
-      <v-row class="hidden-sm-only hidden-lg-and-up" no-gutters>
+      <v-row id="no-pdf" class="hidden-sm-only hidden-lg-and-up" no-gutters>
         <v-col cols="12" v-for="(crt, i) in cert" :key="i" class="my-1">
           <v-divider></v-divider>
           <v-card outlined :color="cardColor">

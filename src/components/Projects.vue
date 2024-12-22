@@ -75,7 +75,7 @@
         </v-col>
       </v-row>
       <!--On small devices-->
-      <v-row class="hidden-lg-and-up">
+      <v-row id="no-pdf" class="hidden-lg-and-up">
         <v-col cols="12">
           <v-row>
             <v-col cols="12">
@@ -145,8 +145,6 @@
 </template>
 
 <script>
-// import ChatbotWeb from "@/components/projects/ChatbotWeb"
-// import ClimateData from "@/components/projects/ClimateData"
 import TicketToRide from './projects/TicketToRide.vue';
 import NLP from './projects/NLP.vue';
 import MetalData from './projects/MetalData.vue';
@@ -156,8 +154,6 @@ import SeeMore from './helpers/SeeMore.vue';
 
 export default {
   components: {
-    // ChatbotWeb,
-    // ClimateData,
     TicketToRide,
     NLP,
     MetalData,

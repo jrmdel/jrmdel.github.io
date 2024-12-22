@@ -71,7 +71,7 @@
           @toggle="v => (displayMore = v)"
         />
       </div>
-      <div class="hidden-sm-and-up">
+      <div id="no-pdf" class="hidden-sm-and-up">
         <v-container fluid>
           <v-row>
             <v-col cols="12">
