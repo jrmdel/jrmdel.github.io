@@ -85,12 +85,12 @@ export default {
     isDownloading: false,
   }),
   methods: {
-    download() {
+    async download() {
       this.isDownloading = true;
 
-      const cleanHtml = this.cleanHtml();
+      const html = await this.prepareHtml();
       const formData = new FormData();
-      formData.append('file', new Blob([cleanHtml], { type: 'text/html' }));
+      formData.append('file', new Blob([html], { type: 'text/html' }));
 
       fetch(PDF_URL, {
         method: 'POST',
@@ -107,13 +107,31 @@ export default {
           this.isDownloading = false;
         });
     },
-    cleanHtml() {
+    prepareHtml() {
       const cloned = document.querySelector('html').cloneNode(true);
       const nodesToDelete = cloned.querySelectorAll('#no-pdf');
       nodesToDelete.forEach(e => {
         e.remove();
       });
+      this.embedCss(cloned);
+
       return cloned.outerHTML;
+    },
+    embedCss(html) {
+      const styleSheets = Array.from(document.styleSheets);
+      styleSheets.forEach(sheet => {
+        try {
+          if (sheet.cssRules) {
+            const style = document.createElement('style');
+            style.textContent = Array.from(sheet.cssRules)
+              .map(rule => rule.cssText)
+              .join('\n');
+            html.querySelector('head').appendChild(style);
+          }
+        } catch (e) {
+          console.warn(`Unable to access CSS rules for ${sheet.href}`, e);
+        }
+      });
     },
     autoSaveFile(blob) {
       const url = window.URL.createObjectURL(blob);
