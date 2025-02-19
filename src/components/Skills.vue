@@ -80,7 +80,7 @@ export default {
       {
         icon: 'mdi-vuejs',
         text: 'Vue.JS',
-        val: 80,
+        val: 65,
       },
       {
         icon: 'mdi-nodejs',
@@ -90,12 +90,12 @@ export default {
       {
         icon: NEST_JS_ICON,
         text: 'NestJS',
-        val: 65,
+        val: 75,
       },
       {
         icon: 'mdi-angular',
         text: 'Angular',
-        val: 65,
+        val: 80,
       },
       {
         icon: 'mdi-language-python',
@@ -105,7 +105,7 @@ export default {
       {
         icon: MONGO_DB_ICON,
         text: 'MongoDB',
-        val: 75,
+        val: 70,
       },
       {
         icon: POWER_BI_ICON,
@@ -115,7 +115,7 @@ export default {
       {
         icon: POSTGRE_ICON,
         text: 'Postgre',
-        val: 55,
+        val: 60,
       },
       {
         icon: 'mdi-git',

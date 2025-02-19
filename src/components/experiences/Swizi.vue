@@ -22,8 +22,6 @@
         <li>Interaction avec des API externes</li>
         <li>Développement de webservices</li>
       </ul>
-    </template>
-    <template v-slot:extra>
       <div class="mt-2">
         Puisque nous récupérions beaucoup de données liées aux bâtiments
         (occupation, comptage, réunions...), il était évident de traiter ces
