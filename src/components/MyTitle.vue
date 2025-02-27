@@ -85,10 +85,10 @@ export default {
     isDownloading: false,
   }),
   methods: {
-    async download() {
+    download() {
       this.isDownloading = true;
 
-      const html = await this.prepareHtml();
+      const html = this.prepareHtml();
       const formData = new FormData();
       formData.append('file', new Blob([html], { type: 'text/html' }));
 
@@ -109,13 +109,16 @@ export default {
     },
     prepareHtml() {
       const cloned = document.querySelector('html').cloneNode(true);
-      const nodesToDelete = cloned.querySelectorAll('#no-pdf');
-      nodesToDelete.forEach(e => {
-        e.remove();
-      });
+      this.removeUnwantedNodes(cloned);
       this.embedCss(cloned);
 
       return cloned.outerHTML;
+    },
+    removeUnwantedNodes(html) {
+      const nodesToDelete = html.querySelectorAll('#no-pdf');
+      nodesToDelete.forEach(e => {
+        e.remove();
+      });
     },
     embedCss(html) {
       const styleSheets = Array.from(document.styleSheets);
