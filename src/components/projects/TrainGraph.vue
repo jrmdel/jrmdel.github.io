@@ -15,41 +15,32 @@
   >
     <template v-slot:content>
       <div>
-        Prise en main d'une base de données Graph par la représentation de
-        données ferroviaires. Celles-ci ont été récupérées via l'API Navitia de
-        la SNCF et insérées dans Neo4j. Le but est de faire des statistiques sur
-        l'inter-connexion des villes.
+        Prise en main d'une base de données Graph par la représentation de données ferroviaires.
+        Celles-ci ont été récupérées via l'API Navitia de la SNCF et insérées dans Neo4j. Le but est
+        de faire des statistiques sur l'inter-connexion des villes.
       </div>
     </template>
   </ProjectTemplate>
 </template>
 
-<script>
-import ProjectTemplate from './helpers/ProjectTemplate.vue';
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+import ProjectTemplate from '@/components/projects/helpers/ProjectTemplate.vue';
+
+export default defineComponent({
   components: {
     ProjectTemplate,
   },
   props: {
-    iconColor: {
-      type: String,
-    },
-    cardColor: {
-      type: String,
-    },
-    titleColor: {
-      type: String,
-    },
-    textColor: {
-      type: String,
-    },
-    headerTextColor: {
-      type: String,
-    },
+    iconColor: { type: String },
+    cardColor: { type: String },
+    titleColor: { type: String },
+    textColor: { type: String },
+    headerTextColor: { type: String },
   },
   data: () => ({
     skills: ['Neo4j', 'JavaScript'],
   }),
-};
+});
 </script>

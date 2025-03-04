@@ -15,41 +15,32 @@
   >
     <template v-slot:content>
       <div>
-        Création d'une application web ludique ayant pour but de tester ses
-        connaissances en géographie française. Les questions sont générées
-        aléatoirement et les tentatives sont stockées pour, à terme, pouvoir
-        analyser les données récupérées.
+        Création d'une application web ludique ayant pour but de tester ses connaissances en
+        géographie française. Les questions sont générées aléatoirement et les tentatives sont
+        stockées pour, à terme, pouvoir analyser les données récupérées.
       </div>
     </template>
   </ProjectTemplate>
 </template>
 
-<script>
-import ProjectTemplate from './helpers/ProjectTemplate.vue';
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+import ProjectTemplate from '@/components/projects/helpers/ProjectTemplate.vue';
+
+export default defineComponent({
   components: {
     ProjectTemplate,
   },
   props: {
-    iconColor: {
-      type: String,
-    },
-    cardColor: {
-      type: String,
-    },
-    titleColor: {
-      type: String,
-    },
-    textColor: {
-      type: String,
-    },
-    headerTextColor: {
-      type: String,
-    },
+    iconColor: { type: String },
+    cardColor: { type: String },
+    titleColor: { type: String },
+    textColor: { type: String },
+    headerTextColor: { type: String },
   },
   data: () => ({
     skills: ['Vue.JS', 'SVG'],
   }),
-};
+});
 </script>

@@ -23,45 +23,28 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   props: {
-    titleColor: {
-      type: String,
-      default: '',
-    },
-    skillColor: {
-      type: String,
-      default: 'warning',
-    },
-    textColor: {
-      type: String,
-      default: '',
-    },
+    titleColor: { type: String, default: '' },
+    skillColor: { type: String, default: 'warning' },
+    textColor: { type: String, default: '' },
   },
   data: () => ({
     languages: [
-      {
-        lang: 'Français',
-        val: 100,
-      },
-      {
-        lang: 'Anglais',
-        val: 90,
-      },
+      { lang: 'Français', val: 100 },
+      { lang: 'Anglais', val: 90 },
     ],
   }),
   computed: {
-    computedTitleColor: {
-      get: function() {
-        return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
-      },
+    computedTitleColor() {
+      return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
     },
-    computedTextColor: {
-      get: function() {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-      },
+    computedTextColor() {
+      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
     },
   },
-};
+});
 </script>

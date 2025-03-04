@@ -17,42 +17,25 @@
   </v-card-subtitle>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   props: {
-    leftIcon: {
-      type: String,
-    },
-    leftText: {
-      type: String,
-    },
-    rightIcon: {
-      type: String,
-      default: '',
-    },
-    rightText: {
-      type: String,
-      default: '',
-    },
-    iconColor: {
-      type: String,
-    },
-    textColor: {
-      type: String,
-      default: '',
-    },
+    leftIcon: { type: String },
+    leftText: { type: String },
+    rightIcon: { type: String, default: '' },
+    rightText: { type: String, default: '' },
+    iconColor: { type: String },
+    textColor: { type: String, default: '' },
   },
   computed: {
-    computedTextColor: {
-      get: function() {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-      },
+    computedTextColor() {
+      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
     },
-    hasRightData: {
-      get: function() {
-        return this.rightIcon.length > 0 && this.rightText.length > 0;
-      },
+    hasRightData() {
+      return this.rightIcon.length > 0 && this.rightText.length > 0;
     },
   },
-};
+});
 </script>

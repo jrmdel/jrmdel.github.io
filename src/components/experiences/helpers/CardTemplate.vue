@@ -1,10 +1,6 @@
 <template>
   <v-card dark :color="cardColor">
-    <ExperienceTitle
-      :title="cardTitle"
-      :subtitle="cardSubtitle"
-      :subtitleColor="subtitleColor"
-    />
+    <ExperienceTitle :title="cardTitle" :subtitle="cardSubtitle" :subtitleColor="subtitleColor" />
 
     <InfoHeader
       class="py-2"
@@ -29,19 +25,21 @@
       <ExpandButton
         :isDisabled="!hasExtraSlot"
         :displayMore="displayMore"
-        @toggle="v => (displayMore = v)"
+        @toggle="(v: boolean) => (displayMore = v)"
       />
     </v-card-actions>
   </v-card>
 </template>
 
-<script>
-import ExpandButton from './ExpandButton.vue';
-import ExperienceTitle from './ExperienceTitle.vue';
-import InfoHeader from '../../helpers/InfoHeader.vue';
-import SkillChips from '../../helpers/SkillChips.vue';
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+import ExpandButton from '@/components/experiences/helpers/ExpandButton.vue';
+import ExperienceTitle from '@/components/experiences/helpers/ExperienceTitle.vue';
+import InfoHeader from '@/components/helpers/InfoHeader.vue';
+import SkillChips from '@/components/helpers/SkillChips.vue';
+
+export default defineComponent({
   components: {
     ExpandButton,
     ExperienceTitle,
@@ -49,57 +47,27 @@ export default {
     SkillChips,
   },
   props: {
-    cardColor: {
-      type: String,
-      default: '',
-    },
-    cardTitle: {
-      type: String,
-    },
-    cardSubtitle: {
-      type: String,
-    },
-    subtitleColor: {
-      type: String,
-      default: '',
-    },
-    dateString: {
-      type: String,
-    },
-    locationString: {
-      type: String,
-    },
-    iconColor: {
-      type: String,
-      default: '',
-    },
-    headerTextColor: {
-      type: String,
-      default: 'primaryWhite',
-    },
-    textColor: {
-      type: String,
-      default: '',
-    },
-    skills: {
-      type: Array,
-      default: () => [],
-    },
+    cardColor: { type: String, default: '' },
+    cardTitle: { type: String },
+    cardSubtitle: { type: String },
+    subtitleColor: { type: String, default: '' },
+    dateString: { type: String },
+    locationString: { type: String },
+    iconColor: { type: String, default: '' },
+    headerTextColor: { type: String, default: 'primaryWhite' },
+    textColor: { type: String, default: '' },
+    skills: { type: Array, default: () => [] },
   },
   data: () => ({
     displayMore: false,
   }),
   computed: {
-    computedTextColor: {
-      get: function() {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-      },
+    computedTextColor() {
+      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
     },
-    hasExtraSlot: {
-      get: function() {
-        return !!this.$slots.extra;
-      },
+    hasExtraSlot() {
+      return !!this.$slots.extra;
     },
   },
-};
+});
 </script>

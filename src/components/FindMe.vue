@@ -5,26 +5,10 @@
         <v-col>Retrouvez-moi</v-col>
       </v-row>
       <!--Standard display except on medium screens-->
-      <v-row
-        align="center"
-        justify="space-around"
-        class="pa-4 hidden-md-and-up"
-      >
-        <v-tooltip
-          :color="tooltipColor"
-          bottom
-          v-for="(site, i) in sites"
-          :key="i"
-        >
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              v-bind="attrs"
-              v-on="on"
-              fab
-              :color="site.back"
-              :href="site.link"
-              target="_blank"
-            >
+      <v-row align="center" justify="space-around" class="pa-4 hidden-md-and-up">
+        <v-tooltip :color="tooltipColor" location="bottom" v-for="(site, i) in sites" :key="i">
+          <template v-slot:activator="{ props }">
+            <v-btn v-bind="props" fab :color="site.back" :href="site.link" target="_blank">
               <v-icon :color="site.logo" x-large>
                 {{ site.icon }}
               </v-icon>
@@ -39,20 +23,9 @@
       <v-row id="no-pdf" align="center" class="pa-4 hidden-sm-and-down">
         <v-col cols="6" v-for="(site, i) in sites" :key="i">
           <v-row justify="center" class="mb-4 mb-md-8">
-            <v-tooltip
-              :color="tooltipColor"
-              bottom
-              transition="scale-transition"
-            >
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  fab
-                  v-bind="attrs"
-                  v-on="on"
-                  :color="site.back"
-                  :href="site.link"
-                  target="_blank"
-                >
+            <v-tooltip :color="tooltipColor" location="bottom" transition="scale-transition">
+              <template v-slot:activator="{ props }">
+                <v-btn fab v-bind="props" :color="site.back" :href="site.link" target="_blank">
                   <v-icon :color="site.logo" x-large>
                     {{ site.icon }}
                   </v-icon>
@@ -69,31 +42,21 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   props: {
-    titleColor: {
-      type: String,
-      default: '',
-    },
-    tooltipColor: {
-      type: String,
-    },
-    textColor: {
-      type: String,
-      default: '',
-    },
+    titleColor: { type: String, default: '' },
+    tooltipColor: { type: String },
+    textColor: { type: String, default: '' },
   },
   computed: {
-    computedTitleColor: {
-      get: function() {
-        return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
-      },
+    computedTitleColor() {
+      return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
     },
-    computedTextColor: {
-      get: function() {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-      },
+    computedTextColor() {
+      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
     },
   },
   data: () => ({
@@ -121,13 +84,12 @@ export default {
       },
       {
         text: 'Sur Strava',
-        icon:
-          'M14.92 17.16l1.83-3.63h2.7l-4.51 8.97l-4.57-8.97h2.7l1.85 3.63m-4.29-8.5l-2.45 4.89H4.55L10.61 1.5l6.13 12.05h-3.63l-2.48-4.89z',
+        icon: 'M14.92 17.16l1.83-3.63h2.7l-4.51 8.97l-4.57-8.97h2.7l1.85 3.63m-4.29-8.5l-2.45 4.89H4.55L10.61 1.5l6.13 12.05h-3.63l-2.48-4.89z',
         link: 'https://www.strava.com/athletes/2740041',
         logo: '#FC4C02',
         back: 'white',
       },
     ],
   }),
-};
+});
 </script>

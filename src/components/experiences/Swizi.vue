@@ -13,26 +13,23 @@
   >
     <template v-slot:content>
       <div>
-        Swizi étant principalement une solution de flex-office, elle vient
-        s'interfacer sur les briques logicielles présentes dans les bâtiments de
-        ses clients. Dans ce contexte, j'étais responsable du développement des
-        connecteurs IoT et services tiers.
+        Swizi étant principalement une solution de flex-office, elle vient s'interfacer sur les
+        briques logicielles présentes dans les bâtiments de ses clients. Dans ce contexte, j'étais
+        responsable du développement des connecteurs IoT et services tiers.
       </div>
       <ul class="ml-2 mt-1">
         <li>Interaction avec des API externes</li>
         <li>Développement de webservices</li>
       </ul>
       <div class="mt-2">
-        Puisque nous récupérions beaucoup de données liées aux bâtiments
-        (occupation, comptage, réunions...), il était évident de traiter ces
-        précieuses informations. J'ai ainsi pris le lead sur toute la partie
-        Data, et l'ai déployée
+        Puisque nous récupérions beaucoup de données liées aux bâtiments (occupation, comptage,
+        réunions...), il était évident de traiter ces précieuses informations. J'ai ainsi pris le
+        lead sur toute la partie Data, et l'ai déployée
         <span class="font-italic">from scratch</span> :
       </div>
       <ul class="ml-2 mt-1">
         <li>
-          Mise en place de l'infrastructure Azure et du datalake en 3 zones
-          (gold, silver et bronze)
+          Mise en place de l'infrastructure Azure et du datalake en 3 zones (gold, silver et bronze)
         </li>
         <li>Création des pipelines de récupération de données dans Synapse</li>
         <li>Développement des notebooks Python de traitement de la donnée</li>
@@ -46,15 +43,17 @@
   </CardTemplate>
 </template>
 
-<script>
-import CardTemplate from './helpers/CardTemplate.vue';
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+import CardTemplate from '@/components/experiences/helpers/CardTemplate.vue';
+
+export default defineComponent({
   components: {
     CardTemplate,
   },
   data: () => ({
     skills: ['Node.JS', 'Python', 'Pandas', 'Azure Synapse', 'PowerBI'],
   }),
-};
+});
 </script>

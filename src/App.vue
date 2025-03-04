@@ -17,7 +17,7 @@
           </v-row>
           <v-row justify="space-between">
             <v-col cols="12" md="4">
-              <v-card class="tertiary fill-height">
+              <v-card color="tertiary" class="fill-height">
                 <Identity
                   avatarBorderColor="primary"
                   nameColor="white"
@@ -47,11 +47,7 @@
                   textColor="primaryWhite"
                   iconColor="primary"
                 />
-                <FindMe
-                  titleColor="white"
-                  tooltipColor="primaryLight"
-                  textColor="tertiary"
-                />
+                <FindMe titleColor="white" tooltipColor="primaryLight" textColor="tertiary" />
               </v-card>
             </v-col>
             <v-col>
@@ -68,11 +64,10 @@
         </div>
       </v-container>
       <v-menu id="no-pdf" transition="scroll-y-reverse-transition" offset-y>
-        <template v-slot:activator="{ on, attrs }">
+        <template v-slot:activator="{ props }">
           <v-btn
             id="no-pdf"
-            v-bind="attrs"
-            v-on="on"
+            v-bind="props"
             class="hidden-md-and-up"
             fab
             color="secondary"
@@ -86,13 +81,9 @@
           </v-btn>
         </template>
         <v-list dense color="background">
-          <v-subheader class="text-body-2 ml-1">Aller à</v-subheader>
-          <v-list-item
-            v-for="(jump, i) in jumps"
-            :key="i"
-            @click="jumpTo(jump.tag)"
-          >
-            <v-list-item-content>{{ jump.name }}</v-list-item-content>
+          <v-list-subheader class="text-body-2 ml-1">Aller à</v-list-subheader>
+          <v-list-item v-for="(jump, i) in jumps" :key="i" @click="jumpTo(jump.tag)">
+            {{ jump.name }}
           </v-list-item>
         </v-list>
       </v-menu>
@@ -100,19 +91,26 @@
   </v-app>
 </template>
 
-<script>
-import FindMe from './components/FindMe.vue';
-import Skills from '@/components/Skills';
-import Languages from '@/components/Languages';
-import AboutMe from '@/components/AboutMe';
-import Experiences from '@/components/Experiences';
-import Diploma from '@/components/Diploma.vue';
-import Projects from '@/components/Projects.vue';
-import Certificates from '@/components/Certificates';
-import Identity from '@/components/Identity';
-import MyTitle from './components/MyTitle.vue';
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+import AboutMe from '@/components/AboutMe.vue';
+import Certificates from '@/components/Certificates.vue';
+import Diploma from '@/components/Diploma.vue';
+import Experiences from '@/components/Experiences.vue';
+import FindMe from '@/components/FindMe.vue';
+import Identity from '@/components/Identity.vue';
+import Languages from '@/components/Languages.vue';
+import MyTitle from '@/components/MyTitle.vue';
+import Projects from '@/components/Projects.vue';
+import Skills from '@/components/Skills.vue';
+// import { useGoTo } from 'vuetify';
+
+export default defineComponent({
+  // setup() {
+  //   const goTo = useGoTo();
+  //   return { goTo };
+  // },
   components: {
     Identity,
     FindMe,
@@ -137,14 +135,17 @@ export default {
     email: 'jeremie.deletraz@gmail.com',
   }),
   methods: {
-    jumpTo(tag) {
-      this.$vuetify.goTo(this.$refs[tag], {
-        easing: 'easeInOutCubic',
-        duration: 400,
-      });
+    // jumpTo(tag) {
+    //   this.goTo(tag, {
+    //     easing: 'easeInOutCubic',
+    //     duration: 400,
+    //   });
+    // },
+    jumpTo(tag: string): void {
+      console.log(tag);
     },
   },
-};
+});
 </script>
 
 <style>

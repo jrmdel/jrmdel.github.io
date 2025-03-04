@@ -15,9 +15,7 @@
       </div>
     </v-card-text>
     <v-card-actions class="mt-n3">
-      <v-chip draggable small class="tertiary--text my-1 ml-2" color="warning"
-        >Node.JS</v-chip
-      >
+      <v-chip draggable small class="tertiary--text my-1 ml-2" color="warning">Node.JS</v-chip>
     </v-card-actions>
   </v-card>
 </template>

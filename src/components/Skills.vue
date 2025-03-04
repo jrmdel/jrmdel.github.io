@@ -4,12 +4,7 @@
       <v-row class="my-2 text-h4 font-weight-light" :class="computedTitleColor">
         <v-col>Compétences</v-col>
       </v-row>
-      <v-row
-        align="center"
-        class="px-4 my-n2"
-        v-for="(skill, i) in skills"
-        :key="i"
-      >
+      <v-row align="center" class="px-4 my-n2" v-for="(skill, i) in skills" :key="i">
         <v-col cols="auto">
           <v-icon :color="iconColor">
             {{ skill.icon }}
@@ -35,44 +30,30 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
+
 import {
   MONGO_DB_ICON,
-  POWER_BI_ICON,
-  POSTGRE_ICON,
   MY_SQL_ICON,
   NEST_JS_ICON,
+  POSTGRE_ICON,
+  POWER_BI_ICON,
 } from '@/assets/icons/icons.constants';
 
-export default {
+export default defineComponent({
   props: {
-    iconColor: {
-      type: String,
-      default: '',
-    },
-    titleColor: {
-      type: String,
-      default: '',
-    },
-    textColor: {
-      type: String,
-      default: '',
-    },
-    sliderColor: {
-      type: String,
-      default: 'warning',
-    },
+    iconColor: { type: String, default: '' },
+    titleColor: { type: String, default: '' },
+    textColor: { type: String, default: '' },
+    sliderColor: { type: String, default: 'warning' },
   },
   computed: {
-    computedTextColor: {
-      get: function() {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-      },
+    computedTextColor() {
+      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
     },
-    computedTitleColor: {
-      get: function() {
-        return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
-      },
+    computedTitleColor() {
+      return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
     },
   },
   data: () => ({
@@ -144,5 +125,5 @@ export default {
   beforeMount() {
     this.skills.sort((a, b) => b.val - a.val);
   },
-};
+});
 </script>
