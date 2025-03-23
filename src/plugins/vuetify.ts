@@ -2,8 +2,6 @@ import 'vuetify/styles';
 import '@mdi/font/css/materialdesignicons.css';
 
 import { createVuetify, ThemeDefinition } from 'vuetify';
-import * as components from 'vuetify/components';
-import * as directives from 'vuetify/directives';
 
 const lightTheme: ThemeDefinition = {
   dark: false,
@@ -31,6 +29,4 @@ export const vuetify = createVuetify({
       lightTheme,
     },
   },
-  components,
-  directives,
 });
