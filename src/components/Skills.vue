@@ -33,14 +33,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import {
-  MONGO_DB_ICON,
-  MY_SQL_ICON,
-  NEST_JS_ICON,
-  POSTGRE_ICON,
-  POWER_BI_ICON,
-} from '@/assets/icons/icons.constants';
-
 export default defineComponent({
   props: {
     iconColor: { type: String, default: '' },
@@ -69,7 +61,7 @@ export default defineComponent({
         val: 85,
       },
       {
-        icon: NEST_JS_ICON,
+        icon: 'custom:nestjs',
         text: 'NestJS',
         val: 75,
       },
@@ -84,17 +76,17 @@ export default defineComponent({
         val: 60,
       },
       {
-        icon: MONGO_DB_ICON,
+        icon: 'custom:mongodb',
         text: 'MongoDB',
         val: 70,
       },
       {
-        icon: POWER_BI_ICON,
+        icon: 'custom:powerbi',
         text: 'PowerBI',
         val: 50,
       },
       {
-        icon: POSTGRE_ICON,
+        icon: 'custom:postgre',
         text: 'Postgre',
         val: 60,
       },
@@ -116,7 +108,7 @@ export default defineComponent({
         val: 50,
       },
       {
-        icon: MY_SQL_ICON,
+        icon: 'custom:mysql',
         text: 'MySQL',
         val: 50,
       },

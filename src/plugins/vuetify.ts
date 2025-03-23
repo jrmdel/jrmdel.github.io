@@ -2,6 +2,9 @@ import 'vuetify/styles';
 import '@mdi/font/css/materialdesignicons.css';
 
 import { createVuetify, ThemeDefinition } from 'vuetify';
+import { mdi } from 'vuetify/iconsets/mdi';
+
+import { customIcons } from '@/components/icons/custom-icons.js';
 
 const lightTheme: ThemeDefinition = {
   dark: false,
@@ -22,6 +25,10 @@ const lightTheme: ThemeDefinition = {
 export const vuetify = createVuetify({
   icons: {
     defaultSet: 'mdi',
+    sets: {
+      mdi,
+      custom: customIcons,
+    },
   },
   theme: {
     defaultTheme: 'lightTheme',
