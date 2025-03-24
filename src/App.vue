@@ -31,7 +31,7 @@
                   diplomaTextColor="primaryWhite"
                   iconColor="primary"
                   textColor="primaryLight"
-                  chipTextColor="tertiary"
+                  chipTextColor="warning"
                 />
                 <Languages titleColor="white" textColor="primaryWhite" />
                 <Certificates

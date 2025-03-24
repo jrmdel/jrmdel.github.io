@@ -4,7 +4,7 @@
       <v-icon color="tertiary" class="toggleUpDown" :class="{ rotate: displayMore }">
         {{ iconDisplay ? 'mdi-minus' : 'mdi-plus' }}
       </v-icon>
-      <span class="tertiary--text">
+      <span class="text-tertiary">
         {{ iconDisplay ? 'Voir moins' : 'Voir plus' }}
       </span>
     </v-btn>

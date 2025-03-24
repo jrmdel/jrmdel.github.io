@@ -1,6 +1,6 @@
 <template>
   <v-card class="mt-6" color="primaryLight">
-    <v-card-title class="text-h4 font-weight-light tertiary--text">
+    <v-card-title class="text-h4 font-weight-light text-tertiary">
       Projets & Réalisations
     </v-card-title>
     <v-card-text>

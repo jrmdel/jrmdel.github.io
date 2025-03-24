@@ -16,10 +16,10 @@
           </span>
         </v-col>
         <v-col cols="7" md="5" lg="6" xl="7">
-          <v-slider
+          <v-progress-linear
             :color="sliderColor"
             hide-details
-            :value="skill.val"
+            :model-value="skill.val"
             min="0"
             max="100"
             readonly
@@ -33,6 +33,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import { useColor } from '@/composables/useColor';
+
 export default defineComponent({
   props: {
     iconColor: { type: String, default: '' },
@@ -40,13 +42,14 @@ export default defineComponent({
     textColor: { type: String, default: '' },
     sliderColor: { type: String, default: 'warning' },
   },
-  computed: {
-    computedTextColor() {
-      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-    },
-    computedTitleColor() {
-      return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
-    },
+  setup(props) {
+    const computedTitleColor = useColor(props.titleColor);
+    const computedTextColor = useColor(props.textColor);
+
+    return {
+      computedTitleColor,
+      computedTextColor,
+    };
   },
   data: () => ({
     skills: [

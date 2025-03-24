@@ -87,6 +87,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import { useColor } from '@/composables/useColor';
+
 export default defineComponent({
   props: {
     titleColor: { type: String, default: '' },
@@ -116,16 +118,16 @@ export default defineComponent({
       },
     ],
   }),
-  computed: {
-    computedTitleColor() {
-      return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
-    },
-    computedCertificateTextColor() {
-      return this.certificateTextColor.length > 0 ? `${this.certificateTextColor}--text` : '';
-    },
-    computedTextColor() {
-      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-    },
+  setup(props) {
+    const computedTitleColor = useColor(props.titleColor);
+    const computedCertificateTextColor = useColor(props.certificateTextColor);
+    const computedTextColor = useColor(props.textColor);
+
+    return {
+      computedTitleColor,
+      computedCertificateTextColor,
+      computedTextColor,
+    };
   },
 });
 </script>

@@ -23,7 +23,7 @@
     </template>
     <template v-slot:extra>
       <div class="mt-2">J'ai ainsi pu parfaire certaines compétences annexes :</div>
-      <ul class="ml-2 mt-1">
+      <ul class="ml-4 mt-1">
         <li>S'adapter à un projet à grande échelle</li>
         <li>Améliorer ma capacité à résoudre des problèmes</li>
         <li>Prendre des responsabilités</li>

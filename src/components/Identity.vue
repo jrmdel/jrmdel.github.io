@@ -42,6 +42,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import { useColor } from '@/composables/useColor';
+
 export default defineComponent({
   props: {
     avatarBorderColor: { type: String, default: 'background' },
@@ -49,18 +51,21 @@ export default defineComponent({
     textColor: { type: String, default: 'primaryWhite' },
     iconColor: { type: String, default: 'primary' },
   },
+  setup(props) {
+    const computedNameColor = useColor(props.nameColor);
+    const computedTextColor = useColor(props.textColor);
+
+    return {
+      computedNameColor,
+      computedTextColor,
+    };
+  },
   data: () => ({
     birthdate: new Date(Date.parse('1994-03-14')),
   }),
   computed: {
     computeAge() {
       return Math.floor((Date.now() - this.birthdate.getTime()) / 3.15576e10);
-    },
-    computedNameColor() {
-      return this.nameColor.length > 0 ? `${this.nameColor}--text` : '';
-    },
-    computedTextColor() {
-      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
     },
   },
 });

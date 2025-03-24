@@ -39,6 +39,7 @@ import { defineComponent } from 'vue';
 
 import InfoHeader from '@/components/helpers/InfoHeader.vue';
 import SkillChips from '@/components/helpers/SkillChips.vue';
+import { useColor } from '@/composables/useColor';
 
 export default defineComponent({
   components: {
@@ -60,15 +61,15 @@ export default defineComponent({
     skills: { type: Array, default: () => [] },
     skillColor: { type: String, default: 'warning' },
   },
+  setup(props) {
+    const computedTitleColor = useColor(props.titleColor);
+    const computedTextColor = useColor(props.textColor);
+
+    return { computedTitleColor, computedTextColor };
+  },
   computed: {
     hasLink() {
       return this.link.length > 0;
-    },
-    computedTextColor() {
-      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-    },
-    computedTitleColor() {
-      return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
     },
   },
 });

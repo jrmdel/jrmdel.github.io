@@ -38,6 +38,7 @@ import ExpandButton from '@/components/experiences/helpers/ExpandButton.vue';
 import ExperienceTitle from '@/components/experiences/helpers/ExperienceTitle.vue';
 import InfoHeader from '@/components/helpers/InfoHeader.vue';
 import SkillChips from '@/components/helpers/SkillChips.vue';
+import { useColor } from '@/composables/useColor';
 
 export default defineComponent({
   components: {
@@ -58,13 +59,15 @@ export default defineComponent({
     textColor: { type: String, default: '' },
     skills: { type: Array, default: () => [] },
   },
+  setup(props) {
+    const computedTextColor = useColor(props.textColor);
+
+    return { computedTextColor };
+  },
   data: () => ({
     displayMore: false,
   }),
   computed: {
-    computedTextColor() {
-      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-    },
     hasExtraSlot() {
       return !!this.$slots.extra;
     },

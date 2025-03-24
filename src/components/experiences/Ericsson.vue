@@ -23,13 +23,13 @@
         restreints à un seul robot, à une solution de tests distribués pouvant faire intervenir
         plusieurs robots. Cela m'a permis d'approfondir des notions déjà connues comme :
       </div>
-      <ul class="ml-2 mt-1">
+      <ul class="ml-4 mt-1">
         <li>Développement Java et Web</li>
         <li>Mise en place de sockets</li>
         <li>Travail en équipe</li>
       </ul>
       <div class="mt-1">Mais également de nouvelles notions comme :</div>
-      <ul class="ml-2 mt-1">
+      <ul class="ml-4 mt-1">
         <li>Manipulation de Raspberry Pi</li>
         <li>Développement avec le framework Spring Boot</li>
         <li>Lien entre code et base de données via l'ORM Hibernate</li>

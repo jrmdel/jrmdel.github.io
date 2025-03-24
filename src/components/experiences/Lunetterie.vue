@@ -9,13 +9,14 @@
     locationString="Annecy, France"
     :iconColor="iconColor"
     :textColor="bodyTextColor"
-    :skills="skills">
+    :skills="skills"
+  >
     <template v-slot:extra>
       <div>
         Magasin indépendant proposant principalement des lunettes de créateurs, optiques ou
         solaires.
       </div>
-      <ul class="ml-2 mt-1">
+      <ul class="ml-4 mt-1">
         <li>Vente et conseils</li>
         <li>Responsable des examens de la vue</li>
         <li>Ajustage de montures et taille de verres</li>

@@ -10,6 +10,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import { useColor } from '@/composables/useColor';
+
 export default defineComponent({
   props: {
     title: { type: String },
@@ -17,13 +19,14 @@ export default defineComponent({
     subtitle: { type: String },
     subtitleColor: { type: String, default: '' },
   },
-  computed: {
-    computedTitleColor() {
-      return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
-    },
-    computedSubtitleColor() {
-      return this.subtitleColor.length > 0 ? `${this.subtitleColor}--text` : '';
-    },
+  setup(props) {
+    const computedTitleColor = useColor(props.titleColor);
+    const computedSubtitleColor = useColor(props.subtitleColor);
+
+    return {
+      computedTitleColor,
+      computedSubtitleColor,
+    };
   },
 });
 </script>

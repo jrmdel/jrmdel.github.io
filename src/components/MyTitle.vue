@@ -37,6 +37,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import { useColor } from '@/composables/useColor';
+
 const PDF_NAME = 'cv-jeremie-deletraz.pdf';
 const PDF_URL = 'https://rivonglade.onthewifi.com/html-to-pdf/api/v1/convert';
 
@@ -48,10 +50,12 @@ export default defineComponent({
     buttonColor: { type: String },
     email: { type: String, default: '' },
   },
+  setup(props) {
+    const computedTextColor = useColor(props.textColor);
+
+    return { computedTextColor };
+  },
   computed: {
-    computedTextColor() {
-      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-    },
     hasValidEmail() {
       return this.email.length > 0
         ? this.email.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/) != null

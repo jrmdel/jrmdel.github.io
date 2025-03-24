@@ -1,7 +1,7 @@
 <template>
   <v-row no-gutters>
     <v-col cols="auto" v-for="(skill, i) in skills" :key="i">
-      <v-chip :small="isSmall" class="tertiary--text" :class="chipMargin" :color="chipColor">
+      <v-chip :small="isSmall" :class="chipMargin" :color="chipColor">
         {{ skill }}
       </v-chip>
     </v-col>

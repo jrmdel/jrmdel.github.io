@@ -49,6 +49,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import { useColor } from '@/composables/useColor';
+
 export default defineComponent({
   props: {
     titleColor: { type: String, default: '' },
@@ -74,19 +76,18 @@ export default defineComponent({
       },
     ],
   }),
-  computed: {
-    computedTitleColor() {
-      return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
-    },
-    computedDiplomaTextColor() {
-      return this.diplomaTextColor.length > 0 ? `${this.diplomaTextColor}--text` : '';
-    },
-    computedTextColor() {
-      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-    },
-    computedChipTextColor() {
-      return this.chipTextColor.length > 0 ? `${this.chipTextColor}--text` : '';
-    },
+  setup(props) {
+    const computedTitleColor = useColor(props.titleColor);
+    const computedDiplomaTextColor = useColor(props.diplomaTextColor);
+    const computedTextColor = useColor(props.textColor);
+    const computedChipTextColor = useColor(props.chipTextColor);
+
+    return {
+      computedTitleColor,
+      computedDiplomaTextColor,
+      computedTextColor,
+      computedChipTextColor,
+    };
   },
 });
 </script>

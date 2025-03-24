@@ -9,7 +9,8 @@
     locationString="Rennes, France"
     iconColor="tertiary"
     textColor="tertiary"
-    :skills="skills">
+    :skills="skills"
+  >
     <template v-slot:content>
       <div>
         Dans cette start-up de la French Tech proposant des assurances pour les particuliers (auto,
@@ -18,7 +19,7 @@
         l'outil interne permettant le suivi des dossiers clients et l'indemnisation en cas de
         sinistre.
       </div>
-      <ul class="ml-2 mt-1">
+      <ul class="ml-4 mt-1">
         <li>Développement dans un contexte métier exigeant</li>
         <li>Revues de code au sein de l'équipe</li>
         <li>Rédaction de tests unitaires</li>

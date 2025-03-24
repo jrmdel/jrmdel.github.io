@@ -20,6 +20,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import { useColor } from '@/composables/useColor';
+
 export default defineComponent({
   props: {
     leftIcon: { type: String },
@@ -29,10 +31,12 @@ export default defineComponent({
     iconColor: { type: String },
     textColor: { type: String, default: '' },
   },
+  setup(props) {
+    const computedTextColor = useColor(props.textColor);
+
+    return { computedTextColor };
+  },
   computed: {
-    computedTextColor() {
-      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-    },
     hasRightData() {
       return this.rightIcon.length > 0 && this.rightText.length > 0;
     },

@@ -10,7 +10,7 @@
             :rotate="360"
             :size="100"
             :width="6"
-            :value="l.val"
+            :model-value="l.val"
             :color="skillColor"
           >
             <span class="font-weight-medium" :class="computedTextColor">
@@ -26,11 +26,22 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import { useColor } from '@/composables/useColor';
+
 export default defineComponent({
   props: {
     titleColor: { type: String, default: '' },
     skillColor: { type: String, default: 'warning' },
     textColor: { type: String, default: '' },
+  },
+  setup(props) {
+    const computedTitleColor = useColor(props.titleColor);
+    const computedTextColor = useColor(props.textColor);
+
+    return {
+      computedTitleColor,
+      computedTextColor,
+    };
   },
   data: () => ({
     languages: [
@@ -38,13 +49,5 @@ export default defineComponent({
       { lang: 'Anglais', val: 90 },
     ],
   }),
-  computed: {
-    computedTitleColor() {
-      return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
-    },
-    computedTextColor() {
-      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-    },
-  },
 });
 </script>

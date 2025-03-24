@@ -45,19 +45,22 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import { useColor } from '@/composables/useColor';
+
 export default defineComponent({
   props: {
     titleColor: { type: String, default: '' },
     tooltipColor: { type: String },
     textColor: { type: String, default: '' },
   },
-  computed: {
-    computedTitleColor() {
-      return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
-    },
-    computedTextColor() {
-      return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-    },
+  setup(props) {
+    const computedTitleColor = useColor(props.titleColor);
+    const computedTextColor = useColor(props.textColor);
+
+    return {
+      computedTitleColor,
+      computedTextColor,
+    };
   },
   data: () => ({
     sites: [
@@ -84,7 +87,7 @@ export default defineComponent({
       },
       {
         text: 'Sur Strava',
-        icon: 'M14.92 17.16l1.83-3.63h2.7l-4.51 8.97l-4.57-8.97h2.7l1.85 3.63m-4.29-8.5l-2.45 4.89H4.55L10.61 1.5l6.13 12.05h-3.63l-2.48-4.89z',
+        icon: 'custom:strava',
         link: 'https://www.strava.com/athletes/2740041',
         logo: '#FC4C02',
         back: 'white',

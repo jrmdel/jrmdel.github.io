@@ -3,8 +3,11 @@
     <v-card-title class="text-h4 font-weight-light" :class="computedTitleColor">
       A propos de moi
     </v-card-title>
-    <v-card-text>
-      <p class="text-subtitle-1 font-weight-regular mx-3" :class="computedTextColor">
+    <v-card-text
+      class="d-flex flex-column ga-3 text-subtitle-1 font-weight-light"
+      style="line-height: 1.6"
+    >
+      <p :class="computedTextColor">
         Je suis un ingénieur <span class="font-weight-medium">curieux</span>,
         <span class="font-weight-medium">responsable</span> et
         <span class="font-weight-medium">enthousiaste</span>, diplômé d'informatique. Initialement
@@ -13,7 +16,7 @@
         une grande appétence pour le développement
         <span class="font-weight-medium">web</span> JavaScript/TypeScript.
       </p>
-      <p class="text-subtitle-1 font-weight-regular mx-3" :class="computedTextColor">
+      <p :class="computedTextColor">
         Mon ambition à terme : pouvoir rejoindre un projet ayant un impact environnemental/sociétal
         positif pour aligner mon travail sur mes valeurs individuelles.
       </p>
@@ -24,19 +27,19 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import { useColor } from '@/composables/useColor';
+
 export default defineComponent({
   props: {
     cardColor: { type: String },
     titleColor: { type: String, default: '' },
     bodyTextColor: { type: String, default: '' },
   },
-  computed: {
-    computedTitleColor() {
-      return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
-    },
-    computedTextColor() {
-      return this.bodyTextColor.length > 0 ? `${this.bodyTextColor}--text` : '';
-    },
+  setup(props) {
+    const computedTitleColor = useColor(props.titleColor);
+    const computedTextColor = useColor(props.bodyTextColor);
+
+    return { computedTitleColor, computedTextColor };
   },
 });
 </script>

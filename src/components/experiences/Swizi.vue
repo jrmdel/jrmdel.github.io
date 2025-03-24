@@ -17,7 +17,7 @@
         briques logicielles présentes dans les bâtiments de ses clients. Dans ce contexte, j'étais
         responsable du développement des connecteurs IoT et services tiers.
       </div>
-      <ul class="ml-2 mt-1">
+      <ul class="ml-4 mt-1">
         <li>Interaction avec des API externes</li>
         <li>Développement de webservices</li>
       </ul>
@@ -27,7 +27,7 @@
         lead sur toute la partie Data, et l'ai déployée
         <span class="font-italic">from scratch</span> :
       </div>
-      <ul class="ml-2 mt-1">
+      <ul class="ml-4 mt-1">
         <li>
           Mise en place de l'infrastructure Azure et du datalake en 3 zones (gold, silver et bronze)
         </li>

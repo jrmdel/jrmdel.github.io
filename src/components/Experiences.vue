@@ -1,6 +1,6 @@
 <template>
   <v-card color="primaryLight">
-    <v-card-title class="text-h4 font-weight-light tertiary--text">Expériences</v-card-title>
+    <v-card-title class="text-h4 font-weight-light text-tertiary">Expériences</v-card-title>
     <v-card-text>
       <div class="hidden-xs">
         <v-timeline dense align-top>

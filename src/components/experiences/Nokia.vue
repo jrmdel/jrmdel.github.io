@@ -9,7 +9,8 @@
     locationString="Lannion, France"
     :iconColor="iconColor"
     :textColor="bodyTextColor"
-    :skills="skills">
+    :skills="skills"
+  >
     <template v-slot:content>
       <div>
         Pour terminer mon cursus ingénieur, j'ai réalisé une alternance d'un an au sein de Nokia
@@ -22,14 +23,14 @@
       <div class="mt-1">
         Partant de zéro, j'ai eu la possibilité d'aborder les nombreuses phases de ce projet :
       </div>
-      <ul class="ml-2 mt-1">
+      <ul class="ml-4 mt-1">
         <li>Etat de l'art</li>
         <li>Rédaction de documentation technique (notamment cahier des charges)</li>
         <li>Choix de technologies</li>
         <li>Architecture logicielle et développement fullstack</li>
       </ul>
       <div class="mt-1">J'ai également eu pour missions annexes :</div>
-      <ul class="ml-2 mt-1">
+      <ul class="ml-4 mt-1">
         <li>
           Formation d'un nouvel arrivant sur le projet afin qu'il puisse amener la solution en
           production.
