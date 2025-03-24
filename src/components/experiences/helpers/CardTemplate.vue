@@ -1,5 +1,5 @@
 <template>
-  <v-card dark :color="cardColor">
+  <v-card :color="cardColor">
     <ExperienceTitle :title="cardTitle" :subtitle="cardSubtitle" :subtitleColor="subtitleColor" />
 
     <InfoHeader

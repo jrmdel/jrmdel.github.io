@@ -1,6 +1,12 @@
 <template>
   <div class="d-flex justify-center">
-    <v-btn rounded outlined color="primary" :retain-focus-on-click="false" @click="sendToggle">
+    <v-btn
+      rounded="pill"
+      variant="outlined"
+      color="primary"
+      :retain-focus-on-click="false"
+      @click="sendToggle"
+    >
       <v-icon color="tertiary" class="toggleUpDown" :class="{ rotate: displayMore }">
         {{ iconDisplay ? 'mdi-minus' : 'mdi-plus' }}
       </v-icon>

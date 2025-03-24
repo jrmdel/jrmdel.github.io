@@ -1,9 +1,9 @@
 <template>
   <div>
     <v-card-title class="text-wrap" :class="computedTitleColor">{{ title }}</v-card-title>
-    <v-card-subtitle>
+    <v-card-text>
       <span class="text-h6" :class="computedSubtitleColor">{{ subtitle }}</span>
-    </v-card-subtitle>
+    </v-card-text>
   </div>
 </template>
 

@@ -1,34 +1,40 @@
 <template>
   <div>
     <v-card :color="cardColor" slot="pdf-content">
-      <v-card-title>
-        <span class="text-sm-h2 font-weight-light text-h3" :class="computedTextColor">
-          Ingénieur Fullstack JS & Data
+      <v-card-title class="d-flex justify-space-between align-end align-md-center pa-4">
+        <span
+          class="text-sm-h2 font-weight-light text-h3"
+          :class="computedTextColor"
+          style="text-wrap-mode: wrap"
+        >
+          Ingénieur Fullstack TS & Data
         </span>
-        <v-spacer />
-        <v-btn
-          v-show="hasValidEmail"
-          :color="buttonColor"
-          variant="outlined"
-          icon="mdi-at"
-          :href="mailTo"
-        >
-          <template v-slot:default>
-            <v-icon :color="iconColor"></v-icon>
-          </template>
-        </v-btn>
-        <v-btn
-          class="ml-2"
-          :color="buttonColor"
-          :loading="isDownloading"
-          variant="outlined"
-          icon="mdi-download"
-          @click="download"
-        >
-          <template v-slot:default>
-            <v-icon :color="iconColor"></v-icon>
-          </template>
-        </v-btn>
+
+        <div class="pl-5">
+          <v-btn
+            v-show="hasValidEmail"
+            :color="buttonColor"
+            variant="outlined"
+            icon="mdi-at"
+            :href="mailTo"
+          >
+            <template v-slot:default>
+              <v-icon :color="iconColor"></v-icon>
+            </template>
+          </v-btn>
+          <v-btn
+            class="ml-2"
+            :color="buttonColor"
+            :loading="isDownloading"
+            variant="outlined"
+            icon="mdi-download"
+            @click="download"
+          >
+            <template v-slot:default>
+              <v-icon :color="iconColor"></v-icon>
+            </template>
+          </v-btn>
+        </div>
       </v-card-title>
     </v-card>
   </div>

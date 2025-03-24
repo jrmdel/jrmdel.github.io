@@ -1,6 +1,6 @@
 <template>
   <v-card :color="cardColor">
-    <v-card-title class="text-wrap mb-n6" :class="computedTitleColor">{{ title }}</v-card-title>
+    <v-card-title class="text-wrap mb-n4" :class="computedTitleColor">{{ title }}</v-card-title>
 
     <InfoHeader
       :iconColor="iconColor"
@@ -19,8 +19,8 @@
       <SkillChips :skills="skills" :chipColor="skillColor" :isSmall="true" chipMargin="my-1 ml-2" />
       <v-spacer />
       <v-btn
-        small
-        rounded
+        size="small"
+        rounded="pill"
         v-show="hasLink"
         color="primaryWhite"
         variant="text"

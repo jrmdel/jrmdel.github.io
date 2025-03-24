@@ -6,7 +6,7 @@
           <v-row>
             <v-col cols="12">
               <MyTitle
-                ref="title"
+                id="title"
                 textColor="primaryLight"
                 cardColor="tertiary"
                 iconColor="primaryLight"
@@ -25,67 +25,64 @@
                   textColor="primaryWhite"
                 />
                 <Diploma
-                  ref="diplomas"
-                  cardColor="tertiary"
+                  id="diplomas"
                   titleColor="white"
                   diplomaTextColor="primaryWhite"
                   iconColor="primary"
                   textColor="primaryLight"
-                  chipTextColor="warning"
                 />
                 <Languages titleColor="white" textColor="primaryWhite" />
                 <Certificates
-                  cardColor="tertiary"
                   titleColor="white"
                   certificateTextColor="primaryWhite"
                   iconColor="primary"
                   textColor="primaryLight"
                 />
                 <Skills
-                  ref="skills"
+                  id="skills"
                   titleColor="white"
                   textColor="primaryWhite"
                   iconColor="primary"
                 />
-                <FindMe titleColor="white" tooltipColor="primaryLight" textColor="tertiary" />
+                <FindMe titleColor="white" textColor="primaryWhite" />
               </v-card>
             </v-col>
             <v-col>
               <AboutMe
-                ref="about-me"
+                id="about-me"
                 cardColor="primaryLight"
                 titleColor="tertiary"
                 bodyTextColor="tertiary"
               />
-              <Experiences ref="experiences" />
-              <Projects ref="projects" />
+              <Experiences id="experiences" />
+              <Projects id="projects" />
             </v-col>
           </v-row>
         </div>
       </v-container>
-      <v-menu id="no-pdf" transition="scroll-y-reverse-transition" offset-y>
+      <v-menu id="no-pdf" transition="slide-y-reverse-transition" location="end">
         <template v-slot:activator="{ props }">
-          <v-btn
+          <v-fab
             id="no-pdf"
             v-bind="props"
             class="hidden-md-and-up"
-            fab
             color="secondary"
-            large
-            dark
-            fixed
-            bottom
-            right
+            :app="true"
+            size="large"
+            location="bottom right"
+            icon
           >
             <v-icon>mdi-menu</v-icon>
-          </v-btn>
+          </v-fab>
         </template>
-        <v-list dense color="background">
-          <v-list-subheader class="text-body-2 ml-1">Aller à</v-list-subheader>
-          <v-list-item v-for="(jump, i) in jumps" :key="i" @click="jumpTo(jump.tag)">
-            {{ jump.name }}
-          </v-list-item>
-        </v-list>
+        <v-card max-width="250">
+          <v-list density="compact" color="background">
+            <v-list-subheader class="text-body-2 ml-1">Aller à</v-list-subheader>
+            <v-list-item v-for="(jump, i) in jumps" :key="i" @click="jumpTo(jump.tag)">
+              {{ jump.name }}
+            </v-list-item>
+          </v-list>
+        </v-card>
       </v-menu>
     </div>
   </v-app>
@@ -104,13 +101,20 @@ import Languages from '@/components/Languages.vue';
 import MyTitle from '@/components/MyTitle.vue';
 import Projects from '@/components/Projects.vue';
 import Skills from '@/components/Skills.vue';
-// import { useGoTo } from 'vuetify';
+import { useGoTo } from 'vuetify';
 
 export default defineComponent({
-  // setup() {
-  //   const goTo = useGoTo();
-  //   return { goTo };
-  // },
+  setup() {
+    const goTo = useGoTo();
+    const jumpTo = (tag: string): void => {
+      goTo(tag, {
+        easing: 'easeInOutCubic',
+        duration: 400,
+        offset: -15,
+      });
+    };
+    return { jumpTo };
+  },
   components: {
     Identity,
     FindMe,
@@ -125,26 +129,15 @@ export default defineComponent({
   },
   data: () => ({
     jumps: [
-      { name: 'Titre', tag: 'title' },
-      { name: 'Diplômes', tag: 'diplomas' },
-      { name: 'Compétences', tag: 'skills' },
-      { name: 'A propos de moi', tag: 'about-me' },
-      { name: 'Expériences', tag: 'experiences' },
-      { name: 'Projets et réalisations', tag: 'projects' },
+      { name: 'Titre', tag: '#title' },
+      { name: 'Diplômes', tag: '#diplomas' },
+      { name: 'Compétences', tag: '#skills' },
+      { name: 'A propos de moi', tag: '#about-me' },
+      { name: 'Expériences', tag: '#experiences' },
+      { name: 'Projets et réalisations', tag: '#projects' },
     ],
     email: 'jeremie.deletraz@gmail.com',
   }),
-  methods: {
-    // jumpTo(tag) {
-    //   this.goTo(tag, {
-    //     easing: 'easeInOutCubic',
-    //     duration: 400,
-    //   });
-    // },
-    jumpTo(tag: string): void {
-      console.log(tag);
-    },
-  },
 });
 </script>
 

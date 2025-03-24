@@ -1,12 +1,12 @@
 <template>
   <v-card dark color="tertiary">
     <v-card-title>Chatbot web</v-card-title>
-    <v-card-subtitle>
+    <v-card-text>
       <v-row align="center" no-gutters>
         <v-icon color="primaryLight">mdi-school-outline</v-icon>
         <span class="ml-2 text-primaryWhite">Scolaire</span>
       </v-row>
-    </v-card-subtitle>
+    </v-card-text>
     <v-card-text>
       <div class="text-primaryLight">
         Réalisation d'un site web d'administration de chatbots dans lequel nous devions mettre en

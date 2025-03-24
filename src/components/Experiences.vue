@@ -3,8 +3,8 @@
     <v-card-title class="text-h4 font-weight-light text-tertiary">Expériences</v-card-title>
     <v-card-text>
       <div class="hidden-xs">
-        <v-timeline dense align-top>
-          <v-timeline-item small color="primary">
+        <v-timeline side="end" dense align="start">
+          <v-timeline-item dot-color="primary" size="small">
             <Leocare
               cardColor="primary"
               subtitleColor="tertiary"
@@ -13,7 +13,7 @@
               iconColor="tertiary"
             />
           </v-timeline-item>
-          <v-timeline-item small color="primary">
+          <v-timeline-item dot-color="primary" size="small">
             <Swizi
               cardColor="primary"
               subtitleColor="tertiary"
@@ -22,7 +22,7 @@
               iconColor="tertiary"
             />
           </v-timeline-item>
-          <v-timeline-item small color="primary">
+          <v-timeline-item dot-color="primary" size="small">
             <Astek
               cardColor="primary"
               subtitleColor="tertiary"
@@ -31,7 +31,7 @@
               iconColor="tertiary"
             />
           </v-timeline-item>
-          <v-timeline-item small color="primary">
+          <v-timeline-item dot-color="primary" size="small">
             <Nokia
               cardColor="primary"
               subtitleColor="tertiary"
@@ -40,28 +40,24 @@
               iconColor="tertiary"
             />
           </v-timeline-item>
-          <v-expand-transition>
-            <div v-show="displayMore">
-              <v-timeline-item small color="primary">
-                <Ericsson
-                  cardColor="primary"
-                  subtitleColor="tertiary"
-                  headerTextColor="primaryWhite"
-                  bodyTextColor="tertiary"
-                  iconColor="tertiary"
-                />
-              </v-timeline-item>
-              <v-timeline-item small color="primary">
-                <Lunetterie
-                  cardColor="primary"
-                  subtitleColor="tertiary"
-                  headerTextColor="primaryWhite"
-                  bodyTextColor="tertiary"
-                  iconColor="tertiary"
-                />
-              </v-timeline-item>
-            </div>
-          </v-expand-transition>
+          <v-timeline-item v-show="displayMore" dot-color="primary" size="small" key="ericsson">
+            <Ericsson
+              cardColor="primary"
+              subtitleColor="tertiary"
+              headerTextColor="primaryWhite"
+              bodyTextColor="tertiary"
+              iconColor="tertiary"
+            />
+          </v-timeline-item>
+          <v-timeline-item v-show="displayMore" dot-color="primary" size="small" key="lunetterie">
+            <Lunetterie
+              cardColor="primary"
+              subtitleColor="tertiary"
+              headerTextColor="primaryWhite"
+              bodyTextColor="tertiary"
+              iconColor="tertiary"
+            />
+          </v-timeline-item>
         </v-timeline>
         <SeeMore class="mt-2" :displayMore="displayMore" @toggle="(v) => (displayMore = v)" />
       </div>
@@ -170,3 +166,9 @@ export default defineComponent({
   }),
 });
 </script>
+
+<style>
+.v-timeline--vertical.v-timeline.v-timeline--side-end .v-timeline-item .v-timeline-item__body {
+  width: 100%;
+}
+</style>

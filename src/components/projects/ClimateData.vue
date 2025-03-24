@@ -1,12 +1,12 @@
 <template>
   <v-card dark color="tertiary">
     <v-card-title>Analyse de données</v-card-title>
-    <v-card-subtitle>
+    <v-card-text>
       <v-row align="center" no-gutters>
         <v-icon color="primaryLight">mdi-atom-variant</v-icon>
         <span class="ml-2 text-primaryWhite">Personnel</span>
       </v-row>
-    </v-card-subtitle>
+    </v-card-text>
     <v-card-text>
       <div class="text-primaryLight">
         Projet initié avec un ami dans le but de nous faire manipuler les données grâce au langage

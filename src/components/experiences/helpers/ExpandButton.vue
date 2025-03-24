@@ -2,14 +2,14 @@
   <v-btn
     v-if="!isDisabled"
     class="mx-2"
-    small
     variant="text"
-    outlined
+    icon="mdi-chevron-down"
     :retain-focus-on-click="false"
-    fab
     @click="sendToggle"
   >
-    <v-icon class="toggleUpDown" :class="{ rotate: displayMore }"> mdi-chevron-down </v-icon>
+    <template v-slot:default>
+      <v-icon class="toggleUpDown" :class="{ rotate: displayMore }"></v-icon>
+    </template>
   </v-btn>
 </template>
 

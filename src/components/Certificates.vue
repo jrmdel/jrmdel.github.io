@@ -40,7 +40,7 @@
       <v-row id="no-pdf" class="hidden-sm hidden-lg-and-up" no-gutters>
         <v-col cols="12" v-for="(crt, i) in cert" :key="i" class="my-1">
           <v-divider></v-divider>
-          <v-card outlined :color="cardColor">
+          <v-card variant="text">
             <v-card-title>
               <span
                 class="text-subtitle-1 font-weight-medium"
@@ -49,7 +49,7 @@
                 {{ crt.title }}
               </span>
             </v-card-title>
-            <v-card-subtitle>
+            <v-card-text>
               <v-row align="center" justify="space-between">
                 <v-col cols="auto">
                   <v-row class="my-n1" no-gutters align="center">
@@ -75,7 +75,7 @@
                   }}</span>
                 </v-col>
               </v-row>
-            </v-card-subtitle>
+            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -92,7 +92,6 @@ import { useColor } from '@/composables/useColor';
 export default defineComponent({
   props: {
     titleColor: { type: String, default: '' },
-    cardColor: { type: String, default: '' },
     certificateTextColor: { type: String, default: '' },
     textColor: { type: String, default: '' },
     iconColor: { type: String, default: '' },

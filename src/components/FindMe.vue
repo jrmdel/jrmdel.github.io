@@ -6,12 +6,20 @@
       </v-row>
       <!--Standard display except on medium screens-->
       <v-row align="center" justify="space-around" class="pa-4 hidden-md-and-up">
-        <v-tooltip :color="tooltipColor" location="bottom" v-for="(site, i) in sites" :key="i">
+        <v-tooltip location="bottom" v-for="(site, i) in sites" :key="i">
           <template v-slot:activator="{ props }">
-            <v-btn v-bind="props" fab :color="site.back" :href="site.link" target="_blank">
-              <v-icon :color="site.logo" x-large>
-                {{ site.icon }}
-              </v-icon>
+            <v-btn
+              v-bind="props"
+              variant="flat"
+              :color="site.back"
+              :href="site.link"
+              :icon="site.icon"
+              target="_blank"
+              size="large"
+            >
+              <template v-slot:default>
+                <v-icon :color="site.logo" size="x-large"> </v-icon>
+              </template>
             </v-btn>
           </template>
           <span :class="computedTextColor">
@@ -23,12 +31,20 @@
       <v-row id="no-pdf" align="center" class="pa-4 hidden-sm-and-down">
         <v-col cols="6" v-for="(site, i) in sites" :key="i">
           <v-row justify="center" class="mb-4 mb-md-8">
-            <v-tooltip :color="tooltipColor" location="bottom" transition="scale-transition">
+            <v-tooltip location="bottom" transition="scale-transition">
               <template v-slot:activator="{ props }">
-                <v-btn fab v-bind="props" :color="site.back" :href="site.link" target="_blank">
-                  <v-icon :color="site.logo" x-large>
-                    {{ site.icon }}
-                  </v-icon>
+                <v-btn
+                  v-bind="props"
+                  variant="flat"
+                  :color="site.back"
+                  :href="site.link"
+                  :icon="site.icon"
+                  target="_blank"
+                  size="large"
+                >
+                  <template v-slot:default>
+                    <v-icon :color="site.logo" size="x-large"> </v-icon>
+                  </template>
                 </v-btn>
               </template>
               <span :class="computedTextColor">
@@ -50,7 +66,6 @@ import { useColor } from '@/composables/useColor';
 export default defineComponent({
   props: {
     titleColor: { type: String, default: '' },
-    tooltipColor: { type: String },
     textColor: { type: String, default: '' },
   },
   setup(props) {

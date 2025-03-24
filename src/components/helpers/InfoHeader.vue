@@ -1,5 +1,5 @@
 <template>
-  <v-card-subtitle class="mt-n3 text-subtitle-2">
+  <v-card-text class="mt-n3 text-subtitle-2">
     <v-row align="center" justify="space-between">
       <v-col class="d-flex align-center" cols="auto">
         <v-icon :color="iconColor">
@@ -14,7 +14,7 @@
         <span class="ml-2" :class="computedTextColor">{{ rightText }}</span>
       </v-col>
     </v-row>
-  </v-card-subtitle>
+  </v-card-text>
 </template>
 
 <script lang="ts">
