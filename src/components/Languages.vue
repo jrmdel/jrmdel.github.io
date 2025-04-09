@@ -5,7 +5,7 @@
         <v-col> Langues </v-col>
       </v-row>
       <v-row align="center" justify="space-around">
-        <v-col cols="auto" v-for="(l, i) in languages" :key="i">
+        <v-col v-for="(l, i) in languages" :key="i" cols="auto">
           <v-progress-circular
             :rotate="360"
             :size="100"

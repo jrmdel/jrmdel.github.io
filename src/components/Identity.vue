@@ -5,10 +5,16 @@
         <v-col cols="auto">
           <v-avatar size="250" :color="avatarBorderColor">
             <v-avatar class="mx-2" size="240">
-              <v-img height="300" src="/me-mid.jpg" lazy-src="/me-min.jpg">
+              <v-img
+                class="zoom-sm"
+                naturalHeight="400"
+                height="300"
+                src="/me-mid.jpg"
+                lazy-src="/me-min.jpg"
+              >
                 <template v-slot:placeholder>
                   <v-row class="fill-height ma-0" align="center" justify="center">
-                    <v-progress-circular indeterminate color="primary"></v-progress-circular>
+                    <v-progress-circular indeterminate color="primary" />
                   </v-row>
                 </template>
               </v-img>
@@ -70,3 +76,14 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss">
+.zoom-sm {
+  .v-img__img {
+    height: 116%;
+    width: 116%;
+    top: -8%;
+    left: -8%;
+  }
+}
+</style>

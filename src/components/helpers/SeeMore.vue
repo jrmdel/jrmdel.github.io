@@ -24,6 +24,9 @@ export default defineComponent({
   props: {
     displayMore: { type: Boolean, default: false },
   },
+  data: () => ({
+    iconDisplay: false,
+  }),
   watch: {
     displayMore: {
       handler(v) {
@@ -35,9 +38,6 @@ export default defineComponent({
       },
     },
   },
-  data: () => ({
-    iconDisplay: false,
-  }),
   methods: {
     sendToggle() {
       this.$emit('toggle', !this.displayMore);

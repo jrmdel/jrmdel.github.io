@@ -7,7 +7,7 @@
         </v-icon>
         <span class="ml-2" :class="computedTextColor">{{ leftText }}</span>
       </v-col>
-      <v-col class="d-flex align-center" cols="auto" v-show="hasRightData">
+      <v-col v-show="hasRightData" class="d-flex align-center" cols="auto">
         <v-icon :color="iconColor">
           {{ rightIcon }}
         </v-icon>

@@ -131,7 +131,11 @@
               </v-col>
             </v-row>
           </v-expand-transition>
-          <SeeMore :displayMore="displayMore" @toggle="(v: boolean) => (displayMore = v)" />
+          <SeeMore
+            class="mt-4"
+            :displayMore="displayMore"
+            @toggle="(v: boolean) => (displayMore = v)"
+          />
         </v-col>
       </v-row>
     </v-card-text>

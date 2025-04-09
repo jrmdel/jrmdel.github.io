@@ -1,7 +1,7 @@
 import 'vuetify/styles';
 import '@mdi/font/css/materialdesignicons.css';
 
-import { createVuetify, ThemeDefinition } from 'vuetify';
+import { createVuetify, type ThemeDefinition } from 'vuetify';
 import { mdi } from 'vuetify/iconsets/mdi';
 
 import { customIcons } from '@/components/icons/custom-icons.js';

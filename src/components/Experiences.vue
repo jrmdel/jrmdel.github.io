@@ -40,7 +40,7 @@
               iconColor="tertiary"
             />
           </v-timeline-item>
-          <v-timeline-item v-show="displayMore" dot-color="primary" size="small" key="ericsson">
+          <v-timeline-item v-show="displayMore" key="ericsson" dot-color="primary" size="small">
             <Ericsson
               cardColor="primary"
               subtitleColor="tertiary"
@@ -49,7 +49,7 @@
               iconColor="tertiary"
             />
           </v-timeline-item>
-          <v-timeline-item v-show="displayMore" dot-color="primary" size="small" key="lunetterie">
+          <v-timeline-item v-show="displayMore" key="lunetterie" dot-color="primary" size="small">
             <Lunetterie
               cardColor="primary"
               subtitleColor="tertiary"
@@ -59,7 +59,7 @@
             />
           </v-timeline-item>
         </v-timeline>
-        <SeeMore class="mt-2" :displayMore="displayMore" @toggle="(v) => (displayMore = v)" />
+        <SeeMore class="mt-4" :displayMore="displayMore" @toggle="(v) => (displayMore = v)" />
       </div>
       <div id="no-pdf" class="hidden-sm-and-up">
         <v-container fluid>
@@ -108,7 +108,7 @@
             </v-col>
           </v-row>
           <v-expand-transition>
-            <div v-show="displayMore">
+            <div v-show="displayMore" class="mt-3">
               <v-row>
                 <v-col cols="12">
                   <Ericsson
@@ -133,7 +133,7 @@
               </v-row>
             </div>
           </v-expand-transition>
-          <SeeMore class="mt-2" :displayMore="displayMore" @toggle="(v) => (displayMore = v)" />
+          <SeeMore class="mt-4" :displayMore="displayMore" @toggle="(v) => (displayMore = v)" />
         </v-container>
       </div>
     </v-card-text>

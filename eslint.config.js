@@ -12,6 +12,7 @@ export default [
     languageOptions: {
       parser: vueParser,
       parserOptions: {
+        parser: tsParser,
         ecmaVersion: 'latest',
         sourceType: 'module',
       },
@@ -22,6 +23,7 @@ export default [
       'simple-import-sort': simpleImportSort,
     },
     rules: {
+      ...vue.configs['vue3-recommended'].rules,
       'vue/multi-word-component-names': 'off',
       'vue/html-indent': ['error', 2],
       'vue/script-setup-uses-vars': 'error',

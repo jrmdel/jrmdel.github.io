@@ -90,6 +90,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useGoTo } from 'vuetify';
 
 import AboutMe from '@/components/AboutMe.vue';
 import Certificates from '@/components/Certificates.vue';
@@ -101,20 +102,8 @@ import Languages from '@/components/Languages.vue';
 import MyTitle from '@/components/MyTitle.vue';
 import Projects from '@/components/Projects.vue';
 import Skills from '@/components/Skills.vue';
-import { useGoTo } from 'vuetify';
 
 export default defineComponent({
-  setup() {
-    const goTo = useGoTo();
-    const jumpTo = (tag: string): void => {
-      goTo(tag, {
-        easing: 'easeInOutCubic',
-        duration: 400,
-        offset: -15,
-      });
-    };
-    return { jumpTo };
-  },
   components: {
     Identity,
     FindMe,
@@ -126,6 +115,17 @@ export default defineComponent({
     Projects,
     Certificates,
     MyTitle,
+  },
+  setup() {
+    const goTo = useGoTo();
+    const jumpTo = (tag: string): void => {
+      goTo(tag, {
+        easing: 'easeInOutCubic',
+        duration: 400,
+        offset: -15,
+      });
+    };
+    return { jumpTo };
   },
   data: () => ({
     jumps: [
@@ -140,10 +140,3 @@ export default defineComponent({
   }),
 });
 </script>
-
-<style>
-.v-card__text,
-.v-card__title {
-  word-break: normal; /* maybe !important  */
-}
-</style>

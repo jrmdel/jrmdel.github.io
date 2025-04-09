@@ -6,7 +6,7 @@
       </v-row>
       <!--Standard display except on medium screens-->
       <v-row align="center" justify="space-around" class="pa-4 hidden-md-and-up">
-        <v-tooltip location="bottom" v-for="(site, i) in sites" :key="i">
+        <v-tooltip v-for="(site, i) in sites" :key="i" location="bottom">
           <template v-slot:activator="{ props }">
             <v-btn
               v-bind="props"
@@ -29,7 +29,7 @@
       </v-row>
       <!--Visible as 2 rows only on md-->
       <v-row id="no-pdf" align="center" class="pa-4 hidden-sm-and-down">
-        <v-col cols="6" v-for="(site, i) in sites" :key="i">
+        <v-col v-for="(site, i) in sites" :key="i" cols="6">
           <v-row justify="center" class="mb-4 mb-md-8">
             <v-tooltip location="bottom" transition="scale-transition">
               <template v-slot:activator="{ props }">

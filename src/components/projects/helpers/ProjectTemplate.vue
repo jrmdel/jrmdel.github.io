@@ -19,9 +19,9 @@
       <SkillChips :skills="skills" :chipColor="skillColor" :isSmall="true" chipMargin="my-1 ml-2" />
       <v-spacer />
       <v-btn
+        v-show="hasLink"
         size="small"
         rounded="pill"
-        v-show="hasLink"
         color="primaryWhite"
         variant="text"
         target="_blank"

@@ -5,7 +5,7 @@
         <v-col> Certifications </v-col>
       </v-row>
       <!--Visible except on xs and medium screens-->
-      <v-row align="center" class="px-2 hidden-xs hidden-md" v-for="(crt, i) in cert" :key="i">
+      <v-row v-for="(crt, i) in cert" :key="i" align="center" class="px-2 hidden-xs hidden-md">
         <v-col cols="auto">
           <v-row class="my-n1" no-gutters align="center">
             <v-icon class="mr-2" small :color="iconColor"> mdi-certificate-outline </v-icon>
@@ -38,7 +38,7 @@
       </v-row>
       <!--Only on extra-small and medium-->
       <v-row id="no-pdf" class="hidden-sm hidden-lg-and-up" no-gutters>
-        <v-col cols="12" v-for="(crt, i) in cert" :key="i" class="my-1">
+        <v-col v-for="(crt, i) in cert" :key="i" cols="12" class="my-1">
           <v-divider></v-divider>
           <v-card variant="text">
             <v-card-title>
@@ -96,6 +96,17 @@ export default defineComponent({
     textColor: { type: String, default: '' },
     iconColor: { type: String, default: '' },
   },
+  setup(props) {
+    const computedTitleColor = useColor(props.titleColor);
+    const computedCertificateTextColor = useColor(props.certificateTextColor);
+    const computedTextColor = useColor(props.textColor);
+
+    return {
+      computedTitleColor,
+      computedCertificateTextColor,
+      computedTextColor,
+    };
+  },
   data: () => ({
     cert: [
       {
@@ -117,17 +128,6 @@ export default defineComponent({
       },
     ],
   }),
-  setup(props) {
-    const computedTitleColor = useColor(props.titleColor);
-    const computedCertificateTextColor = useColor(props.certificateTextColor);
-    const computedTextColor = useColor(props.textColor);
-
-    return {
-      computedTitleColor,
-      computedCertificateTextColor,
-      computedTextColor,
-    };
-  },
 });
 </script>
 
