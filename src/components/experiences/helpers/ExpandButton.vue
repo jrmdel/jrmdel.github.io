@@ -22,7 +22,7 @@ export default defineComponent({
     isDisabled: { type: Boolean, default: false },
   },
   methods: {
-    sendToggle() {
+    sendToggle(): void {
       this.$emit('toggle', !this.displayMore);
     },
   },

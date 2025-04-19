@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card :color="cardColor" slot="pdf-content">
+    <v-card slot="pdf-content" :color="cardColor">
       <v-card-title class="d-flex justify-space-between align-end align-md-center pa-4">
         <span
           class="text-sm-h2 font-weight-light text-h3"
@@ -61,6 +61,9 @@ export default defineComponent({
 
     return { computedTextColor };
   },
+  data: () => ({
+    isDownloading: false,
+  }),
   computed: {
     hasValidEmail() {
       return this.email.length > 0
@@ -74,14 +77,16 @@ export default defineComponent({
       return toReturn;
     },
   },
-  data: () => ({
-    isDownloading: false,
-  }),
   methods: {
-    download() {
+    download(): void {
       this.isDownloading = true;
 
       const html = this.prepareHtml();
+      if (!html) {
+        console.error('Failed to prepare HTML for download');
+        this.isDownloading = false;
+        return;
+      }
       const formData = new FormData();
       formData.append('file', new Blob([html], { type: 'text/html' }));
 
@@ -100,20 +105,24 @@ export default defineComponent({
           this.isDownloading = false;
         });
     },
-    prepareHtml() {
-      const cloned = document.querySelector('html')?.cloneNode(true);
+    prepareHtml(): string | void {
+      const cloned = document.querySelector('html')?.cloneNode(true) as HTMLHtmlElement | null;
+      if (!cloned) {
+        console.error('Failed to clone the HTML document');
+        return;
+      }
       this.removeUnwantedNodes(cloned);
       this.embedCss(cloned);
 
       return cloned?.outerHTML;
     },
-    removeUnwantedNodes(html) {
+    removeUnwantedNodes(html: HTMLHtmlElement): void {
       const nodesToDelete = html.querySelectorAll('#no-pdf');
       nodesToDelete.forEach((e) => {
         e.remove();
       });
     },
-    embedCss(html) {
+    embedCss(html: HTMLHtmlElement): void {
       const styleSheets = Array.from(document.styleSheets);
       styleSheets.forEach((sheet) => {
         try {
@@ -122,14 +131,14 @@ export default defineComponent({
             style.textContent = Array.from(sheet.cssRules)
               .map((rule) => rule.cssText)
               .join('\n');
-            html.querySelector('head').appendChild(style);
+            html.querySelector('head')?.appendChild(style);
           }
         } catch (e) {
           console.warn(`Unable to access CSS rules for ${sheet.href}`, e);
         }
       });
     },
-    autoSaveFile(blob) {
+    autoSaveFile(blob: Blob): void {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.style.display = 'none';

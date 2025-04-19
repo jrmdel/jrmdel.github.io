@@ -39,7 +39,7 @@ export default defineComponent({
     },
   },
   methods: {
-    sendToggle() {
+    sendToggle(): void {
       this.$emit('toggle', !this.displayMore);
     },
   },
