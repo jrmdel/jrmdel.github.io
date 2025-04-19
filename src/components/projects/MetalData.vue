@@ -15,10 +15,10 @@
   >
     <template v-slot:content>
       <div>
-        Extraction d’information à partir d’un jeu de données de 1000 chansons,
-        issues de l’API Spotify, en utilisant des méthodes d’analyse (AFC, ACP
-        et ACM). L'étude était axée sur l’analyse des relations entre les
-        chansons présentes sur les 100 meilleurs albums de métal selon le
+        Extraction d’information à partir d’un jeu de données de 1000 chansons, issues de l’API
+        Spotify, en utilisant des méthodes d’analyse (AFC, ACP et ACM). L'étude était axée sur
+        l’analyse des relations entre les chansons présentes sur les 100 meilleurs albums de métal
+        selon le
         <a
           target="_blank"
           href="https://www.rollingstone.com/music/music-lists/the-100-greatest-metal-albums-of-all-time-113614"
@@ -30,32 +30,24 @@
   </ProjectTemplate>
 </template>
 
-<script>
-import ProjectTemplate from './helpers/ProjectTemplate.vue';
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+import ProjectTemplate from '@/components/projects/helpers/ProjectTemplate.vue';
+
+export default defineComponent({
   components: {
     ProjectTemplate,
   },
   props: {
-    iconColor: {
-      type: String,
-    },
-    cardColor: {
-      type: String,
-    },
-    titleColor: {
-      type: String,
-    },
-    textColor: {
-      type: String,
-    },
-    headerTextColor: {
-      type: String,
-    },
+    iconColor: { type: String },
+    cardColor: { type: String },
+    titleColor: { type: String },
+    textColor: { type: String },
+    headerTextColor: { type: String },
   },
   data: () => ({
     skills: ['R', 'RStudio'],
   }),
-};
+});
 </script>

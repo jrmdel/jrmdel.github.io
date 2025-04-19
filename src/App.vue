@@ -6,7 +6,7 @@
           <v-row>
             <v-col cols="12">
               <MyTitle
-                ref="title"
+                id="title"
                 textColor="primaryLight"
                 cardColor="tertiary"
                 iconColor="primaryLight"
@@ -17,7 +17,7 @@
           </v-row>
           <v-row justify="space-between">
             <v-col cols="12" md="4">
-              <v-card class="tertiary fill-height">
+              <v-card color="tertiary" class="fill-height">
                 <Identity
                   avatarBorderColor="primary"
                   nameColor="white"
@@ -25,94 +25,85 @@
                   textColor="primaryWhite"
                 />
                 <Diploma
-                  ref="diplomas"
-                  cardColor="tertiary"
+                  id="diplomas"
                   titleColor="white"
                   diplomaTextColor="primaryWhite"
                   iconColor="primary"
                   textColor="primaryLight"
-                  chipTextColor="tertiary"
                 />
                 <Languages titleColor="white" textColor="primaryWhite" />
                 <Certificates
-                  cardColor="tertiary"
                   titleColor="white"
                   certificateTextColor="primaryWhite"
                   iconColor="primary"
                   textColor="primaryLight"
                 />
                 <Skills
-                  ref="skills"
+                  id="skills"
                   titleColor="white"
                   textColor="primaryWhite"
                   iconColor="primary"
                 />
-                <FindMe
-                  titleColor="white"
-                  tooltipColor="primaryLight"
-                  textColor="tertiary"
-                />
+                <FindMe titleColor="white" textColor="primaryWhite" />
               </v-card>
             </v-col>
             <v-col>
               <AboutMe
-                ref="about-me"
+                id="about-me"
                 cardColor="primaryLight"
                 titleColor="tertiary"
                 bodyTextColor="tertiary"
               />
-              <Experiences ref="experiences" />
-              <Projects ref="projects" />
+              <Experiences id="experiences" />
+              <Projects id="projects" />
             </v-col>
           </v-row>
         </div>
       </v-container>
-      <v-menu id="no-pdf" transition="scroll-y-reverse-transition" offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
+      <v-menu id="no-pdf" transition="slide-y-reverse-transition" location="end">
+        <template v-slot:activator="{ props }">
+          <v-fab
             id="no-pdf"
-            v-bind="attrs"
-            v-on="on"
+            v-bind="props"
             class="hidden-md-and-up"
-            fab
             color="secondary"
-            large
-            dark
-            fixed
-            bottom
-            right
+            :app="true"
+            size="large"
+            location="bottom right"
+            icon
           >
             <v-icon>mdi-menu</v-icon>
-          </v-btn>
+          </v-fab>
         </template>
-        <v-list dense color="background">
-          <v-subheader class="text-body-2 ml-1">Aller à</v-subheader>
-          <v-list-item
-            v-for="(jump, i) in jumps"
-            :key="i"
-            @click="jumpTo(jump.tag)"
-          >
-            <v-list-item-content>{{ jump.name }}</v-list-item-content>
-          </v-list-item>
-        </v-list>
+        <v-card max-width="250">
+          <v-list density="compact" color="background">
+            <v-list-subheader class="text-body-2 ml-1">Aller à</v-list-subheader>
+            <v-list-item v-for="(jump, i) in jumps" :key="i" @click="jumpTo(jump.tag)">
+              {{ jump.name }}
+            </v-list-item>
+          </v-list>
+        </v-card>
       </v-menu>
     </div>
   </v-app>
 </template>
 
-<script>
-import FindMe from './components/FindMe.vue';
-import Skills from '@/components/Skills';
-import Languages from '@/components/Languages';
-import AboutMe from '@/components/AboutMe';
-import Experiences from '@/components/Experiences';
-import Diploma from '@/components/Diploma.vue';
-import Projects from '@/components/Projects.vue';
-import Certificates from '@/components/Certificates';
-import Identity from '@/components/Identity';
-import MyTitle from './components/MyTitle.vue';
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { useGoTo } from 'vuetify';
 
-export default {
+import AboutMe from '@/components/AboutMe.vue';
+import Certificates from '@/components/Certificates.vue';
+import Diploma from '@/components/Diploma.vue';
+import Experiences from '@/components/Experiences.vue';
+import FindMe from '@/components/FindMe.vue';
+import Identity from '@/components/Identity.vue';
+import Languages from '@/components/Languages.vue';
+import MyTitle from '@/components/MyTitle.vue';
+import Projects from '@/components/Projects.vue';
+import Skills from '@/components/Skills.vue';
+
+export default defineComponent({
   components: {
     Identity,
     FindMe,
@@ -125,31 +116,27 @@ export default {
     Certificates,
     MyTitle,
   },
+  setup() {
+    const goTo = useGoTo();
+    const jumpTo = (tag: string): void => {
+      goTo(tag, {
+        easing: 'easeInOutCubic',
+        duration: 400,
+        offset: -15,
+      });
+    };
+    return { jumpTo };
+  },
   data: () => ({
     jumps: [
-      { name: 'Titre', tag: 'title' },
-      { name: 'Diplômes', tag: 'diplomas' },
-      { name: 'Compétences', tag: 'skills' },
-      { name: 'A propos de moi', tag: 'about-me' },
-      { name: 'Expériences', tag: 'experiences' },
-      { name: 'Projets et réalisations', tag: 'projects' },
+      { name: 'Titre', tag: '#title' },
+      { name: 'Diplômes', tag: '#diplomas' },
+      { name: 'Compétences', tag: '#skills' },
+      { name: 'A propos de moi', tag: '#about-me' },
+      { name: 'Expériences', tag: '#experiences' },
+      { name: 'Projets et réalisations', tag: '#projects' },
     ],
     email: 'jeremie.deletraz@gmail.com',
   }),
-  methods: {
-    jumpTo(tag) {
-      this.$vuetify.goTo(this.$refs[tag], {
-        easing: 'easeInOutCubic',
-        duration: 400,
-      });
-    },
-  },
-};
+});
 </script>
-
-<style>
-.v-card__text,
-.v-card__title {
-  word-break: normal; /* maybe !important  */
-}
-</style>

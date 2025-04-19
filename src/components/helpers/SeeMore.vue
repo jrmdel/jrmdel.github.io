@@ -1,34 +1,32 @@
 <template>
   <div class="d-flex justify-center">
     <v-btn
-      rounded
-      outlined
+      rounded="pill"
+      variant="outlined"
       color="primary"
       :retain-focus-on-click="false"
       @click="sendToggle"
     >
-      <v-icon
-        color="tertiary"
-        class="toggleUpDown"
-        :class="{ rotate: displayMore }"
-      >
+      <v-icon color="tertiary" class="toggleUpDown" :class="{ rotate: displayMore }">
         {{ iconDisplay ? 'mdi-minus' : 'mdi-plus' }}
       </v-icon>
-      <span class="tertiary--text">
+      <span class="text-tertiary">
         {{ iconDisplay ? 'Voir moins' : 'Voir plus' }}
       </span>
     </v-btn>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   props: {
-    displayMore: {
-      type: Boolean,
-      default: false,
-    },
+    displayMore: { type: Boolean, default: false },
   },
+  data: () => ({
+    iconDisplay: false,
+  }),
   watch: {
     displayMore: {
       handler(v) {
@@ -40,15 +38,12 @@ export default {
       },
     },
   },
-  data: () => ({
-    iconDisplay: false,
-  }),
   methods: {
-    sendToggle() {
+    sendToggle(): void {
       this.$emit('toggle', !this.displayMore);
     },
   },
-};
+});
 </script>
 
 <style scoped>

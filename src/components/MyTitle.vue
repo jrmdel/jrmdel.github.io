@@ -1,94 +1,92 @@
 <template>
   <div>
-    <v-card :color="cardColor" slot="pdf-content">
-      <v-card-title>
+    <v-card slot="pdf-content" :color="cardColor">
+      <v-card-title class="d-flex justify-space-between align-end align-md-center pa-4">
         <span
           class="text-sm-h2 font-weight-light text-h3"
           :class="computedTextColor"
+          style="text-wrap-mode: wrap"
         >
-          Ingénieur Fullstack JS & Data
+          Ingénieur Fullstack TS & Data
         </span>
-        <v-spacer />
-        <v-btn
-          v-show="hasValidEmail"
-          :color="buttonColor"
-          fab
-          outlined
-          :href="mailTo"
-        >
-          <v-icon :color="iconColor"> mdi-at </v-icon>
-        </v-btn>
-        <v-btn
-          class="ml-2"
-          :color="buttonColor"
-          :loading="isDownloading"
-          fab
-          outlined
-          @click="download"
-        >
-          <v-icon :color="iconColor">
-            mdi-download
-          </v-icon>
-        </v-btn>
+
+        <div class="pl-5">
+          <v-btn
+            v-show="hasValidEmail"
+            :color="buttonColor"
+            variant="outlined"
+            icon="mdi-at"
+            :href="mailTo"
+          >
+            <template v-slot:default>
+              <v-icon :color="iconColor"></v-icon>
+            </template>
+          </v-btn>
+          <v-btn
+            class="ml-2"
+            :color="buttonColor"
+            :loading="isDownloading"
+            variant="outlined"
+            icon="mdi-download"
+            @click="download"
+          >
+            <template v-slot:default>
+              <v-icon :color="iconColor"></v-icon>
+            </template>
+          </v-btn>
+        </div>
       </v-card-title>
     </v-card>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+import { useColor } from '@/composables/useColor';
+
 const PDF_NAME = 'cv-jeremie-deletraz.pdf';
 const PDF_URL = 'https://rivonglade.onthewifi.com/html-to-pdf/api/v1/convert';
 
-export default {
+export default defineComponent({
   props: {
-    cardColor: {
-      type: String,
-    },
-    textColor: {
-      type: String,
-      default: '',
-    },
-    iconColor: {
-      type: String,
-    },
-    buttonColor: {
-      type: String,
-    },
-    email: {
-      type: String,
-      default: '',
-    },
+    cardColor: { type: String },
+    textColor: { type: String, default: '' },
+    iconColor: { type: String },
+    buttonColor: { type: String },
+    email: { type: String, default: '' },
   },
-  computed: {
-    computedTextColor: {
-      get: function() {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-      },
-    },
-    hasValidEmail: {
-      get: function() {
-        return this.email.length > 0
-          ? this.email.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/) != null
-          : false;
-      },
-    },
-    mailTo: {
-      get: function() {
-        let toReturn = `mailto:${this.email}`;
-        toReturn += '?subject=Premier contact';
-        toReturn += `&body=Bonjour Jérémie,%0D%0A%0D%0AJe viens de parcourir ton site ${document.URL} et je souhaite que l'on échange.`;
-        return toReturn;
-      },
-    },
+  setup(props) {
+    const computedTextColor = useColor(props.textColor);
+
+    return { computedTextColor };
   },
   data: () => ({
     isDownloading: false,
   }),
+  computed: {
+    hasValidEmail() {
+      return this.email.length > 0
+        ? this.email.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/) != null
+        : false;
+    },
+    mailTo() {
+      let toReturn = `mailto:${this.email}`;
+      toReturn += '?subject=Premier contact';
+      toReturn += `&body=Bonjour Jérémie,%0D%0A%0D%0AJe viens de parcourir ton site ${document.URL} et je souhaite que l'on échange.`;
+      return toReturn;
+    },
+  },
   methods: {
-    download() {
+    download(): void {
       this.isDownloading = true;
 
       const html = this.prepareHtml();
+      if (!html) {
+        console.error('Failed to prepare HTML for download');
+        this.isDownloading = false;
+        return;
+      }
       const formData = new FormData();
       formData.append('file', new Blob([html], { type: 'text/html' }));
 
@@ -96,47 +94,51 @@ export default {
         method: 'POST',
         body: formData,
       })
-        .then(response => response.blob())
-        .then(blob => {
+        .then((response) => response.blob())
+        .then((blob) => {
           this.autoSaveFile(blob);
         })
-        .catch(error => {
+        .catch((error) => {
           console.error('Error while downloading file:', error);
         })
         .finally(() => {
           this.isDownloading = false;
         });
     },
-    prepareHtml() {
-      const cloned = document.querySelector('html').cloneNode(true);
+    prepareHtml(): string | void {
+      const cloned = document.querySelector('html')?.cloneNode(true) as HTMLHtmlElement | null;
+      if (!cloned) {
+        console.error('Failed to clone the HTML document');
+        return;
+      }
       this.removeUnwantedNodes(cloned);
       this.embedCss(cloned);
 
-      return cloned.outerHTML;
+      return cloned?.outerHTML;
     },
-    removeUnwantedNodes(html) {
+    removeUnwantedNodes(html: HTMLHtmlElement): void {
       const nodesToDelete = html.querySelectorAll('#no-pdf');
-      nodesToDelete.forEach(e => {
+      nodesToDelete.forEach((e) => {
         e.remove();
       });
     },
-    embedCss(html) {
+    embedCss(html: HTMLHtmlElement): void {
       const styleSheets = Array.from(document.styleSheets);
-      styleSheets.forEach(sheet => {
+      styleSheets.forEach((sheet) => {
         try {
           if (sheet.cssRules) {
             const style = document.createElement('style');
             style.textContent = Array.from(sheet.cssRules)
-              .map(rule => rule.cssText)
+              .map((rule) => rule.cssText)
               .join('\n');
-            html.querySelector('head').appendChild(style);
+            html.querySelector('head')?.appendChild(style);
           }
         } catch (e) {
           console.warn(`Unable to access CSS rules for ${sheet.href}`, e);
         }
       });
     },
-    autoSaveFile(blob) {
+    autoSaveFile(blob: Blob): void {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.style.display = 'none';
@@ -148,5 +150,5 @@ export default {
       window.URL.revokeObjectURL(url);
     },
   },
-};
+});
 </script>

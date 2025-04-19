@@ -4,12 +4,7 @@
       <v-row class="my-2 text-h4 font-weight-light" :class="computedTitleColor">
         <v-col>Compétences</v-col>
       </v-row>
-      <v-row
-        align="center"
-        class="px-4 my-n2"
-        v-for="(skill, i) in skills"
-        :key="i"
-      >
+      <v-row v-for="(skill, i) in skills" :key="i" align="center" class="px-4 my-n2">
         <v-col cols="auto">
           <v-icon :color="iconColor">
             {{ skill.icon }}
@@ -21,10 +16,10 @@
           </span>
         </v-col>
         <v-col cols="7" md="5" lg="6" xl="7">
-          <v-slider
+          <v-progress-linear
             :color="sliderColor"
             hide-details
-            :value="skill.val"
+            :model-value="skill.val"
             min="0"
             max="100"
             readonly
@@ -35,45 +30,26 @@
   </div>
 </template>
 
-<script>
-import {
-  MONGO_DB_ICON,
-  POWER_BI_ICON,
-  POSTGRE_ICON,
-  MY_SQL_ICON,
-  NEST_JS_ICON,
-} from '@/assets/icons/icons.constants';
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+import { useColor } from '@/composables/useColor';
+
+export default defineComponent({
   props: {
-    iconColor: {
-      type: String,
-      default: '',
-    },
-    titleColor: {
-      type: String,
-      default: '',
-    },
-    textColor: {
-      type: String,
-      default: '',
-    },
-    sliderColor: {
-      type: String,
-      default: 'warning',
-    },
+    iconColor: { type: String, default: '' },
+    titleColor: { type: String, default: '' },
+    textColor: { type: String, default: '' },
+    sliderColor: { type: String, default: 'warning' },
   },
-  computed: {
-    computedTextColor: {
-      get: function() {
-        return this.textColor.length > 0 ? `${this.textColor}--text` : '';
-      },
-    },
-    computedTitleColor: {
-      get: function() {
-        return this.titleColor.length > 0 ? `${this.titleColor}--text` : '';
-      },
-    },
+  setup(props) {
+    const computedTitleColor = useColor(props.titleColor);
+    const computedTextColor = useColor(props.textColor);
+
+    return {
+      computedTitleColor,
+      computedTextColor,
+    };
   },
   data: () => ({
     skills: [
@@ -88,7 +64,7 @@ export default {
         val: 85,
       },
       {
-        icon: NEST_JS_ICON,
+        icon: 'custom:nestjs',
         text: 'NestJS',
         val: 75,
       },
@@ -103,17 +79,17 @@ export default {
         val: 60,
       },
       {
-        icon: MONGO_DB_ICON,
+        icon: 'custom:mongodb',
         text: 'MongoDB',
         val: 70,
       },
       {
-        icon: POWER_BI_ICON,
+        icon: 'custom:powerbi',
         text: 'PowerBI',
         val: 50,
       },
       {
-        icon: POSTGRE_ICON,
+        icon: 'custom:postgre',
         text: 'Postgre',
         val: 60,
       },
@@ -135,7 +111,7 @@ export default {
         val: 50,
       },
       {
-        icon: MY_SQL_ICON,
+        icon: 'custom:mysql',
         text: 'MySQL',
         val: 50,
       },
@@ -144,5 +120,5 @@ export default {
   beforeMount() {
     this.skills.sort((a, b) => b.val - a.val);
   },
-};
+});
 </script>

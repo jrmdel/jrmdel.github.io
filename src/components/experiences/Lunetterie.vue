@@ -13,10 +13,10 @@
   >
     <template v-slot:extra>
       <div>
-        Magasin indépendant proposant principalement des lunettes de créateurs,
-        optiques ou solaires.
+        Magasin indépendant proposant principalement des lunettes de créateurs, optiques ou
+        solaires.
       </div>
-      <ul class="ml-2 mt-1">
+      <ul class="ml-4 mt-1">
         <li>Vente et conseils</li>
         <li>Responsable des examens de la vue</li>
         <li>Ajustage de montures et taille de verres</li>
@@ -25,32 +25,24 @@
   </CardTemplate>
 </template>
 
-<script>
-import CardTemplate from './helpers/CardTemplate.vue';
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+import CardTemplate from '@/components/experiences/helpers/CardTemplate.vue';
+
+export default defineComponent({
   components: {
     CardTemplate,
   },
   props: {
-    cardColor: {
-      type: String,
-    },
-    subtitleColor: {
-      type: String,
-    },
-    headerTextColor: {
-      type: String,
-    },
-    bodyTextColor: {
-      type: String,
-    },
-    iconColor: {
-      type: String,
-    },
+    cardColor: { type: String },
+    subtitleColor: { type: String },
+    headerTextColor: { type: String },
+    bodyTextColor: { type: String },
+    iconColor: { type: String },
   },
   data: () => ({
     skills: ['Relation client', 'Organisation'],
   }),
-};
+});
 </script>

@@ -1,8 +1,8 @@
 <template>
   <v-card class="mt-6" color="primaryLight">
-    <v-card-title class="text-h4 font-weight-light tertiary--text"
-      >Projets & Réalisations</v-card-title
-    >
+    <v-card-title class="text-h4 font-weight-light text-tertiary">
+      Projets & Réalisations
+    </v-card-title>
     <v-card-text>
       <!--On large devices-->
       <v-row class="hidden-md-and-down">
@@ -68,10 +68,7 @@
           </v-row>
         </v-col>
         <v-col cols="12" class="mt-n2">
-          <SeeMore
-            :displayMore="displayMore"
-            @toggle="v => (displayMore = v)"
-          />
+          <SeeMore :displayMore="displayMore" @toggle="(v: boolean) => (displayMore = v)" />
         </v-col>
       </v-row>
       <!--On small devices-->
@@ -135,8 +132,9 @@
             </v-row>
           </v-expand-transition>
           <SeeMore
+            class="mt-4"
             :displayMore="displayMore"
-            @toggle="v => (displayMore = v)"
+            @toggle="(v: boolean) => (displayMore = v)"
           />
         </v-col>
       </v-row>
@@ -144,15 +142,17 @@
   </v-card>
 </template>
 
-<script>
-import TicketToRide from './projects/TicketToRide.vue';
-import NLP from './projects/NLP.vue';
-import MetalData from './projects/MetalData.vue';
-import CityCompass from './projects/CityCompass.vue';
-import TrainGraph from './projects/TrainGraph.vue';
-import SeeMore from './helpers/SeeMore.vue';
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+import SeeMore from '@/components/helpers/SeeMore.vue';
+import CityCompass from '@/components/projects/CityCompass.vue';
+import MetalData from '@/components/projects/MetalData.vue';
+import NLP from '@/components/projects/NLP.vue';
+import TicketToRide from '@/components/projects/TicketToRide.vue';
+import TrainGraph from '@/components/projects/TrainGraph.vue';
+
+export default defineComponent({
   components: {
     TicketToRide,
     NLP,
@@ -164,5 +164,5 @@ export default {
   data: () => ({
     displayMore: false,
   }),
-};
+});
 </script>
