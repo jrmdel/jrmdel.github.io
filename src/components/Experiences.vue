@@ -53,7 +53,7 @@
         </v-expand-transition>
         <SeeMore id="no-pdf" :displayMore="displayMore" @toggle="toggleMore" />
       </div>
-      <div id="no-pdf" class="hidden-sm-and-up">
+      <div class="hidden-sm-and-up">
         <v-container fluid>
           <v-row>
             <v-col cols="12">
@@ -125,7 +125,7 @@
               </v-row>
             </div>
           </v-expand-transition>
-          <SeeMore class="mt-4" :displayMore="displayMore" @toggle="toggleMore" />
+          <SeeMore id="no-pdf" class="mt-4" :displayMore="displayMore" @toggle="toggleMore" />
         </v-container>
       </div>
     </v-card-text>

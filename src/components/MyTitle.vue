@@ -113,8 +113,9 @@ export default defineComponent({
       }
       this.removeUnwantedNodes(cloned);
       this.embedCss(cloned);
+      this.addIconLink(cloned);
 
-      return cloned?.outerHTML;
+      return this.replaceImageUrls(cloned?.outerHTML);
     },
     removeUnwantedNodes(html: HTMLHtmlElement): void {
       const nodesToDelete = html.querySelectorAll('#no-pdf');
@@ -136,6 +137,20 @@ export default defineComponent({
         } catch (e) {
           console.warn(`Unable to access CSS rules for ${sheet.href}`, e);
         }
+      });
+    },
+    addIconLink(html: HTMLHtmlElement): void {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css';
+      html.querySelector('head')?.appendChild(link);
+    },
+    replaceImageUrls(htmlText: string): string {
+      const url = document.URL;
+      const baseUrl = url.substring(0, url.lastIndexOf('/'));
+      return htmlText.replace(/src=\"(.*)\.jpg"/g, (match, p1) => {
+        const newUrl = `${baseUrl}${p1}.jpg`;
+        return `src="${newUrl}"`;
       });
     },
     autoSaveFile(blob: Blob): void {
