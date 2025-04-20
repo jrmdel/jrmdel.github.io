@@ -68,7 +68,7 @@
           </v-row>
         </v-col>
         <v-col cols="12" class="mt-n2">
-          <SeeMore :displayMore="displayMore" @toggle="(v: boolean) => (displayMore = v)" />
+          <SeeMore id="no-pdf" :displayMore="displayMore" @toggle="toggleMore" />
         </v-col>
       </v-row>
       <!--On small devices-->
@@ -131,11 +131,7 @@
               </v-col>
             </v-row>
           </v-expand-transition>
-          <SeeMore
-            class="mt-4"
-            :displayMore="displayMore"
-            @toggle="(v: boolean) => (displayMore = v)"
-          />
+          <SeeMore class="mt-4" :displayMore="displayMore" @toggle="toggleMore" />
         </v-col>
       </v-row>
     </v-card-text>
@@ -164,5 +160,10 @@ export default defineComponent({
   data: () => ({
     displayMore: false,
   }),
+  methods: {
+    toggleMore() {
+      this.displayMore = !this.displayMore;
+    },
+  },
 });
 </script>
