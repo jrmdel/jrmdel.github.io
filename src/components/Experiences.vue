@@ -2,64 +2,56 @@
   <v-card color="primaryLight">
     <v-card-title class="text-h4 font-weight-light text-tertiary">Expériences</v-card-title>
     <v-card-text>
-      <div class="hidden-xs">
-        <v-timeline side="end" dense align="start">
-          <v-timeline-item dot-color="primary" size="small">
-            <Leocare
-              cardColor="primary"
-              subtitleColor="tertiary"
-              headerTextColor="primaryWhite"
-              bodyTextColor="tertiary"
-              iconColor="tertiary"
-            />
-          </v-timeline-item>
-          <v-timeline-item dot-color="primary" size="small">
-            <Swizi
-              cardColor="primary"
-              subtitleColor="tertiary"
-              headerTextColor="primaryWhite"
-              bodyTextColor="tertiary"
-              iconColor="tertiary"
-            />
-          </v-timeline-item>
-          <v-timeline-item dot-color="primary" size="small">
-            <Astek
-              cardColor="primary"
-              subtitleColor="tertiary"
-              headerTextColor="primaryWhite"
-              bodyTextColor="tertiary"
-              iconColor="tertiary"
-            />
-          </v-timeline-item>
-          <v-timeline-item dot-color="primary" size="small">
-            <Nokia
-              cardColor="primary"
-              subtitleColor="tertiary"
-              headerTextColor="primaryWhite"
-              bodyTextColor="tertiary"
-              iconColor="tertiary"
-            />
-          </v-timeline-item>
-          <v-timeline-item v-show="displayMore" key="ericsson" dot-color="primary" size="small">
-            <Ericsson
-              cardColor="primary"
-              subtitleColor="tertiary"
-              headerTextColor="primaryWhite"
-              bodyTextColor="tertiary"
-              iconColor="tertiary"
-            />
-          </v-timeline-item>
-          <v-timeline-item v-show="displayMore" key="lunetterie" dot-color="primary" size="small">
-            <Lunetterie
-              cardColor="primary"
-              subtitleColor="tertiary"
-              headerTextColor="primaryWhite"
-              bodyTextColor="tertiary"
-              iconColor="tertiary"
-            />
-          </v-timeline-item>
-        </v-timeline>
-        <SeeMore class="mt-4" :displayMore="displayMore" @toggle="(v) => (displayMore = v)" />
+      <div class="hidden-xs d-flex flex-column ga-4">
+        <Leocare
+          cardColor="primary"
+          subtitleColor="tertiary"
+          headerTextColor="primaryWhite"
+          bodyTextColor="tertiary"
+          iconColor="tertiary"
+        />
+        <Swizi
+          cardColor="primary"
+          subtitleColor="tertiary"
+          headerTextColor="primaryWhite"
+          bodyTextColor="tertiary"
+          iconColor="tertiary"
+        />
+        <Astek
+          cardColor="primary"
+          subtitleColor="tertiary"
+          headerTextColor="primaryWhite"
+          bodyTextColor="tertiary"
+          iconColor="tertiary"
+        />
+        <Nokia
+          cardColor="primary"
+          subtitleColor="tertiary"
+          headerTextColor="primaryWhite"
+          bodyTextColor="tertiary"
+          iconColor="tertiary"
+        />
+        <v-expand-transition>
+          <div v-show="displayMore">
+            <div class="d-flex flex-column ga-4">
+              <Ericsson
+                cardColor="primary"
+                subtitleColor="tertiary"
+                headerTextColor="primaryWhite"
+                bodyTextColor="tertiary"
+                iconColor="tertiary"
+              />
+              <Lunetterie
+                cardColor="primary"
+                subtitleColor="tertiary"
+                headerTextColor="primaryWhite"
+                bodyTextColor="tertiary"
+                iconColor="tertiary"
+              />
+            </div>
+          </div>
+        </v-expand-transition>
+        <SeeMore id="no-pdf" :displayMore="displayMore" @toggle="toggleMore" />
       </div>
       <div id="no-pdf" class="hidden-sm-and-up">
         <v-container fluid>
@@ -133,7 +125,7 @@
               </v-row>
             </div>
           </v-expand-transition>
-          <SeeMore class="mt-4" :displayMore="displayMore" @toggle="(v) => (displayMore = v)" />
+          <SeeMore class="mt-4" :displayMore="displayMore" @toggle="toggleMore" />
         </v-container>
       </div>
     </v-card-text>
@@ -164,6 +156,11 @@ export default defineComponent({
   data: () => ({
     displayMore: false,
   }),
+  methods: {
+    toggleMore() {
+      this.displayMore = !this.displayMore;
+    },
+  },
 });
 </script>
 
