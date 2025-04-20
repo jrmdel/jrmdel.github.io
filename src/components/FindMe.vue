@@ -28,7 +28,7 @@
         </v-tooltip>
       </v-row>
       <!--Visible as 2 rows only on md-->
-      <v-row id="no-pdf" align="center" class="pa-4 hidden-sm-and-down">
+      <v-row align="center" class="pa-4 hidden-sm-and-down">
         <v-col v-for="(site, i) in sites" :key="i" cols="6">
           <v-row justify="center" class="mb-4 mb-md-8">
             <v-tooltip location="bottom" transition="scale-transition">

@@ -37,7 +37,7 @@
         </v-col>
       </v-row>
       <!--Only on extra-small and medium-->
-      <v-row id="no-pdf" class="hidden-sm hidden-lg-and-up" no-gutters>
+      <v-row class="hidden-sm hidden-lg-and-up" no-gutters>
         <v-col v-for="(crt, i) in cert" :key="i" cols="12" class="my-1">
           <v-divider></v-divider>
           <v-card variant="text">

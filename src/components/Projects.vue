@@ -72,7 +72,7 @@
         </v-col>
       </v-row>
       <!--On small devices-->
-      <v-row id="no-pdf" class="hidden-lg-and-up">
+      <v-row class="hidden-lg-and-up">
         <v-col cols="12">
           <v-row>
             <v-col cols="12">
@@ -131,7 +131,7 @@
               </v-col>
             </v-row>
           </v-expand-transition>
-          <SeeMore class="mt-4" :displayMore="displayMore" @toggle="toggleMore" />
+          <SeeMore id="no-pdf" class="mt-4" :displayMore="displayMore" @toggle="toggleMore" />
         </v-col>
       </v-row>
     </v-card-text>
