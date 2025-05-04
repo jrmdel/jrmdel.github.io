@@ -24,7 +24,7 @@
                   iconColor="primary"
                   textColor="primaryWhite"
                 />
-                <Diploma
+                <Diplomas
                   id="diplomas"
                   titleColor="white"
                   diplomaTextColor="primaryWhite"
@@ -94,7 +94,7 @@ import { useGoTo } from 'vuetify';
 
 import AboutMe from '@/components/AboutMe.vue';
 import Certificates from '@/components/Certificates.vue';
-import Diploma from '@/components/Diploma.vue';
+import Diplomas from '@/components/Diplomas.vue';
 import Experiences from '@/components/Experiences.vue';
 import FindMe from '@/components/FindMe.vue';
 import Identity from '@/components/Identity.vue';
@@ -107,7 +107,7 @@ export default defineComponent({
   components: {
     AboutMe,
     Certificates,
-    Diploma,
+    Diplomas,
     Experiences,
     FindMe,
     Identity,
