@@ -105,16 +105,16 @@ import Skills from '@/components/Skills.vue';
 
 export default defineComponent({
   components: {
-    Identity,
-    FindMe,
-    Skills,
-    Languages,
     AboutMe,
-    Experiences,
-    Diploma,
-    Projects,
     Certificates,
+    Diploma,
+    Experiences,
+    FindMe,
+    Identity,
+    Languages,
     MyTitle,
+    Projects,
+    Skills,
   },
   setup() {
     const goTo = useGoTo();

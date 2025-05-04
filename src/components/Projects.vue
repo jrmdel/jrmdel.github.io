@@ -150,12 +150,12 @@ import TrainGraph from '@/components/projects/TrainGraph.vue';
 
 export default defineComponent({
   components: {
-    TicketToRide,
-    NLP,
-    MetalData,
     CityCompass,
-    TrainGraph,
+    MetalData,
+    NLP,
     SeeMore,
+    TicketToRide,
+    TrainGraph,
   },
   data: () => ({
     displayMore: false,

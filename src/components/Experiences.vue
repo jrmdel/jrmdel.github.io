@@ -145,13 +145,13 @@ import SeeMore from '@/components/helpers/SeeMore.vue';
 
 export default defineComponent({
   components: {
-    Leocare,
-    Swizi,
     Astek,
-    Nokia,
     Ericsson,
-    SeeMore,
+    Leocare,
     Lunetterie,
+    Nokia,
+    SeeMore,
+    Swizi,
   },
   data: () => ({
     displayMore: false,
