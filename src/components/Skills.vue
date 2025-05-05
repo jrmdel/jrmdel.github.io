@@ -2,7 +2,7 @@
   <div>
     <v-container>
       <v-row class="my-2 text-h4 font-weight-light" :class="computedTitleColor">
-        <v-col>Compétences</v-col>
+        <v-col>{{ $t('skills.title') }}</v-col>
       </v-row>
       <v-row v-for="(skill, i) in skills" :key="i" align="center" class="px-4 my-n2">
         <v-col cols="auto">

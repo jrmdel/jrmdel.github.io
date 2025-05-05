@@ -2,14 +2,18 @@
   <div class="mt-2">
     <v-container>
       <v-row class="my-2 text-h4 font-weight-light" :class="computedTitleColor">
-        <v-col>Diplômes</v-col>
+        <v-col>{{ $t('diplomas.title') }}</v-col>
       </v-row>
       <v-row align="center" justify="space-around" no-gutters>
         <v-col v-for="(d, i) in diplomas" :key="i" cols="12" class="my-1">
           <v-divider dark />
           <v-card variant="text">
             <v-card-title>
-              <span class="text-subtitle-1 font-weight-medium" :class="computedDiplomaTextColor">
+              <span
+                class="text-subtitle-1 font-weight-medium"
+                style="text-wrap-mode: wrap"
+                :class="computedDiplomaTextColor"
+              >
                 {{ d.title }}
               </span>
             </v-card-title>
@@ -47,9 +51,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { computed, defineComponent } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 import { useColor } from '@/composables/useColor';
+
+interface IDiploma {
+  title: string;
+  school: string;
+  year: string;
+  skills?: string[];
+}
 
 export default defineComponent({
   props: {
@@ -60,6 +72,26 @@ export default defineComponent({
     chipColor: { type: String, default: 'warning' },
   },
   setup(props) {
+    const { t } = useI18n();
+    const diplomas = computed<IDiploma[]>(() => [
+      {
+        title: t('diplomas.diploma-1.title'),
+        school: t('diplomas.diploma-1.school'),
+        year: t('diplomas.diploma-1.year'),
+        skills: [
+          t('diplomas.diploma-1.skills.web'),
+          t('diplomas.diploma-1.skills.data-science'),
+          t('diplomas.diploma-1.skills.machine-learning'),
+          t('diplomas.diploma-1.skills.software-engineering'),
+        ],
+      },
+      {
+        title: t('diplomas.diploma-2.title'),
+        school: t('diplomas.diploma-2.school'),
+        year: t('diplomas.diploma-2.year'),
+      },
+    ]);
+
     const computedTitleColor = useColor(props.titleColor);
     const computedDiplomaTextColor = useColor(props.diplomaTextColor);
     const computedTextColor = useColor(props.textColor);
@@ -68,22 +100,8 @@ export default defineComponent({
       computedTitleColor,
       computedDiplomaTextColor,
       computedTextColor,
+      diplomas,
     };
   },
-  data: () => ({
-    diplomas: [
-      {
-        title: 'Ingénieur informatique spécialité IA/Big Data',
-        school: 'ENSSAT - Lannion',
-        year: '2020',
-        skills: ['Génie Logiciel', 'Web', 'Sciences des données', 'Machine Learning'],
-      },
-      {
-        title: 'BTS Opticien-Lunetier',
-        school: 'ISO - Lille',
-        year: '2014',
-      },
-    ],
-  }),
 });
 </script>

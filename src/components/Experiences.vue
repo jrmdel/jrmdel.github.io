@@ -1,6 +1,8 @@
 <template>
   <v-card color="primaryLight">
-    <v-card-title class="text-h4 font-weight-light text-tertiary">Expériences</v-card-title>
+    <v-card-title class="text-h4 font-weight-light text-tertiary">{{
+      $t('experiences.title')
+    }}</v-card-title>
     <v-card-text>
       <div class="hidden-xs d-flex flex-column ga-4">
         <Leocare

@@ -1,24 +1,19 @@
 <template>
   <v-card class="mb-6" :color="cardColor">
     <v-card-title class="text-h4 font-weight-light" :class="computedTitleColor">
-      A propos de moi
+      {{ $t('about-me.title') }}
     </v-card-title>
     <v-card-text
       class="d-flex flex-column ga-3 text-subtitle-1 font-weight-light"
       style="line-height: 1.6"
     >
+      <i18n-t keypath="about-me.intro.label" tag="p" scope="global" :class="computedTextColor">
+        <template v-for="(accentuated, i) in accentuatedKeys" :key="i" v-slot:[accentuated]>
+          <span class="font-weight-medium">{{ $t(`about-me.intro.${accentuated}`) }}</span>
+        </template>
+      </i18n-t>
       <p :class="computedTextColor">
-        Je suis un ingénieur <span class="font-weight-medium">curieux</span>,
-        <span class="font-weight-medium">responsable</span> et
-        <span class="font-weight-medium">enthousiaste</span>, diplômé d'informatique. Initialement
-        destiné à évoluer dans le domaine paramédical, j'ai décidé de reprendre mes études à 22 ans.
-        Je me suis découvert une passion pour la <span class="font-weight-medium">data</span>, et
-        une grande appétence pour le développement
-        <span class="font-weight-medium">web</span> JavaScript/TypeScript.
-      </p>
-      <p :class="computedTextColor">
-        Mon ambition à terme : pouvoir rejoindre un projet ayant un impact environnemental/sociétal
-        positif pour aligner mon travail sur mes valeurs individuelles.
+        {{ $t('about-me.future') }}
       </p>
     </v-card-text>
   </v-card>
@@ -36,10 +31,11 @@ export default defineComponent({
     bodyTextColor: { type: String, default: '' },
   },
   setup(props) {
+    const accentuatedKeys = ['quality-1', 'quality-2', 'quality-3', 'interest-1', 'interest-2'];
     const computedTitleColor = useColor(props.titleColor);
     const computedTextColor = useColor(props.bodyTextColor);
 
-    return { computedTitleColor, computedTextColor };
+    return { accentuatedKeys, computedTitleColor, computedTextColor };
   },
 });
 </script>
