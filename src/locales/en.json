@@ -1,0 +1,60 @@
+{
+  "title": {
+    "label": "Fullstack TS & Data Engineer"
+  },
+  "about-me": {
+    "title": "About me",
+    "intro": {
+      "label": "I am a {quality-1}, {quality-2} and {quality-3} engineer, graduated in computer science. Initially destined for the paramedical field, I decided to go back to school at 22. I've discovered a passion for {interest-1}, and a great interest in JavaScript/TypeScript {interest-2} development.",
+      "quality-1": "curious",
+      "quality-2": "responsible",
+      "quality-3": "enthusiastic",
+      "interest-1": "data",
+      "interest-2": "web"
+    },
+    "future": "My long-term ambition is to be able to join a project with a positive environmental/social impact to align my work with my personal values."
+  },
+  "identity": {
+    "years-old": "yrs"
+  },
+  "diplomas": {
+    "title": "Diplomas",
+    "diploma-1": {
+      "title": "Computer Science Engineer specializing in AI/Big Data",
+      "school": "ENSSAT - Lannion (France)",
+      "year": "2020",
+      "skills": {
+        "web": "Web",
+        "data-science": "Data Science",
+        "machine-learning": "Machine Learning",
+        "software-engineering": "Software Engineering"
+      }
+    },
+    "diploma-2": {
+      "title": "Optician via a 2-year technical degree",
+      "school": "ISO - Lille (France)",
+      "year": "2014"
+    }
+  },
+  "languages": {
+    "title": "Languages",
+    "french": "French",
+    "english": "English"
+  },
+  "certificates": {
+    "title": "Certificates"
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "find-me": {
+    "title": "Find me",
+    "github": "On GitHub",
+    "stackoverflow": "On StackOverflow",
+    "linkedin": "On LinkedIn",
+    "strava": "On Strava"
+  },
+  "experiences": {
+    "title": "Experiences"
+  }
+}

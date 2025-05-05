@@ -1,0 +1,60 @@
+{
+  "title": {
+    "label": "Ingénieur Fullstack TS & Data"
+  },
+  "about-me": {
+    "title": "A propos de moi",
+    "intro": {
+      "label": "Je suis un ingénieur {quality-1}, {quality-2} et {quality-3}, diplômé d'informatique. Initialement destiné à évoluer dans le domaine paramédical, j'ai décidé de reprendre mes études à 22 ans. Je me suis découvert une passion pour la {interest-1}, et une grande appétence pour le développement {interest-2} JavaScript/TypeScript.",
+      "quality-1": "curieux",
+      "quality-2": "responsable",
+      "quality-3": "enthousiaste",
+      "interest-1": "data",
+      "interest-2": "web"
+    },
+    "future": "Mon ambition à terme : pouvoir rejoindre un projet ayant un impact environnemental/sociétal positif pour aligner mon travail sur mes valeurs individuelles."
+  },
+  "identity": {
+    "years-old": "ans"
+  },
+  "diplomas": {
+    "title": "Diplômes",
+    "diploma-1": {
+      "title": "Ingénieur informatique spécialité IA/Big Data",
+      "school": "ENSSAT - Lannion",
+      "year": "2020",
+      "skills": {
+        "web": "Web",
+        "data-science": "Sciences des données",
+        "machine-learning": "Machine Learning",
+        "software-engineering": "Génie Logiciel"
+      }
+    },
+    "diploma-2": {
+      "title": "BTS Opticien-Lunetier",
+      "school": "ISO - Lille",
+      "year": "2014"
+    }
+  },
+  "languages": {
+    "title": "Langues",
+    "french": "Français",
+    "english": "Anglais"
+  },
+  "certificates": {
+    "title": "Certifications"
+  },
+  "skills": {
+    "title": "Compétences"
+  },
+  "find-me": {
+    "title": "Retrouvez-moi",
+    "github": "Sur GitHub",
+    "stackoverflow": "Sur StackOverflow",
+    "linkedin": "Sur LinkedIn",
+    "strava": "Sur Strava"
+  },
+  "experiences": {
+    "title": "Expériences"
+  }
+}
