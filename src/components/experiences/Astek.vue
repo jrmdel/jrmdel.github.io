@@ -1,33 +1,31 @@
 <template>
   <CardTemplate
     :cardColor="cardColor"
-    cardTitle="Ingénieur informatique"
-    cardSubtitle="Astek"
+    :cardTitle="$t('experiences.astek.title')"
+    :cardSubtitle="$t('experiences.astek.company')"
     :headerTextColor="headerTextColor"
     :subtitleColor="subtitleColor"
-    dateString="Janv. 2021 - Sept. 2021"
-    locationString="Rennes, France"
+    :dateString="$t('experiences.astek.dates')"
+    :locationString="$t('experiences.astek.location')"
     :iconColor="iconColor"
     :textColor="bodyTextColor"
     :skills="skills"
   >
     <template v-slot:content>
-      <div>
-        Pour l'un des clients d'Astek, basé à Vannes et spécialisé dans le développement de
-        plateformes d'aides publiques à destination des collectivités, je suis intervenu en tant que
-        développeur au sein de l'équipe Support. Cette mission m'a fait opérer sur un périmètre
-        large, allant des bases de données aux conteneurs Docker, et m'a confronté aux
-        problématiques fonctionnelles et techniques que l'on peut rencontrer sur un environnement de
-        production utilisé par un grand nombre de personnes.
-      </div>
+      <p>{{ $t('experiences.astek.content.label') }}</p>
     </template>
     <template v-slot:extra>
-      <div class="mt-2">J'ai ainsi pu parfaire certaines compétences annexes :</div>
-      <ul class="ml-4 mt-1">
-        <li>S'adapter à un projet à grande échelle</li>
-        <li>Améliorer ma capacité à résoudre des problèmes</li>
-        <li>Prendre des responsabilités</li>
-      </ul>
+      <p class="mt-2">{{ $t('experiences.astek.content.label-extra') }}</p>
+      <i18n-t
+        keypath="experiences.astek.content.list-extra.label"
+        tag="ul"
+        class="ml-4 mt-1"
+        scope="global"
+      >
+        <template v-for="(_, i) in items" :key="i" v-slot:[`item-${i+1}`]>
+          <li>{{ $t(`experiences.astek.content.list-extra.item-${i + 1}`) }}</li>
+        </template>
+      </i18n-t>
     </template>
   </CardTemplate>
 </template>
@@ -48,8 +46,10 @@ export default defineComponent({
     bodyTextColor: { type: String },
     iconColor: { type: String },
   },
-  data: () => ({
-    skills: ['Node.JS', 'MongoDB', 'Elastic Search', 'Jira', 'Kanban'],
-  }),
+  setup() {
+    const items: undefined[] = Array(3);
+    const skills = ['Node.JS', 'MongoDB', 'Elastic Search', 'Jira', 'Kanban'];
+    return { items, skills };
+  },
 });
 </script>

@@ -1,45 +1,53 @@
 <template>
   <CardTemplate
     :cardColor="cardColor"
-    cardTitle="Développeur back-end"
-    cardSubtitle="Ericsson"
+    :cardTitle="$t('experiences.ericsson.title')"
+    :cardSubtitle="$t('experiences.ericsson.company')"
     :headerTextColor="headerTextColor"
     :subtitleColor="subtitleColor"
-    dateString="Juil. 2019 - Aout 2019"
-    locationString="Lannion, France"
+    :dateString="$t('experiences.ericsson.dates')"
+    :locationString="$t('experiences.ericsson.location')"
     :iconColor="iconColor"
     :textColor="bodyTextColor"
     :skills="skills"
   >
     <template v-slot:content>
-      <div>
-        Stage de 7 semaines en développement logiciel, sur un projet web de gestion de robots de
-        test en Java Spring Boot au sein d'une équipe de 4 personnes.
-      </div>
+      <p>
+        {{ $t('experiences.ericsson.content.label') }}
+      </p>
     </template>
     <template v-slot:extra>
-      <div class="mt-1">
-        Le but du stage était de faire évoluer la solution de test, la faisant passer de tests
-        restreints à un seul robot, à une solution de tests distribués pouvant faire intervenir
-        plusieurs robots. Cela m'a permis d'approfondir des notions déjà connues comme :
+      <div class="d-flex flex-column ga-1">
+        <p>{{ $t('experiences.ericsson.content.label-extra-1') }}</p>
+        <i18n-t
+          keypath="experiences.ericsson.content.list-extra-1.label"
+          tag="ul"
+          class="ml-4 mt-1"
+          scope="global"
+        >
+          <template v-for="(_, i) in items" :key="i" v-slot:[`item-${i+1}`]>
+            <li>{{ $t(`experiences.ericsson.content.list-extra-1.item-${i + 1}`) }}</li>
+          </template>
+        </i18n-t>
+        <p>{{ $t('experiences.ericsson.content.label-extra-2') }}</p>
+        <i18n-t
+          keypath="experiences.ericsson.content.list-extra-2.label"
+          tag="ul"
+          class="ml-4 mt-1"
+          scope="global"
+        >
+          <template v-for="(_, i) in items" :key="i" v-slot:[`item-${i+1}`]>
+            <li>{{ $t(`experiences.ericsson.content.list-extra-2.item-${i + 1}`) }}</li>
+          </template>
+        </i18n-t>
       </div>
-      <ul class="ml-4 mt-1">
-        <li>Développement Java et Web</li>
-        <li>Mise en place de sockets</li>
-        <li>Travail en équipe</li>
-      </ul>
-      <div class="mt-1">Mais également de nouvelles notions comme :</div>
-      <ul class="ml-4 mt-1">
-        <li>Manipulation de Raspberry Pi</li>
-        <li>Développement avec le framework Spring Boot</li>
-        <li>Lien entre code et base de données via l'ORM Hibernate</li>
-      </ul>
     </template>
   </CardTemplate>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { computed, defineComponent } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 import CardTemplate from '@/components/experiences/helpers/CardTemplate.vue';
 
@@ -54,8 +62,17 @@ export default defineComponent({
     bodyTextColor: { type: String },
     iconColor: { type: String },
   },
-  data: () => ({
-    skills: ['Java Spring Boot', 'MySQL', 'API Rest', 'Redmine', 'Méthodes Agiles'],
-  }),
+  setup() {
+    const { t } = useI18n();
+    const items: undefined[] = Array(3);
+    const skills = computed(() => [
+      t('experiences.ericsson.skills.java'),
+      t('experiences.ericsson.skills.mysql'),
+      t('experiences.ericsson.skills.rest'),
+      t('experiences.ericsson.skills.redmine'),
+      t('experiences.ericsson.skills.agile'),
+    ]);
+    return { items, skills };
+  },
 });
 </script>
