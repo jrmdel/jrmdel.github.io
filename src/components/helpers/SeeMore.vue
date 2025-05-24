@@ -11,7 +11,7 @@
         {{ iconDisplay ? 'mdi-minus' : 'mdi-plus' }}
       </v-icon>
       <span class="text-tertiary">
-        {{ iconDisplay ? 'Voir moins' : 'Voir plus' }}
+        {{ iconDisplay ? $t('common.buttons.see-less') : $t('common.buttons.see-more') }}
       </span>
     </v-btn>
   </div>

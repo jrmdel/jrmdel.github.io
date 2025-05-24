@@ -243,5 +243,11 @@
         "label": "Création d'une application web ludique ayant pour but de tester ses connaissances en géographie française. Les questions sont générées aléatoirement et les tentatives sont stockées pour, à terme, pouvoir analyser les données récupérées."
       }
     }
+  },
+  "common": {
+    "buttons": {
+      "see-more": "Voir plus",
+      "see-less": "Voir moins"
+    }
   }
 }
