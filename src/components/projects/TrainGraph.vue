@@ -1,24 +1,20 @@
 <template>
   <ProjectTemplate
-    title="Train Graph"
+    :title="$t('projects.train-graph.title')"
     :titleColor="titleColor"
     :cardColor="cardColor"
     :iconColor="iconColor"
     :headerTextColor="headerTextColor"
     leftIcon="mdi-atom-variant"
-    leftText="Personnel"
+    :leftText="$t('projects.train-graph.type')"
     rightIcon="mdi-timelapse"
-    rightText="+30h"
+    :rightText="$t('projects.train-graph.duration')"
     :textColor="textColor"
     :skills="skills"
     link="https://github.com/jrmdel/cities-distances"
   >
     <template v-slot:content>
-      <div>
-        Prise en main d'une base de données Graph par la représentation de données ferroviaires.
-        Celles-ci ont été récupérées via l'API Navitia de la SNCF et insérées dans Neo4j. Le but est
-        de faire des statistiques sur l'inter-connexion des villes.
-      </div>
+      <p>{{ $t('projects.train-graph.content.label') }}</p>
     </template>
   </ProjectTemplate>
 </template>

@@ -28,7 +28,7 @@
         :href="link"
       >
         <v-icon>mdi-open-in-new</v-icon>
-        <span class="ml-1">Open</span>
+        <span class="ml-1">{{ $t('projects.link-text') }}</span>
       </v-btn>
     </v-card-actions>
   </v-card>

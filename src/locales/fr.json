@@ -193,5 +193,55 @@
         "organization": "Organisation"
       }
     }
+  },
+  "projects": {
+    "title": "Projets & Réalisations",
+    "link-text": "Ouvrir",
+    "ticket-to-ride": {
+      "title": "Ticket to Ride",
+      "type": "Personnel",
+      "duration": "+200h",
+      "content": {
+        "label": "Développement d'une application web responsive et serverless permettant le suivi et l'aide au décompte des points lors d'une partie du jeu {italic-1}. Les parties sont stockées sur Firebase et consultables en temps réel par les joueurs et joueuses.",
+        "accent": {
+          "italic-1": "Les Aventuriers du Rail"
+        }
+      }
+    },
+    "metal-data": {
+      "title": "Analyse et fouille de données",
+      "type": "Scolaire",
+      "duration": "+60h",
+      "content": {
+        "label": "Extraction d’informations à partir d’un jeu de données de 1000 chansons, issues de l’API Spotify, en utilisant des méthodes d’analyse (AFC, ACP et ACM). L'étude était axée sur l’analyse des relations entre les chansons présentes sur les 100 meilleurs albums de métal selon le {link-1}.",
+        "accent": {
+          "link-1": "magazine Rolling Stones"
+        }
+      }
+    },
+    "nlp": {
+      "title": "Natural Language Processing",
+      "type": "Scolaire",
+      "duration": "+30h",
+      "content": {
+        "label": "Par équipe de 4, nous devions entraîner un réseau de neurones via différentes méthodes afin qu'il traduise de courtes phrases. Nous avons essayé plusieurs architectures (LSTM, RNN, avec ou sans dropout, avec ou sans attention) et les avons évalué via le score BLEU et le Word Error Rate."
+      }
+    },
+    "train-graph": {
+      "title": "Train Graph",
+      "type": "Personnel",
+      "duration": "+30h",
+      "content": {
+        "label": "Prise en main d'une base de données Graph par la représentation de données ferroviaires. Celles-ci ont été récupérées via l'API Navitia de la SNCF et insérées dans Neo4j. Le but est de faire des statistiques sur l'inter-connexion des villes."
+      }
+    },
+    "city-compass": {
+      "title": "City Compass",
+      "type": "Personnel",
+      "duration": "+30h",
+      "content": {
+        "label": "Création d'une application web ludique ayant pour but de tester ses connaissances en géographie française. Les questions sont générées aléatoirement et les tentatives sont stockées pour, à terme, pouvoir analyser les données récupérées."
+      }
+    }
   }
 }
