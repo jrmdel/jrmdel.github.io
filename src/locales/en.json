@@ -247,7 +247,9 @@
   "common": {
     "buttons": {
       "see-more": "See more",
-      "see-less": "See less"
+      "see-less": "See less",
+      "download-cv": "Download as PDF",
+      "change-language": "Change language to french"
     }
   }
 }

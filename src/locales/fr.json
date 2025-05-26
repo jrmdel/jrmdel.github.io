@@ -247,7 +247,9 @@
   "common": {
     "buttons": {
       "see-more": "Voir plus",
-      "see-less": "Voir moins"
+      "see-less": "Voir moins",
+      "download-cv": "Télécharger en PDF",
+      "change-language": "Passer en anglais"
     }
   }
 }

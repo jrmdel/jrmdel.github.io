@@ -12,6 +12,7 @@
 
         <div class="d-flex ga-2 pl-5">
           <v-btn
+            :aria-label="$t('common.buttons.change-language')"
             :color="buttonColor"
             variant="outlined"
             icon="mdi-translate"
@@ -33,6 +34,7 @@
             </template>
           </v-btn>
           <v-btn
+            :aria-label="$t('common.buttons.download-cv')"
             :color="buttonColor"
             :loading="isDownloading"
             variant="outlined"
