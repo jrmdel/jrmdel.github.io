@@ -15,7 +15,7 @@
             {{ skill.text }}
           </span>
         </v-col>
-        <v-col cols="7" md="5" lg="6" xl="7">
+        <v-col cols="6" md="5" lg="6" xl="7">
           <v-progress-linear
             :color="sliderColor"
             hide-details
