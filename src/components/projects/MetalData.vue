@@ -1,6 +1,6 @@
 <template>
   <ProjectTemplate
-    :title="$t('projects.ticket-to-ride.title')"
+    :title="$t('projects.metal-data.title')"
     :titleColor="titleColor"
     :cardColor="cardColor"
     :iconColor="iconColor"

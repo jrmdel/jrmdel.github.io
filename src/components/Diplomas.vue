@@ -34,7 +34,7 @@
               </v-row>
             </v-card-text>
             <v-card-actions v-if="d.skills">
-              <v-row no-gutters class="mt-n6">
+              <v-row no-gutters class="mt-n3">
                 <v-col v-for="(skill, j) in d.skills" :key="j" class="mx-1" cols="auto">
                   <v-chip small class="ma-1" :color="chipColor">
                     {{ skill }}
