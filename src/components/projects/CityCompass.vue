@@ -1,24 +1,20 @@
 <template>
   <ProjectTemplate
-    title="City Compass"
+    :title="$t('projects.city-compass.title')"
     :titleColor="titleColor"
     :cardColor="cardColor"
     :iconColor="iconColor"
     :headerTextColor="headerTextColor"
     leftIcon="mdi-atom-variant"
-    leftText="Personnel"
+    :leftText="$t('projects.city-compass.type')"
     rightIcon="mdi-timelapse"
-    rightText="+30h"
+    :rightText="$t('projects.city-compass.duration')"
     :textColor="textColor"
     :skills="skills"
     link="https://jrmdel.github.io/cities-game/"
   >
     <template v-slot:content>
-      <div>
-        Création d'une application web ludique ayant pour but de tester ses connaissances en
-        géographie française. Les questions sont générées aléatoirement et les tentatives sont
-        stockées pour, à terme, pouvoir analyser les données récupérées.
-      </div>
+      <p>{{ $t('projects.city-compass.content.label') }}</p>
     </template>
   </ProjectTemplate>
 </template>

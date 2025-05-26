@@ -2,7 +2,7 @@
   <div>
     <v-container>
       <v-row class="my-2 text-h4 font-weight-light" :class="computedTitleColor">
-        <v-col>Retrouvez-moi</v-col>
+        <v-col>{{ $t('find-me.title') }}</v-col>
       </v-row>
       <!--Standard display except on medium screens-->
       <v-row align="center" justify="space-around" class="pa-4 hidden-md-and-up">
@@ -11,14 +11,14 @@
             <v-btn
               v-bind="props"
               variant="flat"
-              :color="site.back"
+              :color="site.backgroundColor"
               :href="site.link"
               :icon="site.icon"
               target="_blank"
               size="large"
             >
               <template v-slot:default>
-                <v-icon :color="site.logo" size="x-large"> </v-icon>
+                <v-icon :color="site.iconColor" size="x-large"> </v-icon>
               </template>
             </v-btn>
           </template>
@@ -36,14 +36,14 @@
                 <v-btn
                   v-bind="props"
                   variant="flat"
-                  :color="site.back"
+                  :color="site.backgroundColor"
                   :href="site.link"
                   :icon="site.icon"
                   target="_blank"
                   size="large"
                 >
                   <template v-slot:default>
-                    <v-icon :color="site.logo" size="x-large"> </v-icon>
+                    <v-icon :color="site.iconColor" size="x-large"> </v-icon>
                   </template>
                 </v-btn>
               </template>
@@ -59,9 +59,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { computed, defineComponent } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 import { useColor } from '@/composables/useColor';
+
+interface ISite {
+  text: string;
+  icon: string;
+  link: string;
+  iconColor: string;
+  backgroundColor: string;
+}
 
 export default defineComponent({
   props: {
@@ -69,45 +78,46 @@ export default defineComponent({
     textColor: { type: String, default: '' },
   },
   setup(props) {
+    const { t } = useI18n();
+    const sites = computed<ISite[]>(() => [
+      {
+        text: t('find-me.github'),
+        icon: 'mdi-github',
+        link: 'https://github.com/jrmdel',
+        iconColor: 'black',
+        backgroundColor: 'white',
+      },
+      {
+        text: t('find-me.stackoverflow'),
+        icon: 'mdi-stack-overflow',
+        link: 'https://stackoverflow.com/users/12194386',
+        iconColor: '#f48024',
+        backgroundColor: 'white',
+      },
+      {
+        text: t('find-me.linkedin'),
+        icon: 'mdi-linkedin',
+        link: 'https://www.linkedin.com/in/jeremie-deletraz/',
+        iconColor: '#006192',
+        backgroundColor: 'white',
+      },
+      {
+        text: t('find-me.strava'),
+        icon: 'custom:strava',
+        link: 'https://www.strava.com/athletes/2740041',
+        iconColor: '#FC4C02',
+        backgroundColor: 'white',
+      },
+    ]);
+
     const computedTitleColor = useColor(props.titleColor);
     const computedTextColor = useColor(props.textColor);
 
     return {
       computedTitleColor,
       computedTextColor,
+      sites,
     };
   },
-  data: () => ({
-    sites: [
-      {
-        text: 'Sur GitHub',
-        icon: 'mdi-github',
-        link: 'https://github.com/jrmdel',
-        logo: 'black',
-        back: 'white',
-      },
-      {
-        text: 'Sur StackOverflow',
-        icon: 'mdi-stack-overflow',
-        link: 'https://stackoverflow.com/users/12194386',
-        logo: '#f48024',
-        back: 'white',
-      },
-      {
-        text: 'Sur LinkedIn',
-        icon: 'mdi-linkedin',
-        link: 'https://www.linkedin.com/in/jeremie-deletraz/',
-        logo: '#006192',
-        back: 'white',
-      },
-      {
-        text: 'Sur Strava',
-        icon: 'custom:strava',
-        link: 'https://www.strava.com/athletes/2740041',
-        logo: '#FC4C02',
-        back: 'white',
-      },
-    ],
-  }),
 });
 </script>

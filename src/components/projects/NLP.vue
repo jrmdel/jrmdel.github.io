@@ -1,24 +1,19 @@
 <template>
   <ProjectTemplate
-    title="Natural Language Processing"
+    :title="$t('projects.nlp.title')"
     :titleColor="titleColor"
     :cardColor="cardColor"
     :iconColor="iconColor"
     :headerTextColor="headerTextColor"
     leftIcon="mdi-school-outline"
-    leftText="Scolaire"
+    :leftText="$t('projects.nlp.type')"
     rightIcon="mdi-timelapse"
-    rightText="+30h"
+    :rightText="$t('projects.nlp.duration')"
     :textColor="textColor"
     :skills="skills"
   >
     <template v-slot:content>
-      <div>
-        Par équipe de 4, nous devions entraîner un réseau de neurones via différentes méthodes afin
-        qu'il traduise de courtes phrases. Nous avons essayé plusieurs architectures (LSTM, RNN,
-        avec ou sans dropout, avec ou sans attention) et les avons évalué via le score BLEU et le
-        Word Error Rate.
-      </div>
+      <p>{{ $t('projects.nlp.content.label') }}</p>
     </template>
   </ProjectTemplate>
 </template>

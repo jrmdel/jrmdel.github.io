@@ -9,11 +9,11 @@ import powerbi from '@/components/icons/PowerBi.vue';
 import strava from '@/components/icons/Strava.vue';
 
 const customSvgNameToComponent: any = {
-  nestjs,
-  powerbi,
-  postgre,
-  mysql,
   mongodb,
+  mysql,
+  nestjs,
+  postgre,
+  powerbi,
   strava,
 };
 

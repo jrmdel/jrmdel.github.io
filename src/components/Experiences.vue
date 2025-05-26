@@ -1,8 +1,10 @@
 <template>
   <v-card color="primaryLight">
-    <v-card-title class="text-h4 font-weight-light text-tertiary">Expériences</v-card-title>
+    <v-card-title class="text-h4 font-weight-light text-tertiary">{{
+      $t('experiences.title')
+    }}</v-card-title>
     <v-card-text>
-      <div class="hidden-xs d-flex flex-column ga-4">
+      <div class="d-flex flex-column ga-4">
         <Leocare
           cardColor="primary"
           subtitleColor="tertiary"
@@ -53,81 +55,6 @@
         </v-expand-transition>
         <SeeMore id="no-pdf" :displayMore="displayMore" @toggle="toggleMore" />
       </div>
-      <div class="hidden-sm-and-up">
-        <v-container fluid>
-          <v-row>
-            <v-col cols="12">
-              <Leocare
-                cardColor="primary"
-                subtitleColor="tertiary"
-                headerTextColor="primaryWhite"
-                bodyTextColor="tertiary"
-                iconColor="tertiary"
-              />
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col cols="12">
-              <Swizi
-                cardColor="primary"
-                subtitleColor="tertiary"
-                headerTextColor="primaryWhite"
-                bodyTextColor="tertiary"
-                iconColor="tertiary"
-              />
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col cols="12">
-              <Astek
-                cardColor="primary"
-                subtitleColor="tertiary"
-                headerTextColor="primaryWhite"
-                bodyTextColor="tertiary"
-                iconColor="tertiary"
-              />
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col cols="12">
-              <Nokia
-                cardColor="primary"
-                subtitleColor="tertiary"
-                headerTextColor="primaryWhite"
-                bodyTextColor="tertiary"
-                iconColor="tertiary"
-              />
-            </v-col>
-          </v-row>
-          <v-expand-transition>
-            <div v-show="displayMore" class="mt-3">
-              <v-row>
-                <v-col cols="12">
-                  <Ericsson
-                    cardColor="primary"
-                    subtitleColor="tertiary"
-                    headerTextColor="primaryWhite"
-                    bodyTextColor="tertiary"
-                    iconColor="tertiary"
-                  />
-                </v-col>
-              </v-row>
-              <v-row>
-                <v-col cols="12">
-                  <Lunetterie
-                    cardColor="primary"
-                    subtitleColor="tertiary"
-                    headerTextColor="primaryWhite"
-                    bodyTextColor="tertiary"
-                    iconColor="tertiary"
-                  />
-                </v-col>
-              </v-row>
-            </div>
-          </v-expand-transition>
-          <SeeMore id="no-pdf" class="mt-4" :displayMore="displayMore" @toggle="toggleMore" />
-        </v-container>
-      </div>
     </v-card-text>
   </v-card>
 </template>
@@ -145,13 +72,13 @@ import SeeMore from '@/components/helpers/SeeMore.vue';
 
 export default defineComponent({
   components: {
-    Leocare,
-    Swizi,
     Astek,
-    Nokia,
     Ericsson,
-    SeeMore,
+    Leocare,
     Lunetterie,
+    Nokia,
+    SeeMore,
+    Swizi,
   },
   data: () => ({
     displayMore: false,
@@ -163,9 +90,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style>
-.v-timeline--vertical.v-timeline.v-timeline--side-end .v-timeline-item .v-timeline-item__body {
-  width: 100%;
-}
-</style>

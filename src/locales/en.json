@@ -1,0 +1,255 @@
+{
+  "title": {
+    "label": "Fullstack TS & Data Engineer"
+  },
+  "about-me": {
+    "title": "About me",
+    "intro": {
+      "label": "I am a {quality-1}, {quality-2} and {quality-3} engineer, graduated in computer science. Initially destined for the paramedical field, I decided to go back to school at 22. I've discovered a passion for {interest-1}, and a great interest in JavaScript/TypeScript {interest-2} development.",
+      "quality-1": "curious",
+      "quality-2": "responsible",
+      "quality-3": "enthusiastic",
+      "interest-1": "data",
+      "interest-2": "web"
+    },
+    "future": "My long-term ambition is to be able to join a project with a positive environmental/social impact to align my work with my personal values."
+  },
+  "identity": {
+    "years-old": "yrs"
+  },
+  "diplomas": {
+    "title": "Diplomas",
+    "diploma-1": {
+      "title": "Computer Science Engineer specializing in AI/Big Data",
+      "school": "ENSSAT - Lannion (France)",
+      "year": "2020",
+      "skills": {
+        "web": "Web",
+        "data-science": "Data Science",
+        "machine-learning": "Machine Learning",
+        "software-engineering": "Software Engineering"
+      }
+    },
+    "diploma-2": {
+      "title": "Optician via a 2-year technical degree",
+      "school": "ISO - Lille (France)",
+      "year": "2014"
+    }
+  },
+  "languages": {
+    "title": "Languages",
+    "french": "French",
+    "english": "English"
+  },
+  "certificates": {
+    "title": "Certificates"
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "find-me": {
+    "title": "Find me",
+    "github": "On GitHub",
+    "stackoverflow": "On StackOverflow",
+    "linkedin": "On LinkedIn",
+    "strava": "On Strava"
+  },
+  "experiences": {
+    "title": "Experiences",
+    "leocare": {
+      "title": "Fullstack TS Engineer",
+      "company": "Leocare",
+      "dates": "July 2023 - Today",
+      "location": "Rennes, France",
+      "content": {
+        "label": "In this French Tech start-up offering insurance for private customers (car, motorcycle, home), I had the opportunity to be part of the {italic-1} team, responsible for developing the internal tool for monitoring customer files and compensation in the event of a claim.",
+        "accent": {
+          "italic-1": "Customer Care/Claims"
+        },
+        "list": {
+          "label": "{item-1}{item-2}{item-3}{item-4}",
+          "item-1": "Development in a demanding business context",
+          "item-2": "Code reviews within the team",
+          "item-3": "Writing unit tests",
+          "item-4": "Assisting junior profiles to improve their skills"
+        }
+      }
+    },
+    "swizi": {
+      "title": "Back-end JS Engineer & Lead Data",
+      "company": "Swizi by Open",
+      "dates": "Oct. 2021 - May 2023",
+      "location": "Rennes, France",
+      "content": {
+        "label-1": "Since Swizi is primarily a flex-office solution, it interfaces with the software components already present in its clients' buildings. In this context, I was responsible for developing IoT connectors and third-party services.",
+        "list-1": {
+          "label": "{item-1}{item-2}",
+          "item-1": "Interacting with external APIs",
+          "item-2": "Developing web services"
+        },
+        "label-2": "Since we collected a lot of building-related data (occupancy, counting, meetings...), it became obvious that we had to process this valuable information. I took the lead on the entire Data part and deployed it {italic-1} :",
+        "list-2": {
+          "label": "{item-1}{item-2}{item-3}{item-4}{item-5}",
+          "item-1": "Setting up the Azure infrastructure and the datalake in 3 zones (gold, silver, and bronze)",
+          "item-2": "Creating data retrieval pipelines in Synapse",
+          "item-3": "Developing Python notebooks for data processing",
+          "item-4": "Designing dashboards on PowerBI Desktop",
+          "item-5": "Making it available via the {italic-2} solution"
+        },
+        "accent": {
+          "italic-1": "from scratch",
+          "italic-2": "embedded"
+        }
+      }
+    },
+    "astek": {
+      "title": "IT Engineer",
+      "company": "Astek",
+      "dates": "Jan. 2021 - Sept. 2021",
+      "location": "Rennes, France",
+      "content": {
+        "label": "As part of my first professional experience, I joined Astek, a consulting company in the IT field. I was assigned to a client project in Vannes, where I worked as a developer within the Support team. This mission allowed me to operate on a wide range of technologies, from databases to Docker containers, and to face the functional and technical challenges encountered in a production environment used by many users.",
+        "label-extra": "Thus, I was able to refine some additional skills:",
+        "list-extra": {
+          "label": "{item-1}{item-2}{item-3}",
+          "item-1": "Adapting to a large-scale project",
+          "item-2": "Improving my problem-solving skills",
+          "item-3": "Taking on responsibilities"
+        }
+      }
+    },
+    "nokia": {
+      "title": "Fullstack Engineer for Cybersecurity",
+      "company": "Nokia",
+      "dates": "Sept. 2019 - Sept. 2020",
+      "location": "Lannion, France",
+      "content": {
+        "label": "To complete my engineering degree, I undertook a one-year apprenticeship at Nokia Lannion. The goal of my mission was to develop a proof of concept for a web solution in the form of a vulnerability dashboard to address cybersecurity needs.",
+        "label-extra-1": "Starting from scratch, I had the opportunity to take part in the entire research and development process:",
+        "list-extra-1": {
+          "label": "{item-1}{item-2}{item-3}{item-4}",
+          "item-1": "State of the art research",
+          "item-2": "Writing technical documentation (including specifications)",
+          "item-3": "Technology choices",
+          "item-4": "Software architecture and fullstack development"
+        },
+        "label-extra-2": "I also had additional missions:",
+        "list-extra-2": {
+          "label": "{item-1}{item-2}{item-3}{item-4}",
+          "item-1": "Training a new team member on the project so they could bring the solution into production.",
+          "item-2": "Implementing a flexible access control system based on RBAC and ABAC concepts.",
+          "item-3": "Demonstrating our solution to colleagues based in the United States.",
+          "item-4": "Proposing an architecture allowing the addition of new features in the form of microservices."
+        }
+      }
+    },
+    "ericsson": {
+      "title": "Back-end Developer",
+      "company": "Ericsson",
+      "dates": "July 2019 - Aug. 2019",
+      "location": "Lannion, France",
+      "content": {
+        "label": "During my 2-month internship at Ericsson, I worked on a web project in Java Spring Boot to develop a solution for managing test robots. I was part of a team of 4 people.",
+        "label-extra-1": "The goal of the internship was to improve the testing solution, transitioning from tests limited to a single robot to a distributed testing solution involving multiple robots. This allowed me to deepen my understanding of concepts I already knew, such as:",
+        "list-extra-1": {
+          "label": "{item-1}{item-2}{item-3}",
+          "item-1": "Java and Web development",
+          "item-2": "Setting up socket communication",
+          "item-3": "Team collaboration"
+        },
+        "label-extra-2": "But also to discover new concepts such as:",
+        "list-extra-2": {
+          "label": "{item-1}{item-2}{item-3}",
+          "item-1": "Raspberry Pi",
+          "item-2": "Development using the Spring Boot framework",
+          "item-3": "Linking code and database via the Hibernate ORM"
+        }
+      },
+      "skills": {
+        "java": "Java Spring Boot",
+        "mysql": "MySQL",
+        "rest": "Rest API",
+        "redmine": "Redmine",
+        "agile": "Agile Methods"
+      }
+    },
+    "lunetterie": {
+      "title": "Optician",
+      "company": "La Lunetterie",
+      "dates": "Aug. 2014 - June 2016",
+      "location": "Annecy, France",
+      "content": {
+        "label-extra": "Independent store selling mainly designer optical and sunglasses.",
+        "list-extra": {
+          "label": "{item-1}{item-2}{item-3}",
+          "item-1": "Customer service and sales",
+          "item-2": "Responsible for eye exams",
+          "item-3": "Frame fitting and lens sizing"
+        }
+      },
+      "skills": {
+        "optometry": "Eye exams",
+        "customer": "Customer service",
+        "organization": "Organization"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "link-text": "Open",
+    "ticket-to-ride": {
+      "title": "Ticket to Ride",
+      "type": "Personal",
+      "duration": "+200hrs",
+      "content": {
+        "label": "Development of a responsive and serverless web app that helps track and count points during a game of {italic-1}. Games are stored on Firebase and can be viewed in real-time by players.",
+        "accent": {
+          "italic-1": "Ticket to Ride"
+        }
+      }
+    },
+    "metal-data": {
+      "title": "Analysis and Data Mining",
+      "type": "Academic",
+      "duration": "+60hrs",
+      "content": {
+        "label": "Extraction of information from a dataset of 1000 songs, retrieved from the Spotify API, using analysis methods (CA, PCA, and MCA). The study focused on analyzing the relationships between the songs present on the top 100 metal albums according to the {link-1}.",
+        "accent": {
+          "link-1": "Rolling Stones magazine"
+        }
+      }
+    },
+    "nlp": {
+      "title": "Natural Language Processing",
+      "type": "Academic",
+      "duration": "+30hrs",
+      "content": {
+        "label": "In a team of 4, we had to train a neural network using different methods so that it could translate short sentences. We tried several architectures (LSTM, RNN, with or without dropout, with or without attention) and evaluated them using the BLEU score and the Word Error Rate."
+      }
+    },
+    "train-graph": {
+      "title": "Train Graph",
+      "type": "Personal",
+      "duration": "+30hrs",
+      "content": {
+        "label": "A hands-on experience with a Graph database through the representation of railway data. The data was retrieved from the SNCF's Navitia API and inserted into a Neo4j database. The goal is to produce statistics on the interconnection of cities."
+      }
+    },
+    "city-compass": {
+      "title": "City Compass",
+      "type": "Personal",
+      "duration": "+30hrs",
+      "content": {
+        "label": "Creation of a recreational web app which tests one's knowledge of French geography. Questions are generated randomly and attempts are stored to, eventually, analyze and get insights from the collected data."
+      }
+    }
+  },
+  "common": {
+    "buttons": {
+      "see-more": "See more",
+      "see-less": "See less",
+      "download-cv": "Download as PDF",
+      "change-language": "Change language to french"
+    }
+  }
+}

@@ -30,7 +30,7 @@
           <v-row align="center" justify="center" class="pt-4">
             <v-icon :color="iconColor"> mdi-card-account-details-outline </v-icon>
             <span :class="computedTextColor" class="font-weight-regular text-h6 pl-4">
-              {{ computeAge }} ans
+              {{ computeAge }} {{ $t('identity.years-old') }}
             </span>
           </v-row>
           <v-row align="center" justify="center" class="pt-2">

@@ -7,10 +7,21 @@
           :class="computedTextColor"
           style="text-wrap-mode: wrap"
         >
-          Ingénieur Fullstack TS & Data
+          {{ $t('title.label') }}
         </span>
 
-        <div class="pl-5">
+        <div class="d-flex ga-2 pl-5">
+          <v-btn
+            :aria-label="$t('common.buttons.change-language')"
+            :color="buttonColor"
+            variant="outlined"
+            icon="mdi-translate"
+            @click="changeLanguage"
+          >
+            <template v-slot:default>
+              <v-icon :color="iconColor"></v-icon>
+            </template>
+          </v-btn>
           <v-btn
             v-show="hasValidEmail"
             :color="buttonColor"
@@ -23,7 +34,7 @@
             </template>
           </v-btn>
           <v-btn
-            class="ml-2"
+            :aria-label="$t('common.buttons.download-cv')"
             :color="buttonColor"
             :loading="isDownloading"
             variant="outlined"
@@ -42,6 +53,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 import { useColor } from '@/composables/useColor';
 
@@ -58,8 +70,15 @@ export default defineComponent({
   },
   setup(props) {
     const computedTextColor = useColor(props.textColor);
+    const { locale } = useI18n({ useScope: 'global' });
 
-    return { computedTextColor };
+    const changeLanguage = (): void => {
+      const lang = locale.value === 'fr' ? 'en' : 'fr';
+      console.log('Changing language to:', lang);
+      locale.value = lang;
+    };
+
+    return { changeLanguage, computedTextColor };
   },
   data: () => ({
     isDownloading: false,

@@ -1,0 +1,255 @@
+{
+  "title": {
+    "label": "Ingénieur Fullstack TS & Data"
+  },
+  "about-me": {
+    "title": "A propos de moi",
+    "intro": {
+      "label": "Je suis un ingénieur {quality-1}, {quality-2} et {quality-3}, diplômé d'informatique. Initialement destiné à évoluer dans le domaine paramédical, j'ai décidé de reprendre mes études à 22 ans. Je me suis découvert une passion pour la {interest-1}, et une grande appétence pour le développement {interest-2} JavaScript/TypeScript.",
+      "quality-1": "curieux",
+      "quality-2": "responsable",
+      "quality-3": "enthousiaste",
+      "interest-1": "data",
+      "interest-2": "web"
+    },
+    "future": "Mon ambition à terme : pouvoir rejoindre un projet ayant un impact environnemental/sociétal positif pour aligner mon travail sur mes valeurs individuelles."
+  },
+  "identity": {
+    "years-old": "ans"
+  },
+  "diplomas": {
+    "title": "Diplômes",
+    "diploma-1": {
+      "title": "Ingénieur informatique spécialité IA/Big Data",
+      "school": "ENSSAT - Lannion",
+      "year": "2020",
+      "skills": {
+        "web": "Web",
+        "data-science": "Sciences des données",
+        "machine-learning": "Machine Learning",
+        "software-engineering": "Génie Logiciel"
+      }
+    },
+    "diploma-2": {
+      "title": "BTS Opticien-Lunetier",
+      "school": "ISO - Lille",
+      "year": "2014"
+    }
+  },
+  "languages": {
+    "title": "Langues",
+    "french": "Français",
+    "english": "Anglais"
+  },
+  "certificates": {
+    "title": "Certifications"
+  },
+  "skills": {
+    "title": "Compétences"
+  },
+  "find-me": {
+    "title": "Retrouvez-moi",
+    "github": "Sur GitHub",
+    "stackoverflow": "Sur StackOverflow",
+    "linkedin": "Sur LinkedIn",
+    "strava": "Sur Strava"
+  },
+  "experiences": {
+    "title": "Expériences",
+    "leocare": {
+      "title": "Ingénieur Fullstack TS",
+      "company": "Leocare",
+      "dates": "Juil. 2023 - Aujourd'hui",
+      "location": "Rennes, France",
+      "content": {
+        "label": "Dans cette start-up de la French Tech proposant des assurances pour les particuliers (auto, moto, habitation), j'ai eu l'opportunité de faire partie de l'équipe {italic-1}, garante du développement de l'outil interne permettant le suivi des dossiers clients et l'indemnisation en cas de sinistre.",
+        "accent": {
+          "italic-1": "Customer Care/Sinistres"
+        },
+        "list": {
+          "label": "{item-1}{item-2}{item-3}{item-4}",
+          "item-1": "Développement dans un contexte métier exigeant",
+          "item-2": "Revues de code au sein de l'équipe",
+          "item-3": "Rédaction de tests unitaires",
+          "item-4": "Aide à la montée en compétences de profils juniors"
+        }
+      }
+    },
+    "swizi": {
+      "title": "Ingénieur Back-end JS & Lead Data",
+      "company": "Swizi by Open",
+      "dates": "Oct. 2021 - Mai 2023",
+      "location": "Rennes, France",
+      "content": {
+        "label-1": "Swizi étant principalement une solution de flex-office, elle vient s'interfacer sur les briques logicielles présentes dans les bâtiments de ses clients. Dans ce contexte, j'étais responsable du développement des connecteurs IoT et services tiers.",
+        "list-1": {
+          "label": "{item-1}{item-2}",
+          "item-1": "Interaction avec des API externes",
+          "item-2": "Développement de webservices"
+        },
+        "label-2": "Puisque nous récupérions beaucoup de données liées aux bâtiments (occupation, comptage, réunions...), il était évident de traiter ces précieuses informations. J'ai ainsi pris le lead sur toute la partie Data, et l'ai déployée {italic-1} :",
+        "list-2": {
+          "label": "{item-1}{item-2}{item-3}{item-4}{item-5}",
+          "item-1": "Mise en place de l'infrastructure Azure et du datalake en 3 zones (gold, silver et bronze)",
+          "item-2": "Création des pipelines de récupération de données dans Synapse",
+          "item-3": "Développement des notebooks Python de traitement de la donnée",
+          "item-4": "Conception des dashboards sur PowerBI Desktop",
+          "item-5": "Mise à disposition via la solution {italic-2}"
+        },
+        "accent": {
+          "italic-1": "from scratch",
+          "italic-2": "embedded"
+        }
+      }
+    },
+    "astek": {
+      "title": "Ingénieur informatique",
+      "company": "Astek",
+      "dates": "Janv. 2021 - Sept. 2021",
+      "location": "Rennes, France",
+      "content": {
+        "label": "Pour l'un des clients d'Astek, basé à Vannes et spécialisé dans le développement de plateformes d'aides publiques à destination des collectivités, je suis intervenu en tant que développeur au sein de l'équipe Support. Cette mission m'a fait opérer sur un périmètre large, allant des bases de données aux conteneurs Docker, et m'a confronté aux problématiques fonctionnelles et techniques que l'on peut rencontrer sur un environnement de production utilisé par un grand nombre de personnes.",
+        "label-extra": "J'ai ainsi pu parfaire certaines compétences annexes :",
+        "list-extra": {
+          "label": "{item-1}{item-2}{item-3}",
+          "item-1": "S'adapter à un projet à grande échelle",
+          "item-2": "Améliorer ma capacité à résoudre des problèmes",
+          "item-3": "Prendre des responsabilités"
+        }
+      }
+    },
+    "nokia": {
+      "title": "Ingénieur fullstack pour la cybersécurité",
+      "company": "Nokia",
+      "dates": "Sept. 2019 - Sept. 2020",
+      "location": "Lannion, France",
+      "content": {
+        "label": "Pour terminer mon cursus ingénieur, j'ai réalisé une alternance d'un an au sein de Nokia Lannion. Le but de ma mission était de développer une preuve de concept d'une solution web sous la forme d'un dashboard de vulnérabilités pour venir répondre à des besoins axés cybersécurité.",
+        "label-extra-1": "Partant de zéro, j'ai eu la possibilité d'aborder les nombreuses phases de ce projet :",
+        "list-extra-1": {
+          "label": "{item-1}{item-2}{item-3}{item-4}",
+          "item-1": "Etat de l'art",
+          "item-2": "Rédaction de documentation technique (notamment cahier des charges)",
+          "item-3": "Choix de technologies",
+          "item-4": "Architecture logicielle et développement fullstack"
+        },
+        "label-extra-2": "J'ai également eu pour missions annexes :",
+        "list-extra-2": {
+          "label": "{item-1}{item-2}{item-3}{item-4}",
+          "item-1": "Formation d'un nouvel arrivant sur le projet afin qu'il puisse amener la solution en production.",
+          "item-2": "Mise en place d'un contrôle d'accès souple reprenant les concepts de RBAC et de ABAC.",
+          "item-3": "Démonstration de notre solution à des collègues basé.e.s aux Etats-Unis.",
+          "item-4": "Proposition d'architecture permettant l'ajout de nouvelles fonctionnalités sous forme de micro-services."
+        }
+      }
+    },
+    "ericsson": {
+      "title": "Développeur back-end",
+      "company": "Ericsson",
+      "dates": "Juil. 2019 - Août. 2019",
+      "location": "Lannion, France",
+      "content": {
+        "label": "Stage de 7 semaines en développement logiciel, sur un projet web de gestion de robots de test en Java Spring Boot au sein d'une équipe de 4 personnes.",
+        "label-extra-1": "Le but du stage était de faire évoluer la solution de test, la faisant passer de tests restreints à un seul robot, à une solution de tests distribués pouvant faire intervenir plusieurs robots. Cela m'a permis d'approfondir des notions déjà connues comme :",
+        "list-extra-1": {
+          "label": "{item-1}{item-2}{item-3}",
+          "item-1": "Développement Java et Web",
+          "item-2": "Mise en place de sockets",
+          "item-3": "Travail en équipe"
+        },
+        "label-extra-2": "Mais également de nouvelles notions comme :",
+        "list-extra-2": {
+          "label": "{item-1}{item-2}{item-3}",
+          "item-1": "Manipulation de Raspberry Pi",
+          "item-2": "Développement avec le framework Spring Boot",
+          "item-3": "Lien entre code et base de données via l'ORM Hibernate"
+        }
+      },
+      "skills": {
+        "java": "Java Spring Boot",
+        "mysql": "MySQL",
+        "rest": "API Rest",
+        "redmine": "Redmine",
+        "agile": "Méthodes Agile"
+      }
+    },
+    "lunetterie": {
+      "title": "Opticien diplômé",
+      "company": "La Lunetterie",
+      "dates": "Août 2014 - Juin 2016",
+      "location": "Annecy, France",
+      "content": {
+        "label-extra": "Magasin indépendant proposant principalement des lunettes de créateurs, optiques ou solaires.",
+        "list-extra": {
+          "label": "{item-1}{item-2}{item-3}",
+          "item-1": "Vente et conseils",
+          "item-2": "Responsable des examens de la vue",
+          "item-3": "Ajustage de montures et taille de verres"
+        }
+      },
+      "skills": {
+        "optometry": "Examens de la vue",
+        "customer": "Relation client",
+        "organization": "Organisation"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projets & Réalisations",
+    "link-text": "Ouvrir",
+    "ticket-to-ride": {
+      "title": "Ticket to Ride",
+      "type": "Personnel",
+      "duration": "+200h",
+      "content": {
+        "label": "Développement d'une application web responsive et serverless permettant le suivi et l'aide au décompte des points lors d'une partie du jeu {italic-1}. Les parties sont stockées sur Firebase et consultables en temps réel par les joueurs et joueuses.",
+        "accent": {
+          "italic-1": "Les Aventuriers du Rail"
+        }
+      }
+    },
+    "metal-data": {
+      "title": "Analyse et fouille de données",
+      "type": "Scolaire",
+      "duration": "+60h",
+      "content": {
+        "label": "Extraction d’informations à partir d’un jeu de données de 1000 chansons, issues de l’API Spotify, en utilisant des méthodes d’analyse (AFC, ACP et ACM). L'étude était axée sur l’analyse des relations entre les chansons présentes sur les 100 meilleurs albums de métal selon le {link-1}.",
+        "accent": {
+          "link-1": "magazine Rolling Stones"
+        }
+      }
+    },
+    "nlp": {
+      "title": "Natural Language Processing",
+      "type": "Scolaire",
+      "duration": "+30h",
+      "content": {
+        "label": "Par équipe de 4, nous devions entraîner un réseau de neurones via différentes méthodes afin qu'il traduise de courtes phrases. Nous avons essayé plusieurs architectures (LSTM, RNN, avec ou sans dropout, avec ou sans attention) et les avons évalué via le score BLEU et le Word Error Rate."
+      }
+    },
+    "train-graph": {
+      "title": "Train Graph",
+      "type": "Personnel",
+      "duration": "+30h",
+      "content": {
+        "label": "Prise en main d'une base de données Graph par la représentation de données ferroviaires. Celles-ci ont été récupérées via l'API Navitia de la SNCF et insérées dans Neo4j. Le but est de faire des statistiques sur l'inter-connexion des villes."
+      }
+    },
+    "city-compass": {
+      "title": "City Compass",
+      "type": "Personnel",
+      "duration": "+30h",
+      "content": {
+        "label": "Création d'une application web ludique ayant pour but de tester ses connaissances en géographie française. Les questions sont générées aléatoirement et les tentatives sont stockées pour, à terme, pouvoir analyser les données récupérées."
+      }
+    }
+  },
+  "common": {
+    "buttons": {
+      "see-more": "Voir plus",
+      "see-less": "Voir moins",
+      "download-cv": "Télécharger en PDF",
+      "change-language": "Passer en anglais"
+    }
+  }
+}

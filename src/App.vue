@@ -24,7 +24,7 @@
                   iconColor="primary"
                   textColor="primaryWhite"
                 />
-                <Diploma
+                <Diplomas
                   id="diplomas"
                   titleColor="white"
                   diplomaTextColor="primaryWhite"
@@ -89,12 +89,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useGoTo } from 'vuetify';
 
 import AboutMe from '@/components/AboutMe.vue';
 import Certificates from '@/components/Certificates.vue';
-import Diploma from '@/components/Diploma.vue';
+import Diplomas from '@/components/Diplomas.vue';
 import Experiences from '@/components/Experiences.vue';
 import FindMe from '@/components/FindMe.vue';
 import Identity from '@/components/Identity.vue';
@@ -102,22 +103,39 @@ import Languages from '@/components/Languages.vue';
 import MyTitle from '@/components/MyTitle.vue';
 import Projects from '@/components/Projects.vue';
 import Skills from '@/components/Skills.vue';
+import { getDefaultLanguage, isSupportedLanguage } from '@/composables/languages';
 
 export default defineComponent({
   components: {
-    Identity,
-    FindMe,
-    Skills,
-    Languages,
     AboutMe,
-    Experiences,
-    Diploma,
-    Projects,
     Certificates,
+    Diplomas,
+    Experiences,
+    FindMe,
+    Identity,
+    Languages,
     MyTitle,
+    Projects,
+    Skills,
   },
   setup() {
+    const { locale } = useI18n({ useScope: 'global' });
     const goTo = useGoTo();
+
+    const setLocale = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const lang = urlParams.get('lang');
+      if (isSupportedLanguage(lang)) {
+        locale.value = lang;
+        return;
+      }
+      locale.value = getDefaultLanguage();
+    };
+
+    onMounted(() => {
+      setLocale();
+    });
+
     const jumpTo = (tag: string): void => {
       goTo(tag, {
         easing: 'easeInOutCubic',

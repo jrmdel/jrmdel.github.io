@@ -1,30 +1,32 @@
 <template>
   <CardTemplate
     cardColor="primary"
-    cardTitle="Ingénieur Fullstack TS"
-    cardSubtitle="Leocare"
+    :cardTitle="$t('experiences.leocare.title')"
+    :cardSubtitle="$t('experiences.leocare.company')"
     headerTextColor="primaryWhite"
     subtitleColor="tertiary"
-    dateString="Juil. 2023 - Aujourd'hui"
-    locationString="Rennes, France"
+    :dateString="$t('experiences.leocare.dates')"
+    :locationString="$t('experiences.leocare.location')"
     iconColor="tertiary"
     textColor="tertiary"
     :skills="skills"
   >
     <template v-slot:content>
-      <div>
-        Dans cette start-up de la French Tech proposant des assurances pour les particuliers (auto,
-        moto, habitation), j'ai eu l'opportunité de faire partie de l'équipe
-        <span class="font-italic">Customer Care/Sinistres</span>, garante du développement de
-        l'outil interne permettant le suivi des dossiers clients et l'indemnisation en cas de
-        sinistre.
-      </div>
-      <ul class="ml-4 mt-1">
-        <li>Développement dans un contexte métier exigeant</li>
-        <li>Revues de code au sein de l'équipe</li>
-        <li>Rédaction de tests unitaires</li>
-        <li>Aide à la montée en compétences de profils juniors</li>
-      </ul>
+      <i18n-t keypath="experiences.leocare.content.label" tag="p" scope="global">
+        <template v-slot:italic-1>
+          <span class="font-italic">{{ $t('experiences.leocare.content.accent.italic-1') }}</span>
+        </template>
+      </i18n-t>
+      <i18n-t
+        keypath="experiences.leocare.content.list.label"
+        tag="ul"
+        class="ml-4 mt-1"
+        scope="global"
+      >
+        <template v-for="(_, i) in items" :key="i" v-slot:[`item-${i+1}`]>
+          <li>{{ $t(`experiences.leocare.content.list.item-${i + 1}`) }}</li>
+        </template>
+      </i18n-t>
     </template>
   </CardTemplate>
 </template>
@@ -38,8 +40,11 @@ export default defineComponent({
   components: {
     CardTemplate,
   },
-  data: () => ({
-    skills: ['Angular', 'Nest.JS', 'MongoDB', 'Jest'],
-  }),
+  setup() {
+    const items: undefined[] = Array(4);
+    const skills = ['Angular', 'Nest.JS', 'MongoDB', 'Jest'];
+
+    return { items, skills };
+  },
 });
 </script>
