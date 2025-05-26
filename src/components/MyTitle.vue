@@ -1,7 +1,9 @@
 <template>
   <div>
     <v-card slot="pdf-content" :color="cardColor">
-      <v-card-title class="d-flex justify-space-between align-end align-md-center pa-4">
+      <v-card-title
+        class="d-flex flex-column ga-4 justify-space-between align-end pa-4 ga-sm-2 flex-md-row ga-md-0 align-md-center"
+      >
         <span
           class="text-sm-h2 font-weight-light text-h3"
           :class="computedTextColor"
@@ -10,7 +12,7 @@
           {{ $t('title.label') }}
         </span>
 
-        <div class="d-flex ga-2 pl-5">
+        <div class="d-flex ga-2 pl-md-6">
           <v-btn
             :aria-label="$t('common.buttons.change-language')"
             :color="buttonColor"
