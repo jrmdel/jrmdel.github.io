@@ -1,5 +1,6 @@
 {
   "title": {
+    "name": "Title",
     "label": "Fullstack TS & Data Engineer"
   },
   "about-me": {
@@ -250,6 +251,9 @@
       "see-less": "See less",
       "download-cv": "Download as PDF",
       "change-language": "Change language to french"
+    },
+    "menu": {
+      "title": "Go to"
     }
   }
 }

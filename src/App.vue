@@ -77,9 +77,11 @@
         </template>
         <v-card max-width="250">
           <v-list density="compact" color="background">
-            <v-list-subheader class="text-body-2 ml-1">Aller à</v-list-subheader>
-            <v-list-item v-for="(jump, i) in jumps" :key="i" @click="jumpTo(jump.tag)">
-              {{ jump.name }}
+            <v-list-subheader class="text-body-2 ml-1">
+              {{ $t('common.menu.title') }}
+            </v-list-subheader>
+            <v-list-item v-for="(section, i) in sections" :key="i" @click="jumpTo(section.tag)">
+              {{ section.name }}
             </v-list-item>
           </v-list>
         </v-card>
@@ -89,7 +91,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue';
+import { computed, defineComponent, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useGoTo } from 'vuetify';
 
@@ -119,7 +121,7 @@ export default defineComponent({
     Skills,
   },
   setup() {
-    const { locale } = useI18n({ useScope: 'global' });
+    const { locale, t } = useI18n({ useScope: 'global' });
     const goTo = useGoTo();
 
     const setLocale = () => {
@@ -136,6 +138,16 @@ export default defineComponent({
       setLocale();
     });
 
+    const sections = computed(() => [
+      { name: t('title.name'), tag: '#title' },
+      { name: t('diplomas.title'), tag: '#diplomas' },
+      { name: t('skills.title'), tag: '#skills' },
+      { name: t('about-me.title'), tag: '#about-me' },
+      { name: t('experiences.title'), tag: '#experiences' },
+      { name: t('projects.title'), tag: '#projects' },
+    ]);
+    const email = 'jeremie.deletraz@gmail.com';
+
     const jumpTo = (tag: string): void => {
       goTo(tag, {
         easing: 'easeInOutCubic',
@@ -143,18 +155,7 @@ export default defineComponent({
         offset: -15,
       });
     };
-    return { jumpTo };
+    return { jumpTo, sections, email };
   },
-  data: () => ({
-    jumps: [
-      { name: 'Titre', tag: '#title' },
-      { name: 'Diplômes', tag: '#diplomas' },
-      { name: 'Compétences', tag: '#skills' },
-      { name: 'A propos de moi', tag: '#about-me' },
-      { name: 'Expériences', tag: '#experiences' },
-      { name: 'Projets et réalisations', tag: '#projects' },
-    ],
-    email: 'jeremie.deletraz@gmail.com',
-  }),
 });
 </script>
