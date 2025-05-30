@@ -7,26 +7,16 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
+<script setup lang="ts">
 import { useColor } from '@/composables/useColor';
 
-export default defineComponent({
-  props: {
-    title: { type: String },
-    titleColor: { type: String, default: '' },
-    subtitle: { type: String },
-    subtitleColor: { type: String, default: '' },
-  },
-  setup(props) {
-    const computedTitleColor = useColor(props.titleColor);
-    const computedSubtitleColor = useColor(props.subtitleColor);
-
-    return {
-      computedTitleColor,
-      computedSubtitleColor,
-    };
-  },
-});
+interface Props {
+  title: string;
+  titleColor?: string;
+  subtitle: string;
+  subtitleColor?: string;
+}
+const { titleColor, subtitleColor } = defineProps<Props>();
+const computedTitleColor = useColor(titleColor);
+const computedSubtitleColor = useColor(subtitleColor);
 </script>

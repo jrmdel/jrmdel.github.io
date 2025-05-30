@@ -34,43 +34,30 @@
   </v-card>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { computed } from 'vue';
 
 import InfoHeader from '@/components/helpers/InfoHeader.vue';
 import SkillChips from '@/components/helpers/SkillChips.vue';
 import { useColor } from '@/composables/useColor';
 
-export default defineComponent({
-  components: {
-    InfoHeader,
-    SkillChips,
-  },
-  props: {
-    cardColor: { type: String },
-    titleColor: { type: String, default: '' },
-    title: { type: String },
-    headerTextColor: { type: String, default: '' },
-    iconColor: { type: String },
-    leftIcon: { type: String },
-    rightIcon: { type: String },
-    leftText: { type: String },
-    rightText: { type: String },
-    textColor: { type: String, default: '' },
-    link: { type: String, default: '' },
-    skills: { type: Array, default: () => [] },
-    skillColor: { type: String, default: 'warning' },
-  },
-  setup(props) {
-    const computedTitleColor = useColor(props.titleColor);
-    const computedTextColor = useColor(props.textColor);
-
-    return { computedTitleColor, computedTextColor };
-  },
-  computed: {
-    hasLink() {
-      return this.link.length > 0;
-    },
-  },
-});
+interface Props {
+  cardColor: string;
+  titleColor?: string;
+  title: string;
+  headerTextColor?: string;
+  iconColor: string;
+  leftIcon: string;
+  rightIcon: string;
+  leftText: string;
+  rightText: string;
+  textColor?: string;
+  link?: string;
+  skills?: string[];
+  skillColor?: string;
+}
+const { titleColor, textColor, link, skillColor = 'warning', skills = [] } = defineProps<Props>();
+const computedTitleColor = useColor(titleColor);
+const computedTextColor = useColor(textColor);
+const hasLink = computed(() => link?.length);
 </script>

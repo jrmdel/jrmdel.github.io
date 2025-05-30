@@ -91,10 +91,19 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
+<script setup lang="ts">
 import { useColor } from '@/composables/useColor';
+
+interface Props {
+  titleColor: string;
+  certificateTextColor: string;
+  textColor: string;
+  iconColor: string;
+}
+const { titleColor, certificateTextColor, textColor } = defineProps<Props>();
+const computedTitleColor = useColor(titleColor);
+const computedCertificateTextColor = useColor(certificateTextColor);
+const computedTextColor = useColor(textColor);
 
 interface ICertificate {
   title: string;
@@ -102,47 +111,25 @@ interface ICertificate {
   year: string;
   link?: string;
 }
-
-export default defineComponent({
-  props: {
-    titleColor: { type: String, default: '' },
-    certificateTextColor: { type: String, default: '' },
-    textColor: { type: String, default: '' },
-    iconColor: { type: String, default: '' },
+const certificates: ICertificate[] = [
+  {
+    title: 'Develop Your Cultural Intelligence',
+    score: '87/100',
+    year: '2020',
+    link: 'https://www.futurelearn.com/certificates/10ayxkf',
   },
-  setup(props) {
-    const computedTitleColor = useColor(props.titleColor);
-    const computedCertificateTextColor = useColor(props.certificateTextColor);
-    const computedTextColor = useColor(props.textColor);
-
-    const certificates: ICertificate[] = [
-      {
-        title: 'Develop Your Cultural Intelligence',
-        score: '87/100',
-        year: '2020',
-        link: 'https://www.futurelearn.com/certificates/10ayxkf',
-      },
-      {
-        title: 'Le Robert',
-        score: '829/1000',
-        year: '2018 ',
-        link: 'https://examen.certification-le-robert.com/index.html#/certificationPublic/SPUB3VAK2G',
-      },
-      {
-        title: 'TOEIC',
-        score: '960/990',
-        year: '2018',
-      },
-    ];
-
-    return {
-      computedTitleColor,
-      computedCertificateTextColor,
-      computedTextColor,
-      certificates,
-    };
+  {
+    title: 'Le Robert',
+    score: '829/1000',
+    year: '2018 ',
+    link: 'https://examen.certification-le-robert.com/index.html#/certificationPublic/SPUB3VAK2G',
   },
-});
+  {
+    title: 'TOEIC',
+    score: '960/990',
+    year: '2018',
+  },
+];
 </script>
 
 <style scoped>

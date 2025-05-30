@@ -34,7 +34,7 @@
           iconColor="tertiary"
         />
         <v-expand-transition>
-          <div v-show="displayMore">
+          <div v-show="isExpanded">
             <div class="d-flex flex-column ga-4">
               <Ericsson
                 cardColor="primary"
@@ -53,14 +53,14 @@
             </div>
           </div>
         </v-expand-transition>
-        <SeeMore id="no-pdf" :displayMore="displayMore" @toggle="toggleMore" />
+        <SeeMore id="no-pdf" :display-more="isExpanded" @toggle="onToggle" />
       </div>
     </v-card-text>
   </v-card>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 
 import Astek from '@/components/experiences/Astek.vue';
 import Ericsson from '@/components/experiences/Ericsson.vue';
@@ -70,23 +70,8 @@ import Nokia from '@/components/experiences/Nokia.vue';
 import Swizi from '@/components/experiences/Swizi.vue';
 import SeeMore from '@/components/helpers/SeeMore.vue';
 
-export default defineComponent({
-  components: {
-    Astek,
-    Ericsson,
-    Leocare,
-    Lunetterie,
-    Nokia,
-    SeeMore,
-    Swizi,
-  },
-  data: () => ({
-    displayMore: false,
-  }),
-  methods: {
-    toggleMore() {
-      this.displayMore = !this.displayMore;
-    },
-  },
-});
+const isExpanded = ref(false);
+const onToggle = (value: boolean) => {
+  isExpanded.value = value;
+};
 </script>

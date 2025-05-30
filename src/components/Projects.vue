@@ -138,8 +138,8 @@
   </v-card>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 
 import SeeMore from '@/components/helpers/SeeMore.vue';
 import CityCompass from '@/components/projects/CityCompass.vue';
@@ -148,22 +148,8 @@ import NLP from '@/components/projects/NLP.vue';
 import TicketToRide from '@/components/projects/TicketToRide.vue';
 import TrainGraph from '@/components/projects/TrainGraph.vue';
 
-export default defineComponent({
-  components: {
-    CityCompass,
-    MetalData,
-    NLP,
-    SeeMore,
-    TicketToRide,
-    TrainGraph,
-  },
-  data: () => ({
-    displayMore: false,
-  }),
-  methods: {
-    toggleMore() {
-      this.displayMore = !this.displayMore;
-    },
-  },
-});
+const displayMore = ref(false);
+const toggleMore = () => {
+  displayMore.value = !displayMore.value;
+};
 </script>

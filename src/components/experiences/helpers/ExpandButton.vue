@@ -13,20 +13,17 @@
   </v-btn>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+interface Props {
+  displayMore: boolean;
+  isDisabled?: boolean;
+}
+const { displayMore, isDisabled = false } = defineProps<Props>();
 
-export default defineComponent({
-  props: {
-    displayMore: { type: Boolean, default: true },
-    isDisabled: { type: Boolean, default: false },
-  },
-  methods: {
-    sendToggle(): void {
-      this.$emit('toggle', !this.displayMore);
-    },
-  },
-});
+const emit = defineEmits<{ (e: 'toggle', value: boolean): void }>();
+const sendToggle = () => {
+  emit('toggle', !displayMore);
+};
 </script>
 
 <style scoped>

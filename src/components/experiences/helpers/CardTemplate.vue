@@ -15,24 +15,20 @@
     <v-card-text :class="computedTextColor">
       <slot name="content"></slot>
       <v-expand-transition>
-        <div v-if="displayMore">
+        <div v-if="isExpanded">
           <slot name="extra"></slot>
         </div>
       </v-expand-transition>
     </v-card-text>
     <v-card-actions class="mt-n2">
       <SkillChips :skills="skills" chipColor="warning" />
-      <ExpandButton
-        :isDisabled="!hasExtraSlot"
-        :displayMore="displayMore"
-        @toggle="(v: boolean) => (displayMore = v)"
-      />
+      <ExpandButton :isDisabled="!$slots.extra" :displayMore="isExpanded" @toggle="onToggle" />
     </v-card-actions>
   </v-card>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 
 import ExpandButton from '@/components/experiences/helpers/ExpandButton.vue';
 import ExperienceTitle from '@/components/experiences/helpers/ExperienceTitle.vue';
@@ -40,37 +36,22 @@ import InfoHeader from '@/components/helpers/InfoHeader.vue';
 import SkillChips from '@/components/helpers/SkillChips.vue';
 import { useColor } from '@/composables/useColor';
 
-export default defineComponent({
-  components: {
-    ExpandButton,
-    ExperienceTitle,
-    InfoHeader,
-    SkillChips,
-  },
-  props: {
-    cardColor: { type: String, default: '' },
-    cardTitle: { type: String },
-    cardSubtitle: { type: String },
-    subtitleColor: { type: String, default: '' },
-    dateString: { type: String },
-    locationString: { type: String },
-    iconColor: { type: String, default: '' },
-    headerTextColor: { type: String, default: 'primaryWhite' },
-    textColor: { type: String, default: '' },
-    skills: { type: Array, default: () => [] },
-  },
-  setup(props) {
-    const computedTextColor = useColor(props.textColor);
-
-    return { computedTextColor };
-  },
-  data: () => ({
-    displayMore: false,
-  }),
-  computed: {
-    hasExtraSlot() {
-      return !!this.$slots.extra;
-    },
-  },
-});
+interface Props {
+  cardColor: string;
+  cardTitle: string;
+  cardSubtitle: string;
+  subtitleColor?: string;
+  dateString: string;
+  locationString: string;
+  iconColor: string;
+  headerTextColor: string;
+  textColor?: string;
+  skills: string[];
+}
+const { textColor } = defineProps<Props>();
+const computedTextColor = useColor(textColor);
+const isExpanded = ref(false);
+const onToggle = (v: boolean) => {
+  isExpanded.value = v;
+};
 </script>

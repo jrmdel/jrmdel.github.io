@@ -23,8 +23,7 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
@@ -35,27 +34,18 @@ interface ILanguage {
   quality: number;
 }
 
-export default defineComponent({
-  props: {
-    titleColor: { type: String, default: '' },
-    skillColor: { type: String, default: 'warning' },
-    textColor: { type: String, default: '' },
-  },
-  setup(props) {
-    const { t } = useI18n();
-    const languages = computed<ILanguage[]>(() => [
-      { name: t('languages.french'), quality: 100 },
-      { name: t('languages.english'), quality: 90 },
-    ]);
+interface Props {
+  titleColor?: string;
+  skillColor?: string;
+  textColor?: string;
+}
+const { titleColor, textColor, skillColor = 'warning' } = defineProps<Props>();
+const computedTitleColor = useColor(titleColor);
+const computedTextColor = useColor(textColor);
 
-    const computedTitleColor = useColor(props.titleColor);
-    const computedTextColor = useColor(props.textColor);
-
-    return {
-      computedTitleColor,
-      computedTextColor,
-      languages,
-    };
-  },
-});
+const { t } = useI18n();
+const languages = computed<ILanguage[]>(() => [
+  { name: t('languages.french'), quality: 100 },
+  { name: t('languages.english'), quality: 90 },
+]);
 </script>

@@ -50,11 +50,23 @@
   </div>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent } from 'vue';
+<script setup lang="ts">
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 import { useColor } from '@/composables/useColor';
+
+interface Props {
+  titleColor: string;
+  diplomaTextColor: string;
+  textColor: string;
+  iconColor: string;
+  chipColor?: string;
+}
+const { titleColor, diplomaTextColor, textColor, chipColor = 'warning' } = defineProps<Props>();
+const computedTitleColor = useColor(titleColor);
+const computedDiplomaTextColor = useColor(diplomaTextColor);
+const computedTextColor = useColor(textColor);
 
 interface IDiploma {
   title: string;
@@ -62,46 +74,23 @@ interface IDiploma {
   year: string;
   skills?: string[];
 }
-
-export default defineComponent({
-  props: {
-    titleColor: { type: String, default: '' },
-    diplomaTextColor: { type: String, default: '' },
-    iconColor: { type: String, default: '' },
-    textColor: { type: String, default: '' },
-    chipColor: { type: String, default: 'warning' },
+const { t } = useI18n();
+const diplomas = computed<IDiploma[]>(() => [
+  {
+    title: t('diplomas.diploma-1.title'),
+    school: t('diplomas.diploma-1.school'),
+    year: t('diplomas.diploma-1.year'),
+    skills: [
+      t('diplomas.diploma-1.skills.web'),
+      t('diplomas.diploma-1.skills.data-science'),
+      t('diplomas.diploma-1.skills.machine-learning'),
+      t('diplomas.diploma-1.skills.software-engineering'),
+    ],
   },
-  setup(props) {
-    const { t } = useI18n();
-    const diplomas = computed<IDiploma[]>(() => [
-      {
-        title: t('diplomas.diploma-1.title'),
-        school: t('diplomas.diploma-1.school'),
-        year: t('diplomas.diploma-1.year'),
-        skills: [
-          t('diplomas.diploma-1.skills.web'),
-          t('diplomas.diploma-1.skills.data-science'),
-          t('diplomas.diploma-1.skills.machine-learning'),
-          t('diplomas.diploma-1.skills.software-engineering'),
-        ],
-      },
-      {
-        title: t('diplomas.diploma-2.title'),
-        school: t('diplomas.diploma-2.school'),
-        year: t('diplomas.diploma-2.year'),
-      },
-    ]);
-
-    const computedTitleColor = useColor(props.titleColor);
-    const computedDiplomaTextColor = useColor(props.diplomaTextColor);
-    const computedTextColor = useColor(props.textColor);
-
-    return {
-      computedTitleColor,
-      computedDiplomaTextColor,
-      computedTextColor,
-      diplomas,
-    };
+  {
+    title: t('diplomas.diploma-2.title'),
+    school: t('diplomas.diploma-2.school'),
+    year: t('diplomas.diploma-2.year'),
   },
-});
+]);
 </script>
