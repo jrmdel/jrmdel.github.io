@@ -31,20 +31,9 @@
   </CardTemplate>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
+<script setup lang="ts">
 import CardTemplate from '@/components/experiences/helpers/CardTemplate.vue';
 
-export default defineComponent({
-  components: {
-    CardTemplate,
-  },
-  setup() {
-    const items: undefined[] = Array(4);
-    const skills = ['Angular', 'Nest.JS', 'MongoDB', 'Jest'];
-
-    return { items, skills };
-  },
-});
+const items: undefined[] = Array(4);
+const skills = ['Angular', 'Nest.JS', 'MongoDB', 'Jest'];
 </script>

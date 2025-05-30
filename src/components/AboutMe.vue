@@ -19,23 +19,17 @@
   </v-card>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
+<script setup lang="ts">
 import { useColor } from '@/composables/useColor';
 
-export default defineComponent({
-  props: {
-    cardColor: { type: String },
-    titleColor: { type: String, default: '' },
-    bodyTextColor: { type: String, default: '' },
-  },
-  setup(props) {
-    const accentuatedKeys = ['quality-1', 'quality-2', 'quality-3', 'interest-1', 'interest-2'];
-    const computedTitleColor = useColor(props.titleColor);
-    const computedTextColor = useColor(props.bodyTextColor);
+interface Props {
+  cardColor: string;
+  titleColor: string;
+  bodyTextColor: string;
+}
+const { titleColor, bodyTextColor } = defineProps<Props>();
+const computedTitleColor = useColor(titleColor);
+const computedTextColor = useColor(bodyTextColor);
 
-    return { accentuatedKeys, computedTitleColor, computedTextColor };
-  },
-});
+const accentuatedKeys = ['quality-1', 'quality-2', 'quality-3', 'interest-1', 'interest-2'];
 </script>

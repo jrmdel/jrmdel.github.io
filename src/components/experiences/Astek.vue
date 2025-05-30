@@ -30,26 +30,18 @@
   </CardTemplate>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
+<script setup lang="ts">
 import CardTemplate from '@/components/experiences/helpers/CardTemplate.vue';
 
-export default defineComponent({
-  components: {
-    CardTemplate,
-  },
-  props: {
-    cardColor: { type: String },
-    subtitleColor: { type: String },
-    headerTextColor: { type: String },
-    bodyTextColor: { type: String },
-    iconColor: { type: String },
-  },
-  setup() {
-    const items: undefined[] = Array(3);
-    const skills = ['Node.JS', 'MongoDB', 'Elastic Search', 'Jira', 'Kanban'];
-    return { items, skills };
-  },
-});
+interface Props {
+  cardColor: string;
+  subtitleColor: string;
+  headerTextColor: string;
+  bodyTextColor: string;
+  iconColor: string;
+}
+defineProps<Props>();
+
+const items: undefined[] = Array(3);
+const skills = ['Node.JS', 'MongoDB', 'Elastic Search', 'Jira', 'Kanban'];
 </script>

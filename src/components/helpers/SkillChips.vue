@@ -8,15 +8,12 @@
   </v-row>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  props: {
-    skills: { type: Array, default: () => [] },
-    chipColor: { type: String, default: 'warning' },
-    isSmall: { type: Boolean, default: false },
-    chipMargin: { type: String, default: 'ma-2' },
-  },
-});
+<script setup lang="ts">
+interface Props {
+  skills: string[];
+  chipColor: string;
+  isSmall?: boolean;
+  chipMargin?: string;
+}
+const { isSmall = false, chipMargin = 'ma-2' } = defineProps<Props>();
 </script>

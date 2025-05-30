@@ -17,29 +17,20 @@
   </v-card-text>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { computed } from 'vue';
 
 import { useColor } from '@/composables/useColor';
 
-export default defineComponent({
-  props: {
-    leftIcon: { type: String },
-    leftText: { type: String },
-    rightIcon: { type: String, default: '' },
-    rightText: { type: String, default: '' },
-    iconColor: { type: String },
-    textColor: { type: String, default: '' },
-  },
-  setup(props) {
-    const computedTextColor = useColor(props.textColor);
-
-    return { computedTextColor };
-  },
-  computed: {
-    hasRightData() {
-      return this.rightIcon.length > 0 && this.rightText.length > 0;
-    },
-  },
-});
+interface Props {
+  leftIcon: string;
+  leftText: string;
+  rightIcon?: string;
+  rightText?: string;
+  iconColor: string;
+  textColor?: string;
+}
+const { textColor, rightIcon, rightText } = defineProps<Props>();
+const computedTextColor = useColor(textColor);
+const hasRightData = computed(() => rightIcon && rightText);
 </script>

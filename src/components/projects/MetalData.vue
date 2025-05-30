@@ -29,24 +29,17 @@
   </ProjectTemplate>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
+<script setup lang="ts">
 import ProjectTemplate from '@/components/projects/helpers/ProjectTemplate.vue';
 
-export default defineComponent({
-  components: {
-    ProjectTemplate,
-  },
-  props: {
-    iconColor: { type: String },
-    cardColor: { type: String },
-    titleColor: { type: String },
-    textColor: { type: String },
-    headerTextColor: { type: String },
-  },
-  data: () => ({
-    skills: ['R', 'RStudio'],
-  }),
-});
+interface Props {
+  iconColor: string;
+  cardColor: string;
+  titleColor: string;
+  textColor: string;
+  headerTextColor: string;
+}
+defineProps<Props>();
+
+const skills = ['R', 'RStudio'];
 </script>

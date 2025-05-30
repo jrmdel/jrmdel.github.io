@@ -58,11 +58,19 @@
   </div>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent } from 'vue';
+<script setup lang="ts">
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 import { useColor } from '@/composables/useColor';
+
+interface Props {
+  titleColor?: string;
+  textColor?: string;
+}
+const { titleColor, textColor } = defineProps<Props>();
+const computedTitleColor = useColor(titleColor);
+const computedTextColor = useColor(textColor);
 
 interface ISite {
   text: string;
@@ -71,53 +79,35 @@ interface ISite {
   iconColor: string;
   backgroundColor: string;
 }
-
-export default defineComponent({
-  props: {
-    titleColor: { type: String, default: '' },
-    textColor: { type: String, default: '' },
+const { t } = useI18n();
+const sites = computed<ISite[]>(() => [
+  {
+    text: t('find-me.github'),
+    icon: 'mdi-github',
+    link: 'https://github.com/jrmdel',
+    iconColor: 'black',
+    backgroundColor: 'white',
   },
-  setup(props) {
-    const { t } = useI18n();
-    const sites = computed<ISite[]>(() => [
-      {
-        text: t('find-me.github'),
-        icon: 'mdi-github',
-        link: 'https://github.com/jrmdel',
-        iconColor: 'black',
-        backgroundColor: 'white',
-      },
-      {
-        text: t('find-me.stackoverflow'),
-        icon: 'mdi-stack-overflow',
-        link: 'https://stackoverflow.com/users/12194386',
-        iconColor: '#f48024',
-        backgroundColor: 'white',
-      },
-      {
-        text: t('find-me.linkedin'),
-        icon: 'mdi-linkedin',
-        link: 'https://www.linkedin.com/in/jeremie-deletraz/',
-        iconColor: '#006192',
-        backgroundColor: 'white',
-      },
-      {
-        text: t('find-me.strava'),
-        icon: 'custom:strava',
-        link: 'https://www.strava.com/athletes/2740041',
-        iconColor: '#FC4C02',
-        backgroundColor: 'white',
-      },
-    ]);
-
-    const computedTitleColor = useColor(props.titleColor);
-    const computedTextColor = useColor(props.textColor);
-
-    return {
-      computedTitleColor,
-      computedTextColor,
-      sites,
-    };
+  {
+    text: t('find-me.stackoverflow'),
+    icon: 'mdi-stack-overflow',
+    link: 'https://stackoverflow.com/users/12194386',
+    iconColor: '#f48024',
+    backgroundColor: 'white',
   },
-});
+  {
+    text: t('find-me.linkedin'),
+    icon: 'mdi-linkedin',
+    link: 'https://www.linkedin.com/in/jeremie-deletraz/',
+    iconColor: '#006192',
+    backgroundColor: 'white',
+  },
+  {
+    text: t('find-me.strava'),
+    icon: 'custom:strava',
+    link: 'https://www.strava.com/athletes/2740041',
+    iconColor: '#FC4C02',
+    backgroundColor: 'white',
+  },
+]);
 </script>

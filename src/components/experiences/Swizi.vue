@@ -49,21 +49,10 @@
   </CardTemplate>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
+<script setup lang="ts">
 import CardTemplate from '@/components/experiences/helpers/CardTemplate.vue';
 
-export default defineComponent({
-  components: {
-    CardTemplate,
-  },
-  setup() {
-    const itemsFirstList: undefined[] = Array(2);
-    const itemsSecondList: undefined[] = Array(5);
-    const skills = ['Node.JS', 'Python', 'Pandas', 'Azure Synapse', 'PowerBI'];
-
-    return { itemsFirstList, itemsSecondList, skills };
-  },
-});
+const itemsFirstList: undefined[] = Array(2);
+const itemsSecondList: undefined[] = Array(5);
+const skills = ['Node.JS', 'Python', 'Pandas', 'Azure Synapse', 'PowerBI'];
 </script>

@@ -7,51 +7,52 @@
       :retain-focus-on-click="false"
       @click="sendToggle"
     >
-      <v-icon color="tertiary" class="toggleUpDown" :class="{ rotate: displayMore }">
-        {{ iconDisplay ? 'mdi-minus' : 'mdi-plus' }}
+      <v-icon color="tertiary" class="toggle" :class="{ rotate: displayMore }">
+        {{ icon }}
       </v-icon>
       <span class="text-tertiary">
-        {{ iconDisplay ? $t('common.buttons.see-less') : $t('common.buttons.see-more') }}
+        {{ $t(text) }}
       </span>
     </v-btn>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { computed, ref, watch } from 'vue';
 
-export default defineComponent({
-  props: {
-    displayMore: { type: Boolean, default: false },
-  },
-  data: () => ({
-    iconDisplay: false,
-  }),
-  watch: {
-    displayMore: {
-      handler(v) {
-        if (v != null) {
-          setTimeout(() => {
-            this.iconDisplay = v;
-          }, 150);
-        }
-      },
-    },
-  },
-  methods: {
-    sendToggle(): void {
-      this.$emit('toggle', !this.displayMore);
-    },
-  },
+interface Props {
+  displayMore: boolean;
+}
+const { displayMore = false } = defineProps<Props>();
+
+const getIcon = (value: boolean) => (value ? 'mdi-minus' : 'mdi-plus');
+const icon = ref(getIcon(displayMore));
+const text = computed(() => {
+  return icon.value === 'mdi-minus' ? 'common.buttons.see-less' : 'common.buttons.see-more';
 });
+
+watch(
+  () => displayMore,
+  (newVal) => {
+    setTimeout(() => {
+      icon.value = getIcon(newVal);
+    }, 150);
+  },
+  { immediate: true }
+);
+
+const emit = defineEmits<{ (e: 'toggle', value: boolean): void }>();
+const sendToggle = () => {
+  emit('toggle', !displayMore);
+};
 </script>
 
 <style scoped>
-.toggleUpDown {
+.toggle {
   transition: transform 0.3s ease-in-out !important;
 }
 
-.toggleUpDown.rotate {
+.toggle.rotate {
   transform: rotate(180deg);
 }
 </style>

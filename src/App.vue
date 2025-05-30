@@ -90,8 +90,8 @@
   </v-app>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, onMounted } from 'vue';
+<script setup lang="ts">
+import { computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useGoTo } from 'vuetify';
 
@@ -107,55 +107,37 @@ import Projects from '@/components/Projects.vue';
 import Skills from '@/components/Skills.vue';
 import { getDefaultLanguage, isSupportedLanguage } from '@/composables/languages';
 
-export default defineComponent({
-  components: {
-    AboutMe,
-    Certificates,
-    Diplomas,
-    Experiences,
-    FindMe,
-    Identity,
-    Languages,
-    MyTitle,
-    Projects,
-    Skills,
-  },
-  setup() {
-    const { locale, t } = useI18n({ useScope: 'global' });
-    const goTo = useGoTo();
+const { locale, t } = useI18n({ useScope: 'global' });
+const goTo = useGoTo();
 
-    const setLocale = () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const lang = urlParams.get('lang');
-      if (isSupportedLanguage(lang)) {
-        locale.value = lang;
-        return;
-      }
-      locale.value = getDefaultLanguage();
-    };
-
-    onMounted(() => {
-      setLocale();
-    });
-
-    const sections = computed(() => [
-      { name: t('title.name'), tag: '#title' },
-      { name: t('diplomas.title'), tag: '#diplomas' },
-      { name: t('skills.title'), tag: '#skills' },
-      { name: t('about-me.title'), tag: '#about-me' },
-      { name: t('experiences.title'), tag: '#experiences' },
-      { name: t('projects.title'), tag: '#projects' },
-    ]);
-    const email = 'jeremie.deletraz@gmail.com';
-
-    const jumpTo = (tag: string): void => {
-      goTo(tag, {
-        easing: 'easeInOutCubic',
-        duration: 400,
-        offset: -15,
-      });
-    };
-    return { jumpTo, sections, email };
-  },
+const setLocale = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const lang = urlParams.get('lang');
+  if (isSupportedLanguage(lang)) {
+    locale.value = lang;
+    return;
+  }
+  locale.value = getDefaultLanguage();
+};
+onMounted(() => {
+  setLocale();
 });
+
+const sections = computed(() => [
+  { name: t('title.name'), tag: '#title' },
+  { name: t('diplomas.title'), tag: '#diplomas' },
+  { name: t('skills.title'), tag: '#skills' },
+  { name: t('about-me.title'), tag: '#about-me' },
+  { name: t('experiences.title'), tag: '#experiences' },
+  { name: t('projects.title'), tag: '#projects' },
+]);
+const email = 'jeremie.deletraz@gmail.com';
+
+const jumpTo = (tag: string): void => {
+  goTo(tag, {
+    easing: 'easeInOutCubic',
+    duration: 400,
+    offset: -15,
+  });
+};
 </script>

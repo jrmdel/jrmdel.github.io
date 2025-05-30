@@ -30,7 +30,7 @@
           <v-row align="center" justify="center" class="pt-4">
             <v-icon :color="iconColor"> mdi-card-account-details-outline </v-icon>
             <span :class="computedTextColor" class="font-weight-regular text-h6 pl-4">
-              {{ computeAge }} {{ $t('identity.years-old') }}
+              {{ age }} {{ $t('identity.years-old') }}
             </span>
           </v-row>
           <v-row align="center" justify="center" class="pt-2">
@@ -45,36 +45,21 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
+<script setup lang="ts">
 import { useColor } from '@/composables/useColor';
 
-export default defineComponent({
-  props: {
-    avatarBorderColor: { type: String, default: 'background' },
-    nameColor: { type: String, default: 'white' },
-    textColor: { type: String, default: 'primaryWhite' },
-    iconColor: { type: String, default: 'primary' },
-  },
-  setup(props) {
-    const computedNameColor = useColor(props.nameColor);
-    const computedTextColor = useColor(props.textColor);
+interface Props {
+  avatarBorderColor?: string;
+  nameColor?: string;
+  textColor?: string;
+  iconColor?: string;
+}
+const { nameColor, textColor } = defineProps<Props>();
+const computedNameColor = useColor(nameColor);
+const computedTextColor = useColor(textColor);
 
-    return {
-      computedNameColor,
-      computedTextColor,
-    };
-  },
-  data: () => ({
-    birthdate: new Date(Date.parse('1994-03-14')),
-  }),
-  computed: {
-    computeAge() {
-      return Math.floor((Date.now() - this.birthdate.getTime()) / 3.15576e10);
-    },
-  },
-});
+const birthTime = 763603200000;
+const age = Math.floor((Date.now() - birthTime) / 3.15576e10);
 </script>
 
 <style lang="scss">

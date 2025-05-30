@@ -45,34 +45,28 @@
   </CardTemplate>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent } from 'vue';
+<script setup lang="ts">
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 import CardTemplate from '@/components/experiences/helpers/CardTemplate.vue';
 
-export default defineComponent({
-  components: {
-    CardTemplate,
-  },
-  props: {
-    cardColor: { type: String },
-    subtitleColor: { type: String },
-    headerTextColor: { type: String },
-    bodyTextColor: { type: String },
-    iconColor: { type: String },
-  },
-  setup() {
-    const { t } = useI18n();
-    const items: undefined[] = Array(3);
-    const skills = computed(() => [
-      t('experiences.ericsson.skills.java'),
-      t('experiences.ericsson.skills.mysql'),
-      t('experiences.ericsson.skills.rest'),
-      t('experiences.ericsson.skills.redmine'),
-      t('experiences.ericsson.skills.agile'),
-    ]);
-    return { items, skills };
-  },
-});
+interface Props {
+  cardColor: string;
+  subtitleColor: string;
+  headerTextColor: string;
+  bodyTextColor: string;
+  iconColor: string;
+}
+defineProps<Props>();
+
+const { t } = useI18n();
+const items: undefined[] = Array(3);
+const skills = computed(() => [
+  t('experiences.ericsson.skills.java'),
+  t('experiences.ericsson.skills.mysql'),
+  t('experiences.ericsson.skills.rest'),
+  t('experiences.ericsson.skills.redmine'),
+  t('experiences.ericsson.skills.agile'),
+]);
 </script>
