@@ -1,5 +1,6 @@
 {
   "title": {
+    "name": "Titre",
     "label": "Ingénieur Fullstack TS & Data"
   },
   "about-me": {
@@ -250,6 +251,9 @@
       "see-less": "Voir moins",
       "download-cv": "Télécharger en PDF",
       "change-language": "Passer en anglais"
+    },
+    "menu": {
+      "title": "Aller à"
     }
   }
 }
